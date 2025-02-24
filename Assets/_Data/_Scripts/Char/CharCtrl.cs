@@ -7,6 +7,7 @@ public class CharCtrl : CoreMonoBehaviour
     [SerializeField] protected CharAnimatorCtrl charAnimatorCtrl;
     [SerializeField] protected CharInput charInput;
 
+    [SerializeField] protected Transform currentPos; // pos hien tai trong 4 pos [ ] todo gan pos nv hien tai dang o vao bien
     //public static CharCtrl instance;
     public CharInput CharInput
     {
@@ -17,17 +18,25 @@ public class CharCtrl : CoreMonoBehaviour
         get => charAnim;
         private set => charAnim = value;
     }
+    public Transform CurrentPos => currentPos;
+
     protected override void Awake()
     {
         //CharCtrl.instance = this;
+        //SetPosChar(GameManager.Instance.PosAvaiable());
     }
-
+    protected override void Start()
+    {
+        base.Start();
+        //SetPosChar(GameManager.Instance.PosAvailable());
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadCharAnimator();
         LoadCharAnimatorCtrl();
         LoadCharInput();
+        //SetPosChar(GameManager.Instance.PosAvailable());
     }
 
     protected virtual void LoadCharAnimator()
@@ -47,5 +56,16 @@ public class CharCtrl : CoreMonoBehaviour
         if (this.charInput != null) return;
         charInput = GetComponentInChildren<CharInput>();
         Debug.LogWarning(transform.name + ": LoadCharInput", gameObject);
+    }
+
+
+
+    public virtual void SetPosChar(Transform pos)
+    {
+        //if (currentPos != null) return;
+        
+        this.transform.position = pos.position;
+        this.transform.rotation = pos.rotation;
+        currentPos = pos;
     }
 }

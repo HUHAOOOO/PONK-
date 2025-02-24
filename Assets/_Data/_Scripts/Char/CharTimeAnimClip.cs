@@ -28,6 +28,11 @@ public class CharTimeAnimClip : CoreMonoBehaviour
     protected override void LoadComponents()
     {
         LoadCharAnimatorCtrl();
+    }
+
+    protected override void Reset()
+    {
+        base.Reset();
         LoadAnimClipTime();
     }
 

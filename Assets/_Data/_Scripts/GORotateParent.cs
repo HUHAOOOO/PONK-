@@ -3,7 +3,6 @@ using UnityEngine;
 public class GORotateParent : CoreMonoBehaviour
 {
     [Header("GO Rotate Parent")]
-    //protected Rigidbody rb;
     [SerializeField] protected float speedRotate = 0.1f;
     [SerializeField] protected TypeRotate typeRorate = TypeRotate.None;
 
