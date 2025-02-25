@@ -3,16 +3,16 @@ using UnityEngine;
 public class BallCtrl : CoreMonoBehaviour
 {
     [SerializeField] protected Transform ball;
-    //[SerializeField] protected Transform model;
+    [SerializeField] protected BallRotate ballRotate;
 
     public Transform Ball => ball;
-    //public Transform Model => model;
+    public BallRotate BallRotate => ballRotate;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadBall();
-        //LoadModel();
+        LoadBallRotate();
     }
 
     protected virtual void LoadBall()
@@ -22,10 +22,10 @@ public class BallCtrl : CoreMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadBall", gameObject);
     }
 
-    //protected virtual void LoadModel()
-    //{
-    //    if (this.model != null) return;
-    //    model = GameObject.Find("Model").transform;
-    //    Debug.LogWarning(transform.name + ": LoadModel", gameObject);
-    //}
+    protected virtual void LoadBallRotate()
+    {
+        if (this.ballRotate != null) return;
+        ballRotate = GetComponentInChildren<BallRotate>();
+        Debug.LogWarning(transform.name + ": LoadBallRotate", gameObject);
+    }
 }

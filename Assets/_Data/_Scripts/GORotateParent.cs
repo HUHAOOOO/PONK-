@@ -6,6 +6,7 @@ public class GORotateParent : CoreMonoBehaviour
     [SerializeField] protected float speedRotate = 0.1f;
     [SerializeField] protected TypeRotate typeRorate = TypeRotate.None;
 
+    public float SpeedRotate => speedRotate;
     void Update()
     {
         switch (typeRorate)
@@ -19,13 +20,4 @@ public class GORotateParent : CoreMonoBehaviour
                 break;
         }
     }
-}
-
-public enum TypeRotate
-{
-    None = 0,
-    x = 1,
-    y = 2,
-    z = 3,
-
 }
