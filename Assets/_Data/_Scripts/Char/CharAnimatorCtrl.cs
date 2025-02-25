@@ -91,7 +91,7 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
             SetTimeDelayAnim(_dieAnimTime);
             return Die;
         }
-        Debug.Log("return Idle !");
+        //Debug.Log("return Idle !");
         return Idle;//? bi lien tuc goi idle //=> Chi khi het khoa thi Idle moi dc chay
     }
 }

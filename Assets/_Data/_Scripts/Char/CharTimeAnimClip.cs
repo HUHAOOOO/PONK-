@@ -28,6 +28,11 @@ public class CharTimeAnimClip : CoreMonoBehaviour
     protected override void LoadComponents()
     {
         LoadCharAnimatorCtrl();
+    }
+
+    protected override void Reset()
+    {
+        base.Reset();
         LoadAnimClipTime();
     }
 
@@ -58,6 +63,7 @@ public class CharTimeAnimClip : CoreMonoBehaviour
     private float GetAnimationClipLength(Animator animator, string clipName)
     {
         RuntimeAnimatorController AnimCtrl = animator.runtimeAnimatorController;
+        if (AnimCtrl == null) Debug.LogError("RuntimeAnimatorController AnimCtrl NULL! | ");
 
         foreach (AnimationClip clip in AnimCtrl.animationClips)
         {

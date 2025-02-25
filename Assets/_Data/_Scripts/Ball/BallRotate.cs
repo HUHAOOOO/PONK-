@@ -16,16 +16,25 @@ public class BallRotate : GORotateParent
     {
         speedRotate = speed;
 
-        //ChangeSpeed();
-
+        UpSpeed();//tang toc do dan
+    }
+    public void UpSpeed()
+    {
+        if (speedRotate >= 0)
+        {
+            speedRotate += upSpeedPoint;
+        }
+        else speedRotate -= upSpeedPoint;
     }
 
-    //public void ChangeSpeed()
-    //{
-    //    if (speedRotate > 0)
-    //    {
-    //        speedRotate += upSpeedPoint;
-    //    }
-    //    else speedRotate -= upSpeedPoint;
-    //}
+    // Player goi khi danh trung
+    public void ChangeDirection()
+    {
+        speedRotate *= -1;
+    }
+
+    public void SetDefaultSpeed()//moi lan Ponk Player se set default
+    {
+        speedRotate = 40;
+    }
 }
