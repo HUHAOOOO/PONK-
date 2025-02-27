@@ -28,9 +28,9 @@ public class BallRotate : GORotateParent
     }
 
     // Player goi khi danh trung
-    public void ChangeDirection()
+    public void ChangeDirection(int minus = -1)
     {
-        speedRotate *= -1;
+        speedRotate *= minus;
     }
 
     public void SetDefaultSpeed()//moi lan Ponk Player se set default
