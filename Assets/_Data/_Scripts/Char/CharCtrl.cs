@@ -6,17 +6,17 @@ public class CharCtrl : CoreMonoBehaviour
     [SerializeField] protected Animator charAnim;
     [SerializeField] protected CharAnimatorCtrl charAnimatorCtrl;
     [SerializeField] protected CharInput charInput;
+    [SerializeField] protected CharState charState;
+    [SerializeField] protected DamReceive damReceive;
 
     [SerializeField] protected Transform currentPos;
-    public CharInput CharInput
-    {
-        get => charInput;
-    }
-    public Animator CharAnim
-    {
-        get => charAnim;
-        private set => charAnim = value;
-    }
+    public CharInput CharInput { get => charInput; }
+
+    public Animator CharAnim { get => charAnim; }
+
+    public CharState CharState { get => charState; }
+    public CharAnimatorCtrl CharAnimatorCtrl { get => charAnimatorCtrl; }
+    public DamReceive DamReceive => damReceive;
     public Transform CurrentPos => currentPos;
 
     protected override void LoadComponents()
@@ -25,7 +25,8 @@ public class CharCtrl : CoreMonoBehaviour
         LoadCharAnimator();
         LoadCharAnimatorCtrl();
         LoadCharInput();
-        //SetPosChar(GameManager.Instance.PosAvailable());
+        LoadCharState();
+        LoadDamReceive();
     }
 
     protected virtual void LoadCharAnimator()
@@ -43,10 +44,21 @@ public class CharCtrl : CoreMonoBehaviour
     protected virtual void LoadCharInput()
     {
         if (this.charInput != null) return;
-        charInput = GetComponentInChildren<CharInput>();
+        charInput = GetComponent<CharInput>();
         Debug.LogWarning(transform.name + ": LoadCharInput", gameObject);
     }
-
+    protected virtual void LoadCharState()
+    {
+        if (this.charState != null) return;
+        charState = GetComponent<CharState>();
+        Debug.LogWarning(transform.name + ": LoadCharState", gameObject);
+    }
+    protected virtual void LoadDamReceive()
+    {
+        if (this.damReceive != null) return;
+        damReceive = GetComponentInChildren<DamReceive>();
+        Debug.LogWarning(transform.name + ": LoadDamReceive", gameObject);
+    }
 
 
     public virtual void SetPosChar(Transform pos)

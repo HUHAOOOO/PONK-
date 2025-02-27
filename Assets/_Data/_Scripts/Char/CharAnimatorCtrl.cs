@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class CharAnimatorCtrl : CoreMonoBehaviour
 {
@@ -9,14 +10,17 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     private static readonly int Idle = Animator.StringToHash("Idle");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int Dodge = Animator.StringToHash("Dodge");
+    private static readonly int Hurt = Animator.StringToHash("Hurt");
     private static readonly int Die = Animator.StringToHash("Die");
 
     [SerializeField] protected float _attackAnimTime = 1.0f;
     [SerializeField] protected float _dodgeAnimTime = 1.0f;
+    [SerializeField] protected float _hurtAnimTime = 1.0f;
     [SerializeField] protected float _dieAnimTime = 1.0f;
 
     [SerializeField] protected int state;
     [SerializeField] protected int _currentState;
+    [SerializeField] protected bool canGetState = false;
 
     [SerializeField] protected float timeDelay = 0;
     [SerializeField] protected float timer = 0;
@@ -27,6 +31,11 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
         get => _charCtrl;
         private set => _charCtrl = value;
     }
+    public float AttackAnimTime
+    {
+        get => _attackAnimTime;
+    }
+    public float DodgeAnimTime => _dodgeAnimTime;
     protected override void LoadComponents()
     {
         LoadCharCtrl();
@@ -39,6 +48,7 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     {
         _attackAnimTime = charTimeAnimClip.AtackAnimTime;
         _dodgeAnimTime = charTimeAnimClip.DodgeAnimTime;
+        _hurtAnimTime = charTimeAnimClip.HurtAnimTime;
         _dieAnimTime = charTimeAnimClip.DieAnimTime;
     }
     protected virtual void LoadCharCtrl()
@@ -64,34 +74,55 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     protected virtual void SetTimeDelayAnim(float Time2Delay)
     {
         timeDelay = Time2Delay;
-        _charCtrl.CharInput.SetFalseSomeThing();
+        _charCtrl.CharState.SetFalseSomeThing();
     }
 
     private int GetState()
     {
-        timer += Time.deltaTime;
-        if (timer < timeDelay) return _currentState;
-        timer = 0;
+        if(!CanGetState()) return _currentState;
 
-        if (_charCtrl.CharInput.IsAttack)
+        if (_charCtrl.CharState.IsAttacking)
         {
-            Debug.Log("_isAttack ");
-            SetTimeDelayAnim(_attackAnimTime);
-            return Attack;
+            Debug.Log("IsAttacking", gameObject);
+            return SetNewState(Attack, _attackAnimTime);
         }
-        else if (_charCtrl.CharInput.IsDodge)
+        if (_charCtrl.CharState.IsDodging)
         {
-            Debug.Log("_isDodge ");
-            SetTimeDelayAnim(_dodgeAnimTime);
-            return Dodge;
+            Debug.Log("IsDodging", gameObject);
+            return SetNewState(Dodge, _dodgeAnimTime);
         }
-        else if (_charCtrl.CharInput.IsDie)
+        else if (_charCtrl.CharState.IsHurting)
         {
-            Debug.Log("_isDie ");
+            Debug.Log("IsHurting", gameObject);
+            return SetNewState(Die, _hurtAnimTime);
+        }
+        else if (_charCtrl.CharState.IsDying)
+        {
+            Debug.Log("IsDying", gameObject);
             SetTimeDelayAnim(_dieAnimTime);
+            Debug.Log("Player has been DIE !", gameObject);
             return Die;
         }
-        //Debug.Log("return Idle !");
-        return Idle;//? bi lien tuc goi idle //=> Chi khi het khoa thi Idle moi dc chay
+        else if (canGetState) return Idle;
+        
+        return _currentState;
+    }
+
+    private bool CanGetState()
+    {
+        if (canGetState == true) return true;
+        timer += Time.deltaTime;
+        if (timer < timeDelay) return false;
+        timeDelay = 0;
+        timer = 0;
+        canGetState = true;
+        return true;
+    }
+    private int SetNewState(int newState , float animTime)
+    {
+        canGetState = false;
+
+        SetTimeDelayAnim(animTime);
+        return newState;
     }
 }

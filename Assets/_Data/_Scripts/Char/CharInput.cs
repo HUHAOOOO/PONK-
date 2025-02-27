@@ -2,40 +2,46 @@ using UnityEngine;
 
 public class CharInput : CoreMonoBehaviour
 {
-    [SerializeField] protected bool _isAttack;
-    [SerializeField] protected bool _isDodge;
-    [SerializeField] protected bool _isDie;
+    [SerializeField] protected CharCtrl charCtrl;
 
-    public bool IsAttack { get => _isAttack; }
-    public bool IsDodge { get => _isDodge; }
-    public bool IsDie { get => _isDie; }
+    [SerializeField] protected bool inputAttack;
+    [SerializeField] protected bool inputDodge;
+
+    [SerializeField] protected int timeDelaySetFalseInput = 1;
+
+
+    public bool InputAttack { get => inputAttack; }
+    public bool InputDodge { get => inputDodge; }
 
     void Update()
     {
         GetInput();
     }
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadCharCtrl();
+    }
+    protected virtual void LoadCharCtrl()
+    {
+        if (this.charCtrl != null) return;
+        charCtrl = GetComponent<CharCtrl>();
+        Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
+    }
     protected virtual void GetInput()
     {
-        //INPUT
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            _isAttack = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            _isDodge = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            _isDie = true;
-        }
+        inputAttack = Input.GetKeyDown(KeyCode.A);
+        inputDodge = Input.GetKeyDown(KeyCode.S);
     }
 
-    public virtual void SetFalseSomeThing()
+
+    public void SetFalseInput()
     {
-        _isAttack = false;
-        _isDodge = false;
-        _isDie = false;
-        //...more
+        Invoke(nameof(SetFalse), timeDelaySetFalseInput);
+    }
+    public void SetFalse()
+    {
+        inputAttack = false;
+        inputDodge = false;
     }
 }

@@ -1,13 +1,8 @@
-using Mono.Cecil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using static Unity.VisualScripting.Metadata;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using Object = System.Object;
+
 
 public class GameManager : CoreMonoBehaviour
 {
@@ -30,6 +25,7 @@ public class GameManager : CoreMonoBehaviour
     [SerializeField] protected bool isClockwise = true;// khi bi speed bong +(false) or -(true)
 
     [SerializeField] protected List<Transform> pos4Players = new();
+    [SerializeField] protected List<Transform> pos4GO = new();
     [SerializeField] protected List<CharCtrl> players = new();
     [SerializeField] protected int indexPos;
 
@@ -45,7 +41,16 @@ public class GameManager : CoreMonoBehaviour
     {
         if (instance != null) Debug.LogError("only allow 1 GameManager | Singleton");
         GameManager.instance = this;
+
+        //InitGame();
     }
+
+    protected virtual void InitGame()
+    {
+        int indexRandom = UnityEngine.Random.Range(0, pos4GO.Count);
+        ballCtrl.Ball.position = pos4GO[indexRandom].position;
+    }
+
     private void Update()
     {
         GetPosBall();
@@ -70,7 +75,7 @@ public class GameManager : CoreMonoBehaviour
         LoadBallCtrl();
         LoadPos4Players();
         LoadPlayers();
-
+        LoadPos4GO();
         //
         indexPos = pos4Players.Count;
         SetPosForPlayer();
@@ -94,6 +99,21 @@ public class GameManager : CoreMonoBehaviour
             Debug.Log($"pos4Players.Add ({child.name})");
         }
     }
+
+
+    protected virtual void LoadPos4GO()
+    {
+        if (this.pos4GO.Count > 0) return;
+        Transform poss = transform.Find("Pos4GO");
+        Debug.LogWarning(transform.name + ": LoadPos4GO", gameObject);
+
+        foreach (Transform child in poss)
+        {
+            pos4GO.Add(child);
+            Debug.Log($"pos4GO.Add ({child.name})");
+        }
+    }
+
     protected virtual void LoadPlayers()
     {
         if (this.players.Count > 0) return;
@@ -159,17 +179,6 @@ public class GameManager : CoreMonoBehaviour
         currentArea = areaType;
 
         previousArea = GetRotatedEnum(currentArea, isClockwise);
-        //if (isClockwise)
-        //{
-        //    //previousArea = GameManager.GetEnumDown_RotateClockwise(currentArea);
-        //    //previousArea = GetRotatedEnum(currentArea,true);
-        //}
-        //// nguoc chieu kim dong ho
-        //else if (!isClockwise)
-        //{
-        //    previousArea = GameManager.GetEnumUp_RotateNoClockwise(currentArea);
-        //}
-
     }
 
     protected virtual void RotatePoints()
@@ -203,37 +212,11 @@ public class GameManager : CoreMonoBehaviour
         //    leftPoint = (currentArea == WorldAreaType.Area3 && previousArea == WorldAreaType.Area4);
         //}
     }
-    ////enum
-    //public static WorldAreaType GetEnumDown_RotateClockwise(WorldAreaType current)
-    //{
-    //    // lay all gia tri Enum kieu WorldAreaType -> object[] -> ep lai (WorldAreaType[])
-    //    WorldAreaType[] values = (WorldAreaType[])Enum.GetValues(typeof(WorldAreaType));
-    //    List<WorldAreaType> valuesList = values.ToList();
-    //    valuesList.RemoveAt(0);
-
-    //    int index = valuesList.IndexOf(current) - 1;
-    //    if (index < 0) index = valuesList.Count - 1;
-    //    return valuesList[index];
-    //}
-
-    //public static WorldAreaType GetEnumUp_RotateNoClockwise(WorldAreaType current)
-    //{
-    //    // lay all gia tri Enum kieu WorldAreaType -> object[] -> ep lai (WorldAreaType[])
-    //    WorldAreaType[] values = (WorldAreaType[])Enum.GetValues(typeof(WorldAreaType));
-    //    List<WorldAreaType> valuesList = values.ToList();
-    //    valuesList.RemoveAt(0);
-
-    //    int index = valuesList.IndexOf(current) + 1;
-    //    if (index >= valuesList.Count) index = 0;
-    //    return valuesList[index];
-    //}
-
-    // [ ] to do lam sao ghep duoc 2 -> 1 ta
     public static WorldAreaType GetRotatedEnum(WorldAreaType current, bool clockwise)
     {
         WorldAreaType[] values = (WorldAreaType[])Enum.GetValues(typeof(WorldAreaType));
         List<WorldAreaType> valuesList = values.ToList();
-        valuesList.RemoveAt(0); 
+        valuesList.RemoveAt(0);
 
         int index = valuesList.IndexOf(current);
 

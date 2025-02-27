@@ -7,23 +7,13 @@ public class CharTimeAnimClip : CoreMonoBehaviour
 
     [SerializeField] protected float _attackAnimTime;
     [SerializeField] protected float _dodgeAnimTime;
+    [SerializeField] protected float _hurtAnimTime;
     [SerializeField] protected float _dieAnimTime;
 
-    public float AtackAnimTime
-    {
-        get => _attackAnimTime;
-        private set => _attackAnimTime = value;
-    }
-    public float DodgeAnimTime
-    {
-        get => _dodgeAnimTime;
-        private set => _dodgeAnimTime = value;
-    }
-    public float DieAnimTime
-    {
-        get => _dieAnimTime;
-        private set => _dieAnimTime = value;
-    }
+    public float AtackAnimTime { get => _attackAnimTime; private set => _attackAnimTime = value; }
+    public float DodgeAnimTime { get => _dodgeAnimTime; }
+    public float HurtAnimTime { get => _hurtAnimTime; }
+    public float DieAnimTime { get => _dieAnimTime; }
 
     protected override void LoadComponents()
     {
@@ -54,6 +44,9 @@ public class CharTimeAnimClip : CoreMonoBehaviour
 
             _dodgeAnimTime = GetAnimationClipLength(_charAnim, "CharaDodge");
             Debug.Log("time animation Dodge: " + _dodgeAnimTime);
+
+            _hurtAnimTime = GetAnimationClipLength(_charAnim, "CharaHurt");
+            Debug.Log("time animation Hurt: " + _hurtAnimTime);
 
             _dieAnimTime = GetAnimationClipLength(_charAnim, "CharaDie");
             Debug.Log("time animation Die: " + _dieAnimTime);

@@ -28,9 +28,8 @@ public class CharRotate : CoreMonoBehaviour
     {
         yield return null; // Wait next frame 
         InitRotate();
-        Debug.Log("InitializeAfterUpdate : InitRotate");
 
-        curentWorldAreaType = GameManager.Instance.CurrentArea;// L1 bo qua => okok 
+        curentWorldAreaType = GameManager.Instance.CurrentArea;
     }
     protected override void LoadComponents()
     {
@@ -56,7 +55,6 @@ public class CharRotate : CoreMonoBehaviour
 
     protected virtual void InitRotate()
     {
-        Debug.Log("InitRotate");
         WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
         if (newCurrentArea == WorldAreaType.Area1)
         {
@@ -134,28 +132,6 @@ public class CharRotate : CoreMonoBehaviour
             }
         }
         curentWorldAreaType = newCurrentArea;
-
-        //if (_charCtrl.CurrentPos.name == "Pos_3")
-        //{
-        //    if (leftPoint || rightPoint)
-        //    {
-        //        this.Rotate();
-        //    }
-        //}
-
-        //if (_charCtrl.CurrentPos.name == "Pos_4")
-        //{
-        //    if (topPoint || bottomPoint)
-        //    {
-        //        this.Rotate();
-        //    }
-        //}
-
-        //if ((_charCtrl.CurrentPos.name == "Pos_1" || _charCtrl.CurrentPos.name == "Pos_3") && (leftPoint || rightPoint) ||
-        //    (_charCtrl.CurrentPos.name == "Pos_2" || _charCtrl.CurrentPos.name == "Pos_4") && (topPoint || bottomPoint))
-        //{
-        //    this.Rotate();
-        //}
     }
 
 
