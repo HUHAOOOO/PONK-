@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CharaHurt
+  m_Name: Xoay
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -993897331, guid: ba5aafbbc818b0c40abaf8d3ed12cb4b, type: 3}
+      value: {fileID: -855298285791758126, guid: 985201ed5f8de4040920682cdecfad3a, type: 3}
+    - time: 0.1
+      value: {fileID: -1388094935, guid: 6191b9a5b4e42104e97b68a274e7e6f1, type: 3}
+    - time: 0.23333333
+      value: {fileID: -425441198, guid: 532969a30d03fcf4e9a987020e1e6328, type: 3}
+    - time: 0.33333334
+      value: {fileID: -581921579, guid: 0491ceafcaa587948bb8b85e4df1819f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,18 +50,21 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -993897331, guid: ba5aafbbc818b0c40abaf8d3ed12cb4b, type: 3}
+    - {fileID: -855298285791758126, guid: 985201ed5f8de4040920682cdecfad3a, type: 3}
+    - {fileID: -1388094935, guid: 6191b9a5b4e42104e97b68a274e7e6f1, type: 3}
+    - {fileID: -425441198, guid: 532969a30d03fcf4e9a987020e1e6328, type: 3}
+    - {fileID: -581921579, guid: 0491ceafcaa587948bb8b85e4df1819f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

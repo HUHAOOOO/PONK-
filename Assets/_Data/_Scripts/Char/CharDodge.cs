@@ -32,13 +32,20 @@ public class CharDodge : CoreMonoBehaviour
     }
     void Update()
     {
+        Dodge();
+    }
+    private void Dodge()
+    {
         if (charCtrl.CharState.IsDodging)
         {
-            boxCollider2D.enabled = false;
-            Invoke(nameof(OnDamReceiver), _dodgeAnimTime);
+            Immortal(_dodgeAnimTime);
         }
     }
-
+    public void Immortal(float timeImmortal)
+    {
+        boxCollider2D.enabled = false;
+        Invoke(nameof(OnDamReceiver), timeImmortal);
+    }
     private void OnDamReceiver()
     {
         boxCollider2D.enabled = true;

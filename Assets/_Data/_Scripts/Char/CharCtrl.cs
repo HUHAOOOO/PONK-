@@ -3,11 +3,14 @@ using UnityEngine;
 public class CharCtrl : CoreMonoBehaviour
 {
 
-    [SerializeField] protected Animator charAnim;
-    [SerializeField] protected CharAnimatorCtrl charAnimatorCtrl;
     [SerializeField] protected CharInput charInput;
     [SerializeField] protected CharState charState;
+    [SerializeField] protected Animator charAnim;
+    [SerializeField] protected CharAnimatorCtrl charAnimatorCtrl;
+    [SerializeField] protected CharMeleeAttack charMeleeAttack;
+    [SerializeField] protected CharDodge charDodge;
     [SerializeField] protected DamReceive damReceive;
+    [SerializeField] protected CharImmortalSheild charImmortalShield;
 
     [SerializeField] protected Transform currentPos;
     public CharInput CharInput { get => charInput; }
@@ -17,6 +20,9 @@ public class CharCtrl : CoreMonoBehaviour
     public CharState CharState { get => charState; }
     public CharAnimatorCtrl CharAnimatorCtrl { get => charAnimatorCtrl; }
     public DamReceive DamReceive => damReceive;
+    public CharDodge CharDodge => charDodge;
+    public CharImmortalSheild CharImmortalArmor => charImmortalShield;
+    public CharMeleeAttack CharMeleeAttack => charMeleeAttack;
     public Transform CurrentPos => currentPos;
 
     protected override void LoadComponents()
@@ -27,6 +33,9 @@ public class CharCtrl : CoreMonoBehaviour
         LoadCharInput();
         LoadCharState();
         LoadDamReceive();
+        LoadCharDodge();
+        LoadCharImmortalShield();
+        LoadCharMeleeAttack();
     }
 
     protected virtual void LoadCharAnimator()
@@ -59,8 +68,24 @@ public class CharCtrl : CoreMonoBehaviour
         damReceive = GetComponentInChildren<DamReceive>();
         Debug.LogWarning(transform.name + ": LoadDamReceive", gameObject);
     }
-
-
+    protected virtual void LoadCharDodge()
+    {
+        if (this.charDodge != null) return;
+        charDodge = GetComponentInChildren<CharDodge>();
+        Debug.LogWarning(transform.name + ": LoadCharDodge", gameObject);
+    }
+    protected virtual void LoadCharImmortalShield()
+    {
+        if (this.charImmortalShield != null) return;
+        charImmortalShield = GetComponentInChildren<CharImmortalSheild>();
+        Debug.LogWarning(transform.name + ": LoadcharImmortalShield", gameObject);
+    }
+    protected virtual void LoadCharMeleeAttack()
+    {
+        if (this.charMeleeAttack != null) return;
+        charMeleeAttack = GetComponentInChildren<CharMeleeAttack>();
+        Debug.LogWarning(transform.name + ": LoadCharMeleeAttack", gameObject);
+    }
     public virtual void SetPosChar(Transform pos)
     {
         this.transform.position = pos.position;

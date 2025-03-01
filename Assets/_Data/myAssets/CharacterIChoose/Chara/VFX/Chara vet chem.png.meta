@@ -1,7 +1,28 @@
 fileFormatVersion: 2
-guid: ba5aafbbc818b0c40abaf8d3ed12cb4b
+guid: 9a1b27c5f764a304fabfb0c029b13c8a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8973898835719521216
+    second: Chara vet chem_0
+  - first:
+      213: -1172254926832590944
+    second: Chara vet chem_1
+  - first:
+      213: 4460474161443016582
+    second: Chara vet chem_2
+  - first:
+      213: -5730622492978368971
+    second: Chara vet chem_3
+  - first:
+      213: -5564609345797722053
+    second: Chara vet chem_4
+  - first:
+      213: -5161734268366740907
+    second: Chara vet chem_5
+  - first:
+      213: 5260125576512361703
+    second: Chara vet chem_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,66 +114,93 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hurt_0
+      name: Chara vet chem_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 88
-        height: 76
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 24aee51f5edc3b34f806ff2f10c4f6bb
-      internalID: -993897331
+      spriteID: 0c38a510271b98c70800000000000000
+      internalID: 8973898835719521216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chara vet chem_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af11fbda505bbfe0800000000000000
+      internalID: -1172254926832590944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chara vet chem_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68f8e920e99c6ed30800000000000000
+      internalID: 4460474161443016582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chara vet chem_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e292c643db870b0800000000000000
+      internalID: -5730622492978368971
       vertices: []
       indices: 
       edges: []
@@ -161,7 +209,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 841ed5d85c9de784783c9f84ed8786e2
     internalID: 0
     vertices: []
     indices: 
@@ -171,7 +219,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hurt_0: -993897331
+      Chara vet chem_0: 8973898835719521216
+      Chara vet chem_1: -1172254926832590944
+      Chara vet chem_2: 4460474161443016582
+      Chara vet chem_3: -5730622492978368971
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,10 +6,11 @@ public class CharState : CoreMonoBehaviour
     [SerializeField] protected CharCtrl charCtrl;
 
 
+    [SerializeField] protected bool isAttackingFake;
     [SerializeField] protected bool isAttacking;
     [SerializeField] protected bool isDodging;
     [SerializeField] protected bool isHurting;
-    [SerializeField] protected bool isDying;//[ ]
+    [SerializeField] protected bool isDying;
 
     [SerializeField] protected float timerAttack = 0f;
     [SerializeField] protected float timeDelayAttack = 1f;
@@ -18,6 +19,8 @@ public class CharState : CoreMonoBehaviour
     [SerializeField] protected float timerDodge = 0f;
     [SerializeField] protected float timeDelayDodge = 1.5f;
     [SerializeField] protected bool canDodge = true;
+
+    [SerializeField] protected bool isCanPress;
 
     public bool CanAttack { get => canAttack; }
     public bool CanDodge { get => canDodge; }
@@ -45,47 +48,49 @@ public class CharState : CoreMonoBehaviour
 
     private void GetInput()
     {
+        isCanPress = IsCanPress();
+        if (!IsCanPress()) return;
         InputAttack();
         InputDodge();
     }
 
-
     public virtual void SetFalseSomeThing()
     {
         isAttacking = false;
-        Invoke(nameof(SetFalse), 0.1f);
+
+        Invoke(nameof(SetFalse), 0.5f);
     }
 
     public virtual void SetFalse()
     {
+        isAttackingFake = false;
+
         isDodging = false;
         isHurting = false;
     }
     public virtual void InputAttack()
     {
-        IsCanAttack();
-        if (!canAttack) return;
+        if (!IsCanAttack()) return;
         if (charCtrl.CharInput.InputAttack)
         {
-            isAttacking = true;
+            isAttacking = true; isAttackingFake = true;
             canAttack = false;
             charCtrl.CharInput.SetFalseInput();
         }
     }
-    protected virtual void IsCanAttack()
+    protected virtual bool IsCanAttack()
     {
-        if (canAttack) return;
+        if (canAttack) return true;
 
         timerAttack += Time.deltaTime;
-        if (timerAttack < timeDelayAttack) return;
+        if (timerAttack < timeDelayAttack) return false;
         timerAttack = 0f;
         canAttack = true;
+        return true;
     }
     public virtual void InputDodge()
     {
-        IsCanDodge();
-        if (!canDodge) return;
-
+        if (!IsCanDodge()) return;
         if (charCtrl.CharInput.InputDodge)
         {
             isDodging = true;
@@ -93,14 +98,20 @@ public class CharState : CoreMonoBehaviour
             charCtrl.CharInput.SetFalseInput();
         }
     }
-    protected virtual void IsCanDodge()
+    protected virtual bool IsCanDodge()
     {
-        if (canDodge) return;
+        if (canDodge) return true;
 
         timerDodge += Time.deltaTime;
-        if (timerDodge < timeDelayDodge) return;
+        if (timerDodge < timeDelayDodge) return false;
         timerDodge = 0f;
         canDodge = true;
+        return true;
     }
 
+    protected virtual bool IsCanPress()
+    {
+        if (this.isAttackingFake || IsDodging || IsHurting || IsDying) return false;
+        return true;
+    }
 }

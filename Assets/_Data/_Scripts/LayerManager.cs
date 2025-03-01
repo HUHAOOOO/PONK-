@@ -3,17 +3,43 @@ using UnityEngine;
 
 public class LayerManager : MonoBehaviour
 {
+    private static LayerManager instance;
+    public static LayerManager Instance => instance;
+
+    [SerializeField] protected int defaultLayer;
+    [SerializeField] protected int ballLayer;
+    [SerializeField] protected int ballLayerGetMask;
+
+    //public int BallLayer { get => ballLayer; }
+    public int BallLayer => ballLayer;
+    public int BallLayerGetMask => ballLayerGetMask;
+
+    protected virtual void Awake()
+    {
+        if (instance != null) Debug.LogError("only allow 1 LayerManager | Singleton");
+        LayerManager.instance = this;
+    }
+    private void Reset()
+    {
+        defaultLayer = LayerMask.NameToLayer("Default");
+        ballLayer = LayerMask.NameToLayer("Ball");
+
+        ballLayerGetMask = LayerMask.GetMask("Ball");
+    }
+
     private void Start()
     {
-        int defaultLayer = LayerMask.NameToLayer("Default");
-        int BallLayer = LayerMask.NameToLayer("Ball");
+        IgnoreMyLayer();
+    }
 
-        if (defaultLayer == -1 || BallLayer == -1)
+    protected virtual void IgnoreMyLayer()
+    {
+        if (defaultLayer == -1 || ballLayer == -1)
         {
             Debug.LogError("Loi : 1 trong cac Layer khong ton tai! kiem tra laij ten Layer trong unity $");
             return;
         }
         // Huy ignore : cho phep va cham
-        Physics2D.IgnoreLayerCollision(defaultLayer, BallLayer, false);
+        Physics2D.IgnoreLayerCollision(defaultLayer, ballLayer, false);
     }
 }

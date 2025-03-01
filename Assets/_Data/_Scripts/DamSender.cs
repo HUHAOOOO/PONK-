@@ -1,9 +1,23 @@
 using UnityEngine;
 
-public class DamSender : MonoBehaviour
+public class DamSender : CoreMonoBehaviour
 {
     [SerializeField] protected int damSender = 1;
+    [SerializeField] protected BallCtrl ballCtrl;
 
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadBallCtrl();
+    }
+
+    protected virtual void LoadBallCtrl()
+    {
+        if (this.ballCtrl != null) return;
+        ballCtrl = transform.parent.parent.parent.GetComponent<BallCtrl>();
+        Debug.LogWarning(transform.name + ": LoadBallCtrl", gameObject);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         DamReceive player = collision.gameObject.GetComponent<DamReceive>();
@@ -11,7 +25,8 @@ public class DamSender : MonoBehaviour
         {
             Debug.Log("player DamReceive null !");
             return;
-        } 
+        }
         player.TakeDam(damSender);
+        ballCtrl.BallRotate.SetDefaultSpeed();
     }
 }
