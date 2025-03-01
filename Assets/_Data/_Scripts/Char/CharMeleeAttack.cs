@@ -7,15 +7,18 @@ public class CharMeleeAttack : CoreMonoBehaviour
 
     [SerializeField] protected Transform attackPoint;
     [SerializeField] protected float attackRange = 1.5f;
-    [SerializeField] protected LayerMask enemyLayers;
+    [SerializeField] protected int ballLayers;
 
     [SerializeField] protected float timeDelayMeleeAttack = 0f;
 
+    //[SerializeField] protected float timerAttack = 0f;
+    //[SerializeField] protected float timeDelayAttack = 1f;
+    //[SerializeField] protected bool canAttack = true;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadBallCtrl();
+        LoadAttackPoint();
         LoadCharCtrl();
 
         InitData();
@@ -23,12 +26,14 @@ public class CharMeleeAttack : CoreMonoBehaviour
     protected virtual void InitData()
     {
         timeDelayMeleeAttack = charCtrl.CharAnimatorCtrl.AttackAnimTime;
+
+        ballLayers = LayerManager.Instance.BallLayerGetMask;
     }
-    protected virtual void LoadBallCtrl()
+    protected virtual void LoadAttackPoint()
     {
         if (this.attackPoint != null) return;
         attackPoint = transform.Find("AttackPoint").GetComponent<Transform>();
-        Debug.LogWarning(transform.name + ": LoadBallCtrl", gameObject);
+        Debug.LogWarning(transform.name + ": LoadAttackPoint", gameObject);
     }
 
     protected virtual void LoadCharCtrl()
@@ -52,6 +57,7 @@ public class CharMeleeAttack : CoreMonoBehaviour
     }
     private void Attack()
     {
+        //if (!IsCanAttack()) return;
         if (charCtrl.CharState.IsAttacking)
         {
             Invoke(nameof(MeleeAttack), timeDelayMeleeAttack);
@@ -60,10 +66,29 @@ public class CharMeleeAttack : CoreMonoBehaviour
 
     private void MeleeAttack()
     {
-        Collider2D ball = Physics2D.OverlapCircle(attackPoint.position, attackRange, enemyLayers);
+        Collider2D ball = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);// LayerMask.GetMask("Ball"));// enemyLayers);
         if (ball == null) return;
         Debug.Log(this.transform.parent.name + " hit " + ball.name);
         BallCtrl ballctrl = ball.transform.parent.parent.parent.GetComponent<BallCtrl>();
         ballctrl.BallRotate.ChangeDirection();
     }
+    public void CancelInvokeAttack()
+    {
+        if (IsInvoking(nameof(MeleeAttack)))
+        {
+            CancelInvoke(nameof(MeleeAttack));
+        }
+    }
+
+    //protected virtual bool IsCanAttack()
+    //{
+    //    if (canAttack) return true;
+
+    //    timerAttack += Time.deltaTime;
+    //    if (timerAttack < timeDelayAttack) return false;
+    //    timerAttack = 0f;
+    //    canAttack = true;
+
+    //    return true;
+    //}
 }

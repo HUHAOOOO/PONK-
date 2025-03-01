@@ -133,9 +133,6 @@ public class CharRotate : CoreMonoBehaviour
         }
         curentWorldAreaType = newCurrentArea;
     }
-
-
-
     protected virtual bool CanRotate()
     {
         timerRotate += Time.deltaTime;

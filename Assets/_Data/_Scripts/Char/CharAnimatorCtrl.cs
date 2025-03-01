@@ -36,6 +36,8 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
         get => _attackAnimTime;
     }
     public float DodgeAnimTime => _dodgeAnimTime;
+    public float HurtAnimTime => _hurtAnimTime;
+    //public bool CanGetState { get => canGetState; private set => canGetState = value; }
     protected override void LoadComponents()
     {
         LoadCharCtrl();
@@ -81,27 +83,27 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     {
         if(!CanGetState()) return _currentState;
 
-        if (_charCtrl.CharState.IsAttacking)
-        {
-            Debug.Log("IsAttacking", gameObject);
-            return SetNewState(Attack, _attackAnimTime);
-        }
-        if (_charCtrl.CharState.IsDodging)
-        {
-            Debug.Log("IsDodging", gameObject);
-            return SetNewState(Dodge, _dodgeAnimTime);
-        }
-        else if (_charCtrl.CharState.IsHurting)
-        {
-            Debug.Log("IsHurting", gameObject);
-            return SetNewState(Die, _hurtAnimTime);
-        }
-        else if (_charCtrl.CharState.IsDying)
+        if (_charCtrl.CharState.IsDying)
         {
             Debug.Log("IsDying", gameObject);
             SetTimeDelayAnim(_dieAnimTime);
             Debug.Log("Player has been DIE !", gameObject);
             return Die;
+        }
+        else if (_charCtrl.CharState.IsHurting)
+        {
+            Debug.Log("IsHurting", gameObject);
+            return SetNewState(Hurt, _hurtAnimTime);
+        }
+        else if (_charCtrl.CharState.IsAttacking)
+        {
+            Debug.Log("IsAttacking", gameObject);
+            return SetNewState(Attack, _attackAnimTime);
+        }
+        else if (_charCtrl.CharState.IsDodging)
+        {
+            Debug.Log("IsDodging", gameObject);
+            return SetNewState(Dodge, _dodgeAnimTime);
         }
         else if (canGetState) return Idle;
         
@@ -124,5 +126,10 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
 
         SetTimeDelayAnim(animTime);
         return newState;
+    }
+
+    public void SetTrueCanGetState()
+    {
+        canGetState = true;
     }
 }

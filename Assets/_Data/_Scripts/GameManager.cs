@@ -58,15 +58,8 @@ public class GameManager : CoreMonoBehaviour
 
         RotatePoints();
 
-        // [ ] 
-        if (ballCtrl.BallRotate.SpeedRotate >= 0)
-        {
-            isClockwise = false;
-        }
-        else if (ballCtrl.BallRotate.SpeedRotate < 0)
-        {
-            isClockwise = true;
-        }
+        IsClocwiseUpdate();
+
     }
 
     protected override void LoadComponents()
@@ -127,6 +120,18 @@ public class GameManager : CoreMonoBehaviour
     private void GetPosBall()
     {
         posBall = ballCtrl.Ball.transform.position;
+    }
+
+    private void IsClocwiseUpdate()
+    {
+        if (ballCtrl.BallRotate.SpeedRotate >= 0)
+        {
+            isClockwise = false;
+        }
+        else if (ballCtrl.BallRotate.SpeedRotate < 0)
+        {
+            isClockwise = true;
+        }
     }
 
     public virtual WorldAreaType GetAreaBall()
