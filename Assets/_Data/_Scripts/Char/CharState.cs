@@ -13,11 +13,11 @@ public class CharState : CoreMonoBehaviour
     [SerializeField] protected bool isDying;
 
     [SerializeField] protected float timerAttack = 0f;
-    [SerializeField] protected float timeDelayAttack = 1f;
+    [SerializeField] protected float timeDelayAttack = 0.5f;
     [SerializeField] protected bool canAttack = true;
 
     [SerializeField] protected float timerDodge = 0f;
-    [SerializeField] protected float timeDelayDodge = 1.5f;
+    [SerializeField] protected float timeDelayDodge = 1f;
     [SerializeField] protected bool canDodge = true;
 
     [SerializeField] protected bool isCanPress;

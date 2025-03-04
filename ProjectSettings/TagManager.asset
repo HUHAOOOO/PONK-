@@ -48,5 +48,8 @@ TagManager:
   - name: Ball
     uniqueID: 1654090563
     locked: 0
+  - name: FX
+    uniqueID: 3898138331
+    locked: 0
   m_RenderingLayers:
   - Default

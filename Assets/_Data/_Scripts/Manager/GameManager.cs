@@ -31,6 +31,7 @@ public class GameManager : CoreMonoBehaviour
 
     public WorldAreaType CurrentArea => currentArea;
     public WorldAreaType PreviousArea => previousArea;
+    public bool IsClockwise => isClockwise;
 
     public bool TopPoint => topPoint;
     public bool RightPoint => rightPoint;
@@ -55,11 +56,8 @@ public class GameManager : CoreMonoBehaviour
     {
         GetPosBall();
         AreaPreCur();
-
         RotatePoints();
-
         IsClocwiseUpdate();
-
     }
 
     protected override void LoadComponents()

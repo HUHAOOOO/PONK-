@@ -15,7 +15,7 @@ public class DamSender : CoreMonoBehaviour
     protected virtual void LoadBallCtrl()
     {
         if (this.ballCtrl != null) return;
-        ballCtrl = transform.parent.parent.parent.GetComponent<BallCtrl>();
+        ballCtrl = transform.parent.GetComponent<BallCtrl>();
         Debug.LogWarning(transform.name + ": LoadBallCtrl", gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

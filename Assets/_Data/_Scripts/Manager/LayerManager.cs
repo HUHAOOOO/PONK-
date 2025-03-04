@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LayerManager : MonoBehaviour
@@ -10,7 +11,6 @@ public class LayerManager : MonoBehaviour
     [SerializeField] protected int ballLayer;
     [SerializeField] protected int ballLayerGetMask;
 
-    //public int BallLayer { get => ballLayer; }
     public int BallLayer => ballLayer;
     public int BallLayerGetMask => ballLayerGetMask;
 
