@@ -26,7 +26,6 @@ public class DamReceive : CoreMonoBehaviour
     }
     public virtual void Hurt()
     {
-        Debug.Log(transform.parent.name + " Hurt !");
         charCtrl.CharAnimatorCtrl.SetTrueCanGetState();
         charCtrl.CharState.IsHurting = true;
         charCtrl.CharImmortalArmor.SetBool_TimeImmortalSheild(true);

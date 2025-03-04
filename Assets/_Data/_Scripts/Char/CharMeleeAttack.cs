@@ -10,11 +10,6 @@ public class CharMeleeAttack : CoreMonoBehaviour
     [SerializeField] protected int ballLayers;
 
     [SerializeField] protected float timeDelayMeleeAttack = 0f;
-
-    //[SerializeField] protected float timerAttack = 0f;
-    //[SerializeField] protected float timeDelayAttack = 1f;
-    //[SerializeField] protected bool canAttack = true;
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -26,9 +21,14 @@ public class CharMeleeAttack : CoreMonoBehaviour
     protected virtual void InitData()
     {
         timeDelayMeleeAttack = charCtrl.CharAnimatorCtrl.AttackAnimTime;
+    }
 
+    protected override void Start()
+    {
+        //ballLayers = 128;
         ballLayers = LayerManager.Instance.BallLayerGetMask;
     }
+
     protected virtual void LoadAttackPoint()
     {
         if (this.attackPoint != null) return;
@@ -66,11 +66,14 @@ public class CharMeleeAttack : CoreMonoBehaviour
 
     private void MeleeAttack()
     {
-        Collider2D ball = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);// LayerMask.GetMask("Ball"));// enemyLayers);
-        if (ball == null) return;
-        Debug.Log(this.transform.parent.name + " hit " + ball.name);
-        BallCtrl ballctrl = ball.transform.parent.parent.parent.GetComponent<BallCtrl>();
+        Collider2D ballDamReceive = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);
+        if (ballDamReceive == null) return;
+        Debug.Log(this.transform.parent.name + " hit " + ballDamReceive.name);
+        BallCtrl ballctrl = ballDamReceive.transform.parent.GetComponent<BallCtrl>();
         ballctrl.BallRotate.ChangeDirection();
+
+        Transform fx = FXSpawner.Instance.Spawn(FXSpawner.FX_vetchem1, ballDamReceive.transform.position, Quaternion.Euler(0, 0, Random.Range(0f, 360f)));
+        fx.gameObject.SetActive(true);
     }
     public void CancelInvokeAttack()
     {
@@ -79,16 +82,4 @@ public class CharMeleeAttack : CoreMonoBehaviour
             CancelInvoke(nameof(MeleeAttack));
         }
     }
-
-    //protected virtual bool IsCanAttack()
-    //{
-    //    if (canAttack) return true;
-
-    //    timerAttack += Time.deltaTime;
-    //    if (timerAttack < timeDelayAttack) return false;
-    //    timerAttack = 0f;
-    //    canAttack = true;
-
-    //    return true;
-    //}
 }

@@ -1,25 +1,43 @@
 fileFormatVersion: 2
-guid: 8e246f08ac082f54db3091cdb53a1f27
+guid: 96514195f54aa0d4bab4cf92b24bd913
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8455991131364619824
-    second: Chara vet chem 2_0
+      213: 5313397131867801026
+    second: Lightning_1_512-sheet_0
   - first:
-      213: 232826423452401862
-    second: Chara vet chem 2_1
+      213: 7600283470663696735
+    second: Lightning_1_512-sheet_1
   - first:
-      213: -3656202242361946465
-    second: Chara vet chem 2_2
+      213: 7832531876842973356
+    second: Lightning_1_512-sheet_2
   - first:
-      213: -6579714508712831424
-    second: Chara vet chem 2_3
+      213: -7728366277324761413
+    second: Lightning_1_512-sheet_3
   - first:
-      213: -7199492567932068101
-    second: Chara vet chem 2_4
+      213: -774614641659139208
+    second: Lightning_1_512-sheet_4
   - first:
-      213: -7908282964004282034
-    second: Chara vet chem 2_5
+      213: -5493199749270464854
+    second: Lightning_1_512-sheet_5
+  - first:
+      213: -2385822947733076972
+    second: Lightning_1_512-sheet_6
+  - first:
+      213: -666280488219515710
+    second: Lightning_1_512-sheet_7
+  - first:
+      213: -1399063137782823558
+    second: Lightning_1_512-sheet_8
+  - first:
+      213: -1909907903242124794
+    second: Lightning_1_512-sheet_9
+  - first:
+      213: 3610072431457574190
+    second: Lightning_1_512-sheet_10
+  - first:
+      213: 1095935187973992561
+    second: Lightning_1_512-sheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,111 +133,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chara vet chem 2_0
+      name: Lightning_1_512-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c54f833a8afcb940800000000000000
+      internalID: 5313397131867801026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lightning_1_512-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f51ce2d6c81a97960800000000000000
+      internalID: 7600283470663696735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lightning_1_512-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca826235e3eb2bc60800000000000000
+      internalID: 7832531876842973356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lightning_1_512-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb613f141d35fb490800000000000000
+      internalID: -7728366277324761413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lightning_1_512-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b271666140045f0800000000000000
+      internalID: -774614641659139208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lightning_1_512-sheet_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 160
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d988272ed846aa80800000000000000
-      internalID: -8455991131364619824
+      spriteID: aa61878aeeb34c3b0800000000000000
+      internalID: -5493199749270464854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chara vet chem 2_1
+      name: Lightning_1_512-sheet_6
       rect:
         serializedVersion: 2
-        x: 160
+        x: 512
         y: 0
-        width: 160
-        height: 160
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c08438066a2b3300800000000000000
-      internalID: 232826423452401862
+      spriteID: 414056f6baad3eed0800000000000000
+      internalID: -2385822947733076972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chara vet chem 2_2
+      name: Lightning_1_512-sheet_7
       rect:
         serializedVersion: 2
-        x: 320
+        x: 1024
         y: 0
-        width: 160
-        height: 160
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9e87059e6f824dc0800000000000000
-      internalID: -3656202242361946465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chara vet chem 2_3
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04610b0e38820b4a0800000000000000
-      internalID: -6579714508712831424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EMPTY
-      rect:
-        serializedVersion: 2
-        x: 585
-        y: 125
-        width: 40
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35795c27610e81448bc409af9aca68f6
-      internalID: -785057736
+      spriteID: 2c4e6e21d65e0c6f0800000000000000
+      internalID: -666280488219515710
       vertices: []
       indices: 
       edges: []
@@ -228,7 +312,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 62929b94604166149b6c581e2cff5f99
+    spriteID: f17536a0c07584e4ea94e1a6893371e5
     internalID: 0
     vertices: []
     indices: 
@@ -238,11 +322,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Chara vet chem 2_0: -8455991131364619824
-      Chara vet chem 2_1: 232826423452401862
-      Chara vet chem 2_2: -3656202242361946465
-      Chara vet chem 2_3: -6579714508712831424
-      EMPTY: -785057736
+      Lightning_1_512-sheet_0: 5313397131867801026
+      Lightning_1_512-sheet_1: 7600283470663696735
+      Lightning_1_512-sheet_2: 7832531876842973356
+      Lightning_1_512-sheet_3: -7728366277324761413
+      Lightning_1_512-sheet_4: -774614641659139208
+      Lightning_1_512-sheet_5: -5493199749270464854
+      Lightning_1_512-sheet_6: -2385822947733076972
+      Lightning_1_512-sheet_7: -666280488219515710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
