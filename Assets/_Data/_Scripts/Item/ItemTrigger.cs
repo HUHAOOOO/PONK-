@@ -1,9 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemTrigger : CoreMonoBehaviour
 {
+    [Header("Item Trigger")]
     [SerializeField] protected ItemCtrl itemCtrl;
 
+    [SerializeField] protected int indexBall;
+    [SerializeField] protected int timeReset;
+    [SerializeField] protected int addSpeedBall;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -19,12 +24,15 @@ public class ItemTrigger : CoreMonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        BallCtrl ballCtrl = collision.transform.parent.GetComponent<BallCtrl>();
+        DamSender ballDamSender = collision.GetComponent<DamSender>();
+
+        BallCtrl ballCtrl = ballDamSender.transform.parent.parent.parent.GetComponent<BallCtrl>();
         if (ballCtrl == null) Debug.Log("ItemTrigger OnTriggerEnter2D(ballCtrl) = null !");
+        EffectItem(ballCtrl);
+    }
 
-        ballCtrl.SetActiveBallsByTime(1,5);
-        ballCtrl.BallRotate.SpeedSpecialBall(100,5);
-
-        this.itemCtrl.ItemDespawn.SetItemCanDespawn(true);
+    protected virtual void EffectItem(BallCtrl ballCtrl)
+    {
+        //override Item |...| Trigger
     }
 }
