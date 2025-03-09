@@ -85,24 +85,24 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
 
         if (_charCtrl.CharState.IsDying)
         {
-            Debug.Log("IsDying", gameObject);
+            //Debug.Log("IsDying", gameObject);
             SetTimeDelayAnim(_dieAnimTime);
             Debug.Log("Player has been DIE !", gameObject);
             return Die;
         }
         else if (_charCtrl.CharState.IsHurting)
         {
-            Debug.Log("IsHurting", gameObject);
+            //Debug.Log("IsHurting", gameObject);
             return SetNewState(Hurt, _hurtAnimTime);
         }
         else if (_charCtrl.CharState.IsAttacking)
         {
-            Debug.Log("IsAttacking", gameObject);
+            //Debug.Log("IsAttacking", gameObject);
             return SetNewState(Attack, _attackAnimTime);
         }
         else if (_charCtrl.CharState.IsDodging)
         {
-            Debug.Log("IsDodging", gameObject);
+            //Debug.Log("IsDodging", gameObject);
             return SetNewState(Dodge, _dodgeAnimTime);
         }
         else if (canGetState) return Idle;

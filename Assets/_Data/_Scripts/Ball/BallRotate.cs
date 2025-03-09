@@ -7,50 +7,52 @@ public class BallRotate : GORotateParent
 
     [SerializeField] protected int upSpeedPoint = 10;
     [SerializeField] protected int defaultSpeed = 100;
+    [SerializeField] protected int newSpeedAdd;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadBallCtrl();
+    }
+    protected override void ResetValue()
+    {
+        speedRotate = -defaultSpeed;
+        typeRorate = TypeRotate.z;
 
         InitRotate();
     }
-
     protected virtual void LoadBallCtrl()
     {
         if (this.ballCtrl != null) return;
         ballCtrl = transform.parent.GetComponent<BallCtrl>();
         Debug.LogWarning(transform.name + ": LoadBallCtrl", gameObject);
     }
-    protected override void Reset()
-    {
-        base.Reset();
-        speedRotate = 100;
-        typeRorate = TypeRotate.z;
-    }
-    protected virtual void InitRotate()
+    public void InitRotate()
     {
         if(speedRotate <= 0)//(GameManager.Instance.IsClockwise)
         {
-            ballCtrl.Model.transform.Rotate(0, 0, 0);
+            //ballCtrl.CurrentBall.transform.rotation = Quaternion.Euler(0, 0, 0);
+            ballCtrl.CurrentBall.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else
+        else if(speedRotate > 0)
         {
-            ballCtrl.Model.transform.Rotate(180, 0, 0);
+            //ballCtrl.CurrentBall.transform.rotation = Quaternion.Euler(180,0,0);
+            ballCtrl.CurrentBall.transform.localRotation = Quaternion.Euler(180,0,0);
         }
     }
 
     public void SpeedSpecialBall(int speed,float timeReset)
     {
+        newSpeedAdd = speed;
         AddSpeedRotate(speed);
-        Invoke(nameof(SetSpeed), timeReset);
+        Invoke(nameof(SetPreviousSpeed), timeReset);
     }
-    public void SetSpeed()
+    public void SetPreviousSpeed()
     {
-        AddSpeedRotate(-50);
+        AddSpeedRotate(-newSpeedAdd);
     }
     public void AddSpeedRotate(int speed)
     {
-        if (speedRotate >= 0)
+        if (speedRotate > 0)
         {
             speedRotate += speed;
         }
@@ -58,8 +60,7 @@ public class BallRotate : GORotateParent
         {
             speedRotate -= speed;
         }
-
-        if(speedRotate == 0)
+        else if(speedRotate == 0)
         {
             speedRotate = 50;
         }
@@ -78,7 +79,6 @@ public class BallRotate : GORotateParent
         else speedRotate -= upSpeedPoint;
     }
 
-    // Player goi khi danh trung
     public void ChangeDirection(int minus = -1)
     {
         speedRotate *= minus;
@@ -86,9 +86,8 @@ public class BallRotate : GORotateParent
         ChangeRotateSprite();
     }
 
-    public void SetDefaultSpeed()//moi lan Ponk Player se set default
+    public void SetDefaultSpeed()
     {
-
         if (speedRotate >= 0)
         {
             speedRotate = defaultSpeed;
@@ -97,11 +96,11 @@ public class BallRotate : GORotateParent
         {
             speedRotate = -defaultSpeed;
         }
+
+        newSpeedAdd = 0;
     }
     public void ChangeRotateSprite()
     {
-        ballCtrl.Model.transform.Rotate(180, 0, 0);
+        ballCtrl.CurrentBall.transform.Rotate(180, 0, 0);
     }
-
- 
 }

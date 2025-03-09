@@ -43,13 +43,15 @@ public class GameManager : CoreMonoBehaviour
         if (instance != null) Debug.LogError("only allow 1 GameManager | Singleton");
         GameManager.instance = this;
 
+        //[ ]
         //InitGame();
     }
 
     protected virtual void InitGame()
     {
         int indexRandom = UnityEngine.Random.Range(0, pos4GO.Count);
-        ballCtrl.Ball.position = pos4GO[indexRandom].position;
+        ballCtrl.CurrentBall.position = pos4GO[indexRandom].position;
+        //ballCtrl.Ball.rotation = pos4GO[indexRandom].rotation;
     }
 
     private void Update()
@@ -58,6 +60,8 @@ public class GameManager : CoreMonoBehaviour
         AreaPreCur();
         RotatePoints();
         IsClocwiseUpdate();
+
+        //PlayerIsCanOverlapCircleMeleeAttack();
     }
 
     protected override void LoadComponents()
@@ -117,7 +121,7 @@ public class GameManager : CoreMonoBehaviour
 
     private void GetPosBall()
     {
-        posBall = ballCtrl.Ball.transform.position;
+        posBall = ballCtrl.CurrentBall.transform.position;
     }
 
     private void IsClocwiseUpdate()
@@ -231,4 +235,33 @@ public class GameManager : CoreMonoBehaviour
         return valuesList[index];
     }
 
+    //private void PlayerIsCanOverlapCircleMeleeAttack()
+    //{
+    //    // if isFireBall => can not overlap circle melee attack
+    //    if (ballCtrl.CurrentBall == ballCtrl.BallsModel[2])
+    //    {
+    //        foreach (CharCtrl charCtrl in players)
+    //        {
+    //            charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = false;
+    //            Debug.Log("charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = false;");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        foreach (CharCtrl charCtrl in players)
+    //        {
+    //            charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = true;
+    //            Debug.Log("charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = true;");
+    //        }
+    //    }
+
+    //}
+
+    public void SetPlayerIsCanOverlapCircleMeleeAttack(bool isCanOverlapCircleMeleeAttack)
+    {
+        foreach (CharCtrl charCtrl in players)
+        {
+            charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = isCanOverlapCircleMeleeAttack;
+        }
+    }
 }
