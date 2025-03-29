@@ -5,64 +5,69 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CharRotate : CoreMonoBehaviour
+public class BotRotate : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl _charCtrl;
+    [SerializeField] protected BotCtrl botCtrl;
     [SerializeField] protected WorldAreaType curentWorldAreaType;
     [SerializeField] protected float timerRotate = 0;
-    [SerializeField] protected float timeDelayRotate = 0.1f;
+    [SerializeField] protected float timeDelayRotate = 0.5f;
     [SerializeField] protected bool canRotate;
 
 
-    public CharCtrl CharCtrl
+    public BotCtrl BotCtrl
     {
-        get => _charCtrl;
-        private set => _charCtrl = value;
+        get => botCtrl;
+        private set => botCtrl = value;
     }
-    protected override void Start()
+    protected override void OnEnable()
     {
         StartCoroutine(InitRotateAfterUpdate());
-
+    }
+    protected override void OnDisable()
+    {
+        Debug.Log("Script disabled or GameObject deactivated");
+        this.transform.parent.rotation = Quaternion.Euler(0, 0, 0);
     }
     IEnumerator InitRotateAfterUpdate()
     {
         yield return null; // Wait next frame 
         InitRotate();
+        Debug.LogWarning("InitRotate();", gameObject);
 
-        curentWorldAreaType = GameManager.Instance.CurrentArea;
+        curentWorldAreaType = BotArea.Instance.CurrentArea;
     }
     protected override void LoadComponents()
     {
-        LoadCharCtrl();
+        LoadBotCtrl();
     }
 
     private void Update()
     {
-        RotateChar();
+        RotateBot();
     }
 
-    protected virtual void LoadCharCtrl()
+    protected virtual void LoadBotCtrl()
     {
-        if (this._charCtrl != null) return;
-        _charCtrl = transform.parent.GetComponent<CharCtrl>();
-        Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
+        if (this.botCtrl != null) return;
+        botCtrl = transform.parent.GetComponent<BotCtrl>();
+        Debug.LogWarning(transform.name + ": LoadBotCtrl", gameObject);
     }
     protected virtual void Rotate()
     {
-        _charCtrl.transform.Rotate(0, 180, 0);
+        botCtrl.transform.Rotate(0, 180, 0);
         //Debug.Log(_charCtrl.name + "huha Rotate !",gameObject);
     }
 
     protected virtual void InitRotate()
     {
-        WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
+        WorldAreaType newCurrentArea = BotArea.Instance.CurrentArea;
         if (newCurrentArea == WorldAreaType.Area1)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_1")
+            if (botCtrl.CurrentPos.name == "Pos_1")
             {
                 Rotate();
             }
-            else if (_charCtrl.CurrentPos.name == "Pos_2")
+            else if (botCtrl.CurrentPos.name == "Pos_2")
             {
                 Rotate();
             }
@@ -70,11 +75,11 @@ public class CharRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area2)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_2")
+            if (botCtrl.CurrentPos.name == "Pos_2")
             {
                 Rotate();
             }
-            if (_charCtrl.CurrentPos.name == "Pos_3")
+            if (botCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
             }
@@ -82,11 +87,11 @@ public class CharRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area3)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_3")
+            if (botCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
             }
-            if (_charCtrl.CurrentPos.name == "Pos_4")
+            if (botCtrl.CurrentPos.name == "Pos_4")
             {
                 Rotate();
             }
@@ -94,44 +99,30 @@ public class CharRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area4)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_4")
+            if (botCtrl.CurrentPos.name == "Pos_4")
             {
                 Rotate();
             }
-            if (_charCtrl.CurrentPos.name == "Pos_1")
+            if (botCtrl.CurrentPos.name == "Pos_1")
             {
                 Rotate();
             }
         }
     }
 
-    protected virtual void RotateChar()
+    protected virtual void RotateBot()
     {
         if (!CanRotate()) return;
         canRotate = false;
 
-        WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
+        WorldAreaType newCurrentArea = BotArea.Instance.CurrentArea;
 
-        bool topPoint = GameManager.Instance.TopPoint;
-        bool rightPoint = GameManager.Instance.RightPoint;
-        bool bottomPoint = GameManager.Instance.BottomPoint;
-        bool leftPoint = GameManager.Instance.LeftPoint;
+        bool topPoint = BotArea.Instance.TopPoint;
+        bool rightPoint = BotArea.Instance.RightPoint;
+        bool bottomPoint = BotArea.Instance.BottomPoint;
+        bool leftPoint = BotArea.Instance.LeftPoint;
 
-        //if (_charCtrl.CurrentPos.name == "Pos_1" || _charCtrl.CurrentPos.name == "Pos_3")
-        //{
-        //    if (leftPoint || rightPoint)
-        //    {
-        //        this.Rotate();
-        //    }
-        //}
-        //else if (_charCtrl.CurrentPos.name == "Pos_2" || _charCtrl.CurrentPos.name == "Pos_4")
-        //{
-        //    if (topPoint || bottomPoint)
-        //    {
-        //        this.Rotate();
-        //    }
-        //}
-        if (_charCtrl.CurrentPos.name == "Pos_1" || _charCtrl.CurrentPos.name == "Pos_3")
+        if (botCtrl.CurrentPos.name == "Pos_1" || botCtrl.CurrentPos.name == "Pos_3")
         {
             //if (leftPoint || rightPoint)
             //{
@@ -142,7 +133,7 @@ public class CharRotate : CoreMonoBehaviour
                 this.Rotate();
             }
         }
-        else if (_charCtrl.CurrentPos.name == "Pos_2" || _charCtrl.CurrentPos.name == "Pos_4")
+        else if (botCtrl.CurrentPos.name == "Pos_2" || botCtrl.CurrentPos.name == "Pos_4")
         {
             //if (topPoint || bottomPoint)
             //{
@@ -161,7 +152,7 @@ public class CharRotate : CoreMonoBehaviour
         if (timerRotate < timeDelayRotate) return false;
         timerRotate = 0;
 
-        WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
+        WorldAreaType newCurrentArea = BotArea.Instance.CurrentArea;
         if (curentWorldAreaType == newCurrentArea) return false;
 
         canRotate = true;

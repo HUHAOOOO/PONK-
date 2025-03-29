@@ -166,16 +166,17 @@ public class GameManager : CoreMonoBehaviour
     public virtual void SetPosForPlayer()
     {
         players[0].SetPosChar(PosAvailable());
-        players[1].SetPosChar(PosAvailable());
-        players[2].SetPosChar(PosAvailable());
-        players[3].SetPosChar(PosAvailable());
+        //players[1].SetPosChar(PosAvailable());
+        //players[2].SetPosChar(PosAvailable());
+        //players[3].SetPosChar(PosAvailable());
     }
 
     public virtual Transform PosAvailable()
     {
-        if (indexPos <= 0) return null;
-        indexPos--;
-        return pos4Players[indexPos];
+        //if (indexPos <= 0) return null;
+        //indexPos--;
+        //return pos4Players[indexPos];
+        return pos4Players[0];
     }
 
 
@@ -234,28 +235,6 @@ public class GameManager : CoreMonoBehaviour
 
         return valuesList[index];
     }
-
-    //private void PlayerIsCanOverlapCircleMeleeAttack()
-    //{
-    //    // if isFireBall => can not overlap circle melee attack
-    //    if (ballCtrl.CurrentBall == ballCtrl.BallsModel[2])
-    //    {
-    //        foreach (CharCtrl charCtrl in players)
-    //        {
-    //            charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = false;
-    //            Debug.Log("charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = false;");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        foreach (CharCtrl charCtrl in players)
-    //        {
-    //            charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = true;
-    //            Debug.Log("charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = true;");
-    //        }
-    //    }
-
-    //}
 
     public void SetPlayerIsCanOverlapCircleMeleeAttack(bool isCanOverlapCircleMeleeAttack)
     {

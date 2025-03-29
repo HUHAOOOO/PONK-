@@ -7,7 +7,7 @@ public class ItemDespawn : Despawn
     [SerializeField] protected bool itemCanDespawn;
     public override void DespawnObject()
     {
-        ItemSpawner.Instance.Despawn(transform.parent);
+        BotSpawner.Instance.Despawn(transform.parent);
         SetItemCanDespawn(false);
     }
 
