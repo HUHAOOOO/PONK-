@@ -26,9 +26,6 @@ public class BotDodge : CoreMonoBehaviour
     protected virtual void LoadData()
     {
         _dodgeAnimTime = botCtrl.BotAnimatorCtrl.DodgeAnimTime;
-
-        //boxCollider2D = botCtrl.DamReceive.gameObject.GetComponent<BoxCollider2D>();
-        //if (boxCollider2D == null) Debug.Log("boxCollider2D null", gameObject);
     }
     void Update()
     {

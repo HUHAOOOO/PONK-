@@ -30,6 +30,10 @@ public class BotInput : CoreMonoBehaviour
     }
     public void SetFalseInput()
     {
+        //if(IsInvoking(nameof(SetFalse)))
+        //{
+        //    CancelInvoke(nameof(SetFalse));
+        //}
         Invoke(nameof(SetFalse), timeDelaySetFalseInput);
     }
     public void SetFalse()

@@ -8,9 +8,11 @@ public class BotSpawnerRandom : SpawnerRandom
     protected override void GOSpawning()
     {
         if (this.RandomReachLimit()) return;
+        //if (!BotCtrl.Instance.BotIsCanSpawn()) return;
 
         this.randomTimer += Time.fixedDeltaTime;
         if (this.randomTimer < this.randomDelay) return;
+        if (!BotArea.Instance.IsStartNewArea()) return;
         this.randomTimer = 0;
 
         Transform ranPoint = this.spawnerCtrl.SpawnPoints.GetRandom();
@@ -24,6 +26,5 @@ public class BotSpawnerRandom : SpawnerRandom
         obj.gameObject.SetActive(true);
 
         BotCtrl.Instance.SetPosBot(ranPoint);
-        Debug.Log("BotCtrl.Instance.SetPosBot(ranPoint);", ranPoint);
     }
 }

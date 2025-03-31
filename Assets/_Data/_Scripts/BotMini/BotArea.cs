@@ -15,11 +15,14 @@ public class BotArea : CoreMonoBehaviour
     [SerializeField] protected Transform posBall;
     [SerializeField] protected WorldAreaType currentArea = WorldAreaType.noAreaType;
     [SerializeField] protected WorldAreaType previousArea = WorldAreaType.noAreaType;
+    [SerializeField] protected WorldAreaType oldArea = WorldAreaType.noAreaType;
 
     [SerializeField] protected bool topPoint;
     [SerializeField] protected bool rightPoint;
     [SerializeField] protected bool bottomPoint;
     [SerializeField] protected bool leftPoint;
+
+    [SerializeField] protected bool isStartNewArea;
 
     [SerializeField] protected bool isClockwise = true;// khi bi speed bong +(false) or -(true)
 
@@ -72,7 +75,7 @@ public class BotArea : CoreMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadCoreWordBot", gameObject);
 
     }
-        private void GetPosBall()
+    private void GetPosBall()
     {
         posBall = ballCtrl.CurrentBall.transform;
     }
@@ -155,5 +158,21 @@ public class BotArea : CoreMonoBehaviour
         if (index >= valuesList.Count) index = 0;
 
         return valuesList[index];
+    }
+
+
+    public bool IsStartNewArea()
+    {
+        if (oldArea == this.currentArea)
+        {
+            isStartNewArea = false; 
+            return false;
+        }
+        else
+        {
+            oldArea = this.currentArea;
+            isStartNewArea = true;
+            return true;
+        }
     }
 }

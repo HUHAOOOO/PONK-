@@ -111,6 +111,10 @@ public class BotCtrl : CoreMonoBehaviour
     }
 
 
+
+    /// <summary>
+    /// Auto
+    /// </summary>
     private void Update()
     {
         BotActive();
@@ -134,8 +138,13 @@ public class BotCtrl : CoreMonoBehaviour
 
     private void DespawnBotByTime(float timeDespawn)
     {
+        if (IsInvoking(nameof(SetBotIsCanDespawn)))
+        {
+            //Debug.Log("CancelInvoke(nameof(SetBotIsCanDespawn)); ");
+            CancelInvoke(nameof(SetBotIsCanDespawn));
+        }
         // Despawn sau khi dien xong anim 
-        Invoke(nameof(SetBotIsCanDespawn), timeDespawn + 0.5f);
+        Invoke(nameof(SetBotIsCanDespawn), timeDespawn);
     }
 
     private void SetBotIsCanDespawn()
@@ -144,5 +153,4 @@ public class BotCtrl : CoreMonoBehaviour
         BotInput.InputAttack = false;
         botDespawn.IsCanDespawn = true;
     }
-
 }

@@ -19,12 +19,12 @@ public class BotOption : MonoBehaviour
 
         if (rand < 0.3f)
         {
-            Debug.Log("TH1 (30%)");
+            //Debug.Log("TH1 (30%)");
             CurrentBotTyleOption = BotTypeOption.Dodge;
         }
         else
         {
-            Debug.Log("TH2 (70%)");
+            //Debug.Log("TH2 (70%)");
             CurrentBotTyleOption = BotTypeOption.MeleeAttack;
         }
     }

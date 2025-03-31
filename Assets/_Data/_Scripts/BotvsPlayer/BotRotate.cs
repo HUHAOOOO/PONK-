@@ -25,14 +25,13 @@ public class BotRotate : CoreMonoBehaviour
     }
     protected override void OnDisable()
     {
-        Debug.Log("Script disabled or GameObject deactivated");
         this.transform.parent.rotation = Quaternion.Euler(0, 0, 0);
     }
     IEnumerator InitRotateAfterUpdate()
     {
         yield return null; // Wait next frame 
         InitRotate();
-        Debug.LogWarning("InitRotate();", gameObject);
+        //Debug.LogWarning("InitRotate();", gameObject);
 
         curentWorldAreaType = BotArea.Instance.CurrentArea;
     }
@@ -61,13 +60,15 @@ public class BotRotate : CoreMonoBehaviour
     protected virtual void InitRotate()
     {
         WorldAreaType newCurrentArea = BotArea.Instance.CurrentArea;
+
+
         if (newCurrentArea == WorldAreaType.Area1)
         {
-            if (botCtrl.CurrentPos.name == "Pos_1")
+            if (botCtrl.CurrentPos.name == "Pos_2")
             {
                 Rotate();
             }
-            else if (botCtrl.CurrentPos.name == "Pos_2")
+            else if (botCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
             }
@@ -75,11 +76,11 @@ public class BotRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area2)
         {
-            if (botCtrl.CurrentPos.name == "Pos_2")
+            if (botCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
             }
-            if (botCtrl.CurrentPos.name == "Pos_3")
+            if (botCtrl.CurrentPos.name == "Pos_4")
             {
                 Rotate();
             }
@@ -87,11 +88,11 @@ public class BotRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area3)
         {
-            if (botCtrl.CurrentPos.name == "Pos_3")
+            if (botCtrl.CurrentPos.name == "Pos_4")
             {
                 Rotate();
             }
-            if (botCtrl.CurrentPos.name == "Pos_4")
+            if (botCtrl.CurrentPos.name == "Pos_1")
             {
                 Rotate();
             }
@@ -99,11 +100,11 @@ public class BotRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area4)
         {
-            if (botCtrl.CurrentPos.name == "Pos_4")
+            if (botCtrl.CurrentPos.name == "Pos_1")
             {
                 Rotate();
             }
-            if (botCtrl.CurrentPos.name == "Pos_1")
+            if (botCtrl.CurrentPos.name == "Pos_2")
             {
                 Rotate();
             }
@@ -124,10 +125,6 @@ public class BotRotate : CoreMonoBehaviour
 
         if (botCtrl.CurrentPos.name == "Pos_1" || botCtrl.CurrentPos.name == "Pos_3")
         {
-            //if (leftPoint || rightPoint)
-            //{
-            //    this.Rotate();
-            //}
             if (topPoint || bottomPoint)
             {
                 this.Rotate();
@@ -135,10 +132,6 @@ public class BotRotate : CoreMonoBehaviour
         }
         else if (botCtrl.CurrentPos.name == "Pos_2" || botCtrl.CurrentPos.name == "Pos_4")
         {
-            //if (topPoint || bottomPoint)
-            //{
-            //    this.Rotate();
-            //}
             if (leftPoint || rightPoint)
             {
                 this.Rotate();
