@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class CharMeleeAttack : CoreMonoBehaviour
+public class BotMeleeAttack : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl charCtrl;
+    [SerializeField] protected BotCtrl botCtrl;
 
 
     [SerializeField] protected Transform attackPoint;
@@ -16,13 +16,13 @@ public class CharMeleeAttack : CoreMonoBehaviour
     {
         base.LoadComponents();
         LoadAttackPoint();
-        LoadCharCtrl();
+        LoadBotCtrl();
 
         InitData();
     }
     protected virtual void InitData()
     {
-        timeDelayMeleeAttack = charCtrl.CharAnimatorCtrl.AttackAnimTime;
+        timeDelayMeleeAttack = botCtrl.BotAnimatorCtrl.AttackAnimTime;
         isCanOverlapCircleMeleeAttack = true;
     }
 
@@ -39,20 +39,16 @@ public class CharMeleeAttack : CoreMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadAttackPoint", gameObject);
     }
 
-    protected virtual void LoadCharCtrl()
+    protected virtual void LoadBotCtrl()
     {
-        if (this.charCtrl != null) return;
-        charCtrl = transform.parent.GetComponent<CharCtrl>();
-        Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
+        if (this.botCtrl != null) return;
+        botCtrl = transform.parent.GetComponent<BotCtrl>();
+        Debug.LogWarning(transform.name + ": LoadBotCtrl", gameObject);
     }
 
     private void Update()
     {
-        //if (!charCtrl.CharState.IsCanAttack()) return;
-        if (charCtrl.CharInput.InputAttack)
-        {
-            Attack();
-        }
+        Attack();
     }
 
     private void OnDrawGizmosSelected()
@@ -65,19 +61,20 @@ public class CharMeleeAttack : CoreMonoBehaviour
     private void Attack()
     {
         //if (!IsCanAttack()) return;
-        CancelInvokeAttack();
-        Invoke(nameof(MeleeAttack), timeDelayMeleeAttack);
+        if (botCtrl.BotState.IsAttacking)
+        {
+            CancelInvoke(nameof(MeleeAttack));
+            Invoke(nameof(MeleeAttack), timeDelayMeleeAttack);
+        }
     }
 
     private void MeleeAttack()
     {
-
-        Debug.Log(charCtrl.transform.name + "MeleeAttack isCanOverlapCircleMeleeAttack :" + isCanOverlapCircleMeleeAttack);
         if (!isCanOverlapCircleMeleeAttack) return;
 
         Collider2D ballDamSender_Collider2D = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);
         if (ballDamSender_Collider2D == null) return;
-        //Debug.Log(this.transform.parent.name + " hit " + ballDamSender_Collider2D.name);
+        Debug.Log(this.transform.parent.name + " hit " + ballDamSender_Collider2D.name);
         // DamSender de navigation . lieu co ok ko khi ko dung nhung van GetComponent ... chi de navigation code cho de
         DamSender ballDamSender = ballDamSender_Collider2D.GetComponent<DamSender>();
 

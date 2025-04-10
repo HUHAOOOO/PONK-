@@ -10,7 +10,7 @@ public class CharRotate : CoreMonoBehaviour
     [SerializeField] protected CharCtrl _charCtrl;
     [SerializeField] protected WorldAreaType curentWorldAreaType;
     [SerializeField] protected float timerRotate = 0;
-    [SerializeField] protected float timeDelayRotate = 0.5f;
+    [SerializeField] protected float timeDelayRotate = 0.1f;
     [SerializeField] protected bool canRotate;
 
 
@@ -53,16 +53,70 @@ public class CharRotate : CoreMonoBehaviour
         //Debug.Log(_charCtrl.name + "huha Rotate !",gameObject);
     }
 
+    //protected virtual void InitRotate()
+    //{
+    //    WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
+    //    if (newCurrentArea == WorldAreaType.Area1)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_1")
+    //        {
+    //            Rotate();
+    //        }
+    //        else if (_charCtrl.CurrentPos.name == "Pos_2")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+
+    //    if (newCurrentArea == WorldAreaType.Area2)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_2")
+    //        {
+    //            Rotate();
+    //        }
+    //        if (_charCtrl.CurrentPos.name == "Pos_3")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+
+    //    if (newCurrentArea == WorldAreaType.Area3)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_3")
+    //        {
+    //            Rotate();
+    //        }
+    //        if (_charCtrl.CurrentPos.name == "Pos_4")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+
+    //    if (newCurrentArea == WorldAreaType.Area4)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_4")
+    //        {
+    //            Rotate();
+    //        }
+    //        if (_charCtrl.CurrentPos.name == "Pos_1")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+    //}
+    //
     protected virtual void InitRotate()
     {
         WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
+
+
         if (newCurrentArea == WorldAreaType.Area1)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_1")
+            if (_charCtrl.CurrentPos.name == "Pos_2")
             {
                 Rotate();
             }
-            else if (_charCtrl.CurrentPos.name == "Pos_2")
+            else if (_charCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
             }
@@ -70,18 +124,6 @@ public class CharRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area2)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_2")
-            {
-                Rotate();
-            }
-            if (_charCtrl.CurrentPos.name == "Pos_3")
-            {
-                Rotate();
-            }
-        }
-
-        if (newCurrentArea == WorldAreaType.Area3)
-        {
             if (_charCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
@@ -92,7 +134,7 @@ public class CharRotate : CoreMonoBehaviour
             }
         }
 
-        if (newCurrentArea == WorldAreaType.Area4)
+        if (newCurrentArea == WorldAreaType.Area3)
         {
             if (_charCtrl.CurrentPos.name == "Pos_4")
             {
@@ -103,8 +145,20 @@ public class CharRotate : CoreMonoBehaviour
                 Rotate();
             }
         }
-    }
 
+        if (newCurrentArea == WorldAreaType.Area4)
+        {
+            if (_charCtrl.CurrentPos.name == "Pos_1")
+            {
+                Rotate();
+            }
+            if (_charCtrl.CurrentPos.name == "Pos_2")
+            {
+                Rotate();
+            }
+        }
+    }
+    //
     protected virtual void RotateChar()
     {
         if (!CanRotate()) return;
@@ -117,16 +171,38 @@ public class CharRotate : CoreMonoBehaviour
         bool bottomPoint = GameManager.Instance.BottomPoint;
         bool leftPoint = GameManager.Instance.LeftPoint;
 
+        //if (_charCtrl.CurrentPos.name == "Pos_1" || _charCtrl.CurrentPos.name == "Pos_3")
+        //{
+        //    if (leftPoint || rightPoint)
+        //    {
+        //        this.Rotate();
+        //    }
+        //}
+        //else if (_charCtrl.CurrentPos.name == "Pos_2" || _charCtrl.CurrentPos.name == "Pos_4")
+        //{
+        //    if (topPoint || bottomPoint)
+        //    {
+        //        this.Rotate();
+        //    }
+        //}
         if (_charCtrl.CurrentPos.name == "Pos_1" || _charCtrl.CurrentPos.name == "Pos_3")
         {
-            if (leftPoint || rightPoint)
+            //if (leftPoint || rightPoint)
+            //{
+            //    this.Rotate();
+            //}
+            if (topPoint || bottomPoint)
             {
                 this.Rotate();
             }
         }
         else if (_charCtrl.CurrentPos.name == "Pos_2" || _charCtrl.CurrentPos.name == "Pos_4")
         {
-            if (topPoint || bottomPoint)
+            //if (topPoint || bottomPoint)
+            //{
+            //    this.Rotate();
+            //}
+            if (leftPoint || rightPoint)
             {
                 this.Rotate();
             }

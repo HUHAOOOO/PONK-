@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
-public class CharAnimatorCtrl : CoreMonoBehaviour
+public class BotAnimatorCtrl : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl _charCtrl;
-    [SerializeField] protected CharTimeAnimClip charTimeAnimClip;
+    [SerializeField] protected BotCtrl botCtrl;
+    [SerializeField] protected BotTimeAnimClip botTimeAnimClip;
 
     //cho ra 1 class rieng dc nhi
     private static readonly int Idle = Animator.StringToHash("Idle");
@@ -26,10 +26,10 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     [SerializeField] protected float timer = 0;
 
 
-    public CharCtrl CharCtrl
+    public BotCtrl BotCtrl
     {
-        get => _charCtrl;
-        private set => _charCtrl = value;
+        get => botCtrl;
+        private set => botCtrl = value;
     }
     public float AttackAnimTime
     {
@@ -40,70 +40,67 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     //public bool CanGetState { get => canGetState; private set => canGetState = value; }
     protected override void LoadComponents()
     {
-        LoadCharCtrl();
-        LoadCharTimeAnimClip();
+        LoadBotCtrl();
+        LoadBotTimeAnimClip();
 
         GetAnimClipTime();
     }
 
     protected virtual void GetAnimClipTime()
     {
-        _attackAnimTime = charTimeAnimClip.AtackAnimTime;
-        _dodgeAnimTime = charTimeAnimClip.DodgeAnimTime;
-        _hurtAnimTime = charTimeAnimClip.HurtAnimTime;
-        _dieAnimTime = charTimeAnimClip.DieAnimTime;
+        _attackAnimTime = botTimeAnimClip.AtackAnimTime;
+        _dodgeAnimTime = botTimeAnimClip.DodgeAnimTime;
+        _hurtAnimTime = botTimeAnimClip.HurtAnimTime;
+        _dieAnimTime = botTimeAnimClip.DieAnimTime;
     }
-    protected virtual void LoadCharCtrl()
+    protected virtual void LoadBotCtrl()
     {
-        if (this._charCtrl != null) return;
-        _charCtrl = transform.parent.GetComponent<CharCtrl>();
-        Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
+        if (this.botCtrl != null) return;
+        botCtrl = transform.parent.GetComponent<BotCtrl>();
+        Debug.LogWarning(transform.name + ": LoadBotCtrl", gameObject);
     }
-    protected virtual void LoadCharTimeAnimClip()
+    protected virtual void LoadBotTimeAnimClip()
     {
-        if (this.charTimeAnimClip != null) return;
-        charTimeAnimClip = GetComponent<CharTimeAnimClip>();
-        Debug.LogWarning(transform.name + ": LoadCharTimeAnimClip", gameObject);
+        if (this.botTimeAnimClip != null) return;
+        botTimeAnimClip = GetComponent<BotTimeAnimClip>();
+        Debug.LogWarning(transform.name + ": LoadBotTimeAnimClip", gameObject);
     }
     // Update is called once per frame
     void Update()
     {
-        //if (_charCtrl.DamReceive.IsDie) return _currentState;
-
         state = GetState();
         if (state == _currentState) return;
         _currentState = state;
-        _charCtrl.CharAnim.CrossFade(_currentState, 0, 0);
+        botCtrl.BotAnim.CrossFade(_currentState, 0, 0);
     }
     protected virtual void SetTimeDelayAnim(float Time2Delay)
     {
         timeDelay = Time2Delay;
-        _charCtrl.CharState.SetFalseSomeThing();
+        botCtrl.BotState.SetFalseSomeThing();
     }
 
     private int GetState()
     {
-
         if(!CanGetState()) return _currentState;
 
-        if (_charCtrl.CharState.IsDying)
+        if (botCtrl.BotState.IsDying)
         {
             //Debug.Log("IsDying", gameObject);
             SetTimeDelayAnim(_dieAnimTime);
             Debug.Log("Player has been DIE !", gameObject);
             return Die;
         }
-        else if (_charCtrl.CharState.IsHurting)
+        else if (botCtrl.BotState.IsHurting)
         {
             //Debug.Log("IsHurting", gameObject);
             return SetNewState(Hurt, _hurtAnimTime);
         }
-        else if (_charCtrl.CharState.IsAttacking)
+        else if (botCtrl.BotState.IsAttacking)
         {
             //Debug.Log("IsAttacking", gameObject);
             return SetNewState(Attack, _attackAnimTime);
         }
-        else if (_charCtrl.CharState.IsDodging)
+        else if (botCtrl.BotState.IsDodging)
         {
             //Debug.Log("IsDodging", gameObject);
             return SetNewState(Dodge, _dodgeAnimTime);

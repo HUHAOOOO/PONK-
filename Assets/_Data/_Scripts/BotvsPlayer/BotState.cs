@@ -1,12 +1,11 @@
 using UnityEngine;
-using static UnityEngine.EventSystems.StandaloneInputModule;
 
-public class CharState : CoreMonoBehaviour
+public class BotState : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl charCtrl;
+    [SerializeField] protected BotCtrl botCtrl;
 
 
-    [SerializeField] protected bool isAttackingFake;
+    //[SerializeField] protected bool isAttackingFake;
     [SerializeField] protected bool isAttacking;
     [SerializeField] protected bool isDodging;
     [SerializeField] protected bool isHurting;
@@ -20,69 +19,66 @@ public class CharState : CoreMonoBehaviour
     [SerializeField] protected float timeDelayDodge = 1f;
     [SerializeField] protected bool canDodge = true;
 
-    [SerializeField] protected bool isCanPress = true;
+    [SerializeField] protected bool isCanPress;
 
     public bool CanAttack { get => canAttack; }
     public bool CanDodge { get => canDodge; }
 
-    public bool IsAttacking { get => isAttacking; }
+    public bool IsAttacking { get => isAttacking; } //isAttackingFake // { get => isAttackingFake; }//
     public bool IsDodging { get => isDodging; }
     public bool IsHurting { get => isHurting; set => isHurting = value; }
     public bool IsDying { get => isDying; set => isDying = value; }
-    public bool IsCanPressBool { get => isCanPress; set => isCanPress = value; }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadCharCtrl();
+        LoadBotCtrl();
     }
-    protected virtual void LoadCharCtrl()
+    protected virtual void LoadBotCtrl()
     {
-        if (this.charCtrl != null) return;
-        charCtrl = GetComponent<CharCtrl>();
-        Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
+        if (this.botCtrl != null) return;
+        botCtrl = GetComponent<BotCtrl>();
+        Debug.LogWarning(transform.name + ": LoadBotCtrl", gameObject);
     }
     private void Update()
     {
-        if (!IsCanPress()) return;
         GetInput();
     }
 
     private void GetInput()
     {
-        InputDodge();
+        isCanPress = IsCanPress();
+        if (!IsCanPress()) return;
         InputAttack();
+        InputDodge();
     }
 
     public virtual void SetFalseSomeThing()
     {
-        isAttacking = false;
-
-        Invoke(nameof(SetFalse), 0.5f);
+        Invoke(nameof(SetFalse), 0.1f);//0.5f
     }
 
     public virtual void SetFalse()
     {
-        isAttackingFake = false;
+        isAttacking = false;
+
+
+        //isAttackingFake = false;
 
         isDodging = false;
         isHurting = false;
-
-        IsCanPressBool = true;
     }
     public virtual void InputAttack()
     {
         if (!IsCanAttack()) return;
-        if (charCtrl.CharInput.InputAttack)
+        if (botCtrl.BotInput.InputAttack)
         {
-            isAttacking = true; isAttackingFake = true;
+            isAttacking = true; //isAttackingFake = true;
             canAttack = false;
-            charCtrl.CharInput.SetFalseInput();
-
-            IsCanPressBool = false;
+            botCtrl.BotInput.SetFalseInput();
         }
     }
-    public virtual bool IsCanAttack()
+    protected virtual bool IsCanAttack()
     {
         if (canAttack) return true;
 
@@ -95,13 +91,11 @@ public class CharState : CoreMonoBehaviour
     public virtual void InputDodge()
     {
         if (!IsCanDodge()) return;
-        if (charCtrl.CharInput.InputDodge)
+        if (botCtrl.BotInput.InputDodge)
         {
             isDodging = true;
             canDodge = false;
-            charCtrl.CharInput.SetFalseInput();
-
-            IsCanPressBool = false;
+            botCtrl.BotInput.SetFalseInput();
         }
     }
     protected virtual bool IsCanDodge()
@@ -117,8 +111,8 @@ public class CharState : CoreMonoBehaviour
 
     protected virtual bool IsCanPress()
     {
-        if (!isCanPress) return false;
-        if (this.isAttackingFake || IsDodging || IsHurting || IsDying) return false;
+        //if (this.isAttackingFake || IsDodging || IsHurting || IsDying) return false;
+        if (isAttacking || isDodging || isHurting || isDying) return false;
         return true;
     }
 }

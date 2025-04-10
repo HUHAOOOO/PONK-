@@ -15,7 +15,7 @@ public class SpawnPoints : CoreMonoBehaviour
     protected virtual void LoadPoints()
     {
         if (this.points.Count > 0) return;
-        foreach(Transform point in transform)
+        foreach (Transform point in transform)
         {
             this.points.Add(point);
         }
@@ -26,5 +26,10 @@ public class SpawnPoints : CoreMonoBehaviour
     {
         int rand = Random.Range(0, this.points.Count);
         return this.points[rand];
+    }
+
+    public virtual Transform GetPoint(int index)
+    {
+        return this.points[index];
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CharCtrl : CoreMonoBehaviour
 {
+    [SerializeField] protected int posIndex;
 
     [SerializeField] protected CharInput charInput;
     [SerializeField] protected CharState charState;
@@ -13,6 +14,7 @@ public class CharCtrl : CoreMonoBehaviour
     [SerializeField] protected CharImmortalSheild charImmortalShield;
 
     [SerializeField] protected Transform currentPos;
+    public int PosIndex { get => posIndex; set => posIndex = value; }
     public CharInput CharInput { get => charInput; }
 
     public Animator CharAnim { get => charAnim; }
@@ -86,10 +88,24 @@ public class CharCtrl : CoreMonoBehaviour
         charMeleeAttack = GetComponentInChildren<CharMeleeAttack>();
         Debug.LogWarning(transform.name + ": LoadCharMeleeAttack", gameObject);
     }
-    public virtual void SetPosChar(Transform pos)
+
+
+    private void Update()
+    {
+        if(damReceive.IsDie)
+        {
+            GameManager.Instance.SetPosPiOff(posIndex);
+            this.gameObject.SetActive(false);
+        }
+    }
+
+
+    public virtual void SetPosChar(Transform pos,int indexPos)
     {
         this.transform.position = pos.position;
         this.transform.rotation = pos.rotation;
         currentPos = pos;
+
+        posIndex = indexPos;
     }
 }

@@ -28,7 +28,7 @@ public class SpawnerCtrl : CoreMonoBehaviour
     protected virtual void LoadSpawnPoints()
     {
         if (this.spawnPoints != null) return;
-        this.spawnPoints = GameObject.Find("SpawnPoints").GetComponent<SpawnPoints>();
+        this.spawnPoints = transform.Find("SpawnPoints").GetComponent<SpawnPoints>();
         Debug.Log(transform.name + ": LoadSpawnPoints", gameObject);
     }
 }
