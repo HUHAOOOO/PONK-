@@ -53,16 +53,70 @@ public class CharRotate : CoreMonoBehaviour
         //Debug.Log(_charCtrl.name + "huha Rotate !",gameObject);
     }
 
+    //protected virtual void InitRotate()
+    //{
+    //    WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
+    //    if (newCurrentArea == WorldAreaType.Area1)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_1")
+    //        {
+    //            Rotate();
+    //        }
+    //        else if (_charCtrl.CurrentPos.name == "Pos_2")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+
+    //    if (newCurrentArea == WorldAreaType.Area2)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_2")
+    //        {
+    //            Rotate();
+    //        }
+    //        if (_charCtrl.CurrentPos.name == "Pos_3")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+
+    //    if (newCurrentArea == WorldAreaType.Area3)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_3")
+    //        {
+    //            Rotate();
+    //        }
+    //        if (_charCtrl.CurrentPos.name == "Pos_4")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+
+    //    if (newCurrentArea == WorldAreaType.Area4)
+    //    {
+    //        if (_charCtrl.CurrentPos.name == "Pos_4")
+    //        {
+    //            Rotate();
+    //        }
+    //        if (_charCtrl.CurrentPos.name == "Pos_1")
+    //        {
+    //            Rotate();
+    //        }
+    //    }
+    //}
+    //
     protected virtual void InitRotate()
     {
         WorldAreaType newCurrentArea = GameManager.Instance.CurrentArea;
+
+
         if (newCurrentArea == WorldAreaType.Area1)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_1")
+            if (_charCtrl.CurrentPos.name == "Pos_2")
             {
                 Rotate();
             }
-            else if (_charCtrl.CurrentPos.name == "Pos_2")
+            else if (_charCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
             }
@@ -70,18 +124,6 @@ public class CharRotate : CoreMonoBehaviour
 
         if (newCurrentArea == WorldAreaType.Area2)
         {
-            if (_charCtrl.CurrentPos.name == "Pos_2")
-            {
-                Rotate();
-            }
-            if (_charCtrl.CurrentPos.name == "Pos_3")
-            {
-                Rotate();
-            }
-        }
-
-        if (newCurrentArea == WorldAreaType.Area3)
-        {
             if (_charCtrl.CurrentPos.name == "Pos_3")
             {
                 Rotate();
@@ -92,7 +134,7 @@ public class CharRotate : CoreMonoBehaviour
             }
         }
 
-        if (newCurrentArea == WorldAreaType.Area4)
+        if (newCurrentArea == WorldAreaType.Area3)
         {
             if (_charCtrl.CurrentPos.name == "Pos_4")
             {
@@ -103,8 +145,20 @@ public class CharRotate : CoreMonoBehaviour
                 Rotate();
             }
         }
-    }
 
+        if (newCurrentArea == WorldAreaType.Area4)
+        {
+            if (_charCtrl.CurrentPos.name == "Pos_1")
+            {
+                Rotate();
+            }
+            if (_charCtrl.CurrentPos.name == "Pos_2")
+            {
+                Rotate();
+            }
+        }
+    }
+    //
     protected virtual void RotateChar()
     {
         if (!CanRotate()) return;

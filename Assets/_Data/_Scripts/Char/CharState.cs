@@ -20,7 +20,7 @@ public class CharState : CoreMonoBehaviour
     [SerializeField] protected float timeDelayDodge = 1f;
     [SerializeField] protected bool canDodge = true;
 
-    [SerializeField] protected bool isCanPress;
+    [SerializeField] protected bool isCanPress = true;
 
     public bool CanAttack { get => canAttack; }
     public bool CanDodge { get => canDodge; }
@@ -29,6 +29,7 @@ public class CharState : CoreMonoBehaviour
     public bool IsDodging { get => isDodging; }
     public bool IsHurting { get => isHurting; set => isHurting = value; }
     public bool IsDying { get => isDying; set => isDying = value; }
+    public bool IsCanPressBool { get => isCanPress; set => isCanPress = value; }
 
     protected override void LoadComponents()
     {
@@ -43,15 +44,14 @@ public class CharState : CoreMonoBehaviour
     }
     private void Update()
     {
+        if (!IsCanPress()) return;
         GetInput();
     }
 
     private void GetInput()
     {
-        isCanPress = IsCanPress();
-        if (!IsCanPress()) return;
-        InputAttack();
         InputDodge();
+        InputAttack();
     }
 
     public virtual void SetFalseSomeThing()
@@ -67,6 +67,8 @@ public class CharState : CoreMonoBehaviour
 
         isDodging = false;
         isHurting = false;
+
+        IsCanPressBool = true;
     }
     public virtual void InputAttack()
     {
@@ -76,9 +78,11 @@ public class CharState : CoreMonoBehaviour
             isAttacking = true; isAttackingFake = true;
             canAttack = false;
             charCtrl.CharInput.SetFalseInput();
+
+            IsCanPressBool = false;
         }
     }
-    protected virtual bool IsCanAttack()
+    public virtual bool IsCanAttack()
     {
         if (canAttack) return true;
 
@@ -96,6 +100,8 @@ public class CharState : CoreMonoBehaviour
             isDodging = true;
             canDodge = false;
             charCtrl.CharInput.SetFalseInput();
+
+            IsCanPressBool = false;
         }
     }
     protected virtual bool IsCanDodge()
@@ -111,6 +117,7 @@ public class CharState : CoreMonoBehaviour
 
     protected virtual bool IsCanPress()
     {
+        if (!isCanPress) return false;
         if (this.isAttackingFake || IsDodging || IsHurting || IsDying) return false;
         return true;
     }

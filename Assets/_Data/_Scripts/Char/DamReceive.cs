@@ -1,16 +1,24 @@
 using UnityEngine;
+using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class DamReceive : CoreMonoBehaviour
 {
     [SerializeField] protected CharCtrl charCtrl;
-
     [SerializeField] protected int healthPoints = 5;
+    [SerializeField] protected bool isDie;
+    public int HealthPoints { get => healthPoints; set => healthPoints = value; }
+    public bool IsDie { get => isDie; }
+
+    protected override void OnEnable()
+    {
+        isDie = false;
+    }
 
     public virtual void TakeDam(int damReceive)
     {
         healthPoints -= damReceive;
         Hurt();
-        if (healthPoints <= 0) Die(); 
+        if (healthPoints <= 0) Die();
     }
 
     protected override void LoadComponents()
@@ -35,5 +43,7 @@ public class DamReceive : CoreMonoBehaviour
     {
         Debug.Log(transform.parent.name + " has been defeated (teof)!");
         charCtrl.CharState.IsDying = true;
+
+        isDie = true;
     }
 }

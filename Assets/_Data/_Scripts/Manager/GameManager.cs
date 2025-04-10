@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.EventSystems.StandaloneInputModule;
 
 
 public class GameManager : CoreMonoBehaviour
@@ -29,6 +30,11 @@ public class GameManager : CoreMonoBehaviour
     [SerializeField] protected List<CharCtrl> players = new();
     [SerializeField] protected int indexPos;
 
+    [SerializeField] protected bool posP1IsOn;
+    [SerializeField] protected bool posP2IsOn;
+    [SerializeField] protected bool posP3IsOn;
+    [SerializeField] protected bool posP4IsOn;
+
     public WorldAreaType CurrentArea => currentArea;
     public WorldAreaType PreviousArea => previousArea;
     public bool IsClockwise => isClockwise;
@@ -37,6 +43,12 @@ public class GameManager : CoreMonoBehaviour
     public bool RightPoint => rightPoint;
     public bool BottomPoint => bottomPoint;
     public bool LeftPoint => leftPoint;
+
+
+    public bool PosP1IsOn { get => posP1IsOn; set => posP1IsOn = value; }
+    public bool PosP2IsOn { get => posP2IsOn; set => posP2IsOn = value; }
+    public bool PosP3IsOn { get => posP3IsOn; set => posP3IsOn = value; }
+    public bool PosP4IsOn { get => posP4IsOn; set => posP4IsOn = value; }
 
     protected override void Awake()
     {
@@ -115,7 +127,8 @@ public class GameManager : CoreMonoBehaviour
         CharCtrl[] listPlayers = FindObjectsByType<CharCtrl>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         //FindObjectsInactive.Exclude // GO active
         //FindObjectsInactive.Include // GO inactive
-        this.players = listPlayers.ToList();
+        //this.players = listPlayers.ToList();
+        this.players = listPlayers.OrderBy(p => p.transform.name).ToList();
         Debug.LogWarning(transform.name + ": LoadPlayers", gameObject);
     }
 
@@ -165,20 +178,63 @@ public class GameManager : CoreMonoBehaviour
 
     public virtual void SetPosForPlayer()
     {
-        players[0].SetPosChar(PosAvailable());
-        //players[1].SetPosChar(PosAvailable());
-        //players[2].SetPosChar(PosAvailable());
-        //players[3].SetPosChar(PosAvailable());
+        players[0].SetPosChar(PosAvailable(0),0);
+        players[1].SetPosChar(PosAvailable(1),1);
+        players[2].SetPosChar(PosAvailable(2),2);
+        players[3].SetPosChar(PosAvailable(3),3);
     }
-
-    public virtual Transform PosAvailable()
+    public virtual Transform PosAvailable(int indexPos)
     {
-        //if (indexPos <= 0) return null;
-        //indexPos--;
-        //return pos4Players[indexPos];
-        return pos4Players[0];
+        SetPosPiIsOn(indexPos);
+        return pos4Players[indexPos];
     }
-
+    //public virtual Transform PosAvailable()
+    //{
+    //    if (indexPos <= 0) return null;
+    //    indexPos--;
+    //    SetPosPiIsOn(indexPos);
+    //    return pos4Players[indexPos];
+    //    //return pos4Players[0];
+    //}
+    public virtual void SetPosPiIsOn(int indexPosIsOn)
+    {
+        if(indexPosIsOn == 0)
+        {
+            posP1IsOn = true;
+        }
+        else if (indexPosIsOn == 1)
+        {
+            posP2IsOn = true;
+        }
+        else if (indexPosIsOn == 2)
+        {
+            posP3IsOn = true;
+        }
+        else if (indexPosIsOn == 3)
+        {
+            posP4IsOn = true;
+        }
+    }
+    // Khi player Dead goi lai 
+    public virtual void SetPosPiOff(int indexPosOff)
+    {
+        if (indexPosOff == 0)
+        {
+            posP1IsOn = false;
+        }
+        else if (indexPosOff == 1)
+        {
+            posP2IsOn = false;
+        }
+        else if (indexPosOff == 2)
+        {
+            posP3IsOn = false;
+        }
+        else if (indexPosOff == 3)
+        {
+            posP4IsOn = false;
+        }
+    }
 
     protected virtual void AreaPreCur()
     {
@@ -240,6 +296,8 @@ public class GameManager : CoreMonoBehaviour
     {
         foreach (CharCtrl charCtrl in players)
         {
+            Debug.Log("GameManager : " + charCtrl.transform.name + " : " + isCanOverlapCircleMeleeAttack);
+            
             charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = isCanOverlapCircleMeleeAttack;
         }
     }

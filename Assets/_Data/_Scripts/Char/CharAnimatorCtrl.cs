@@ -68,6 +68,8 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (_charCtrl.DamReceive.IsDie) return _currentState;
+
         state = GetState();
         if (state == _currentState) return;
         _currentState = state;
@@ -81,6 +83,7 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
 
     private int GetState()
     {
+
         if(!CanGetState()) return _currentState;
 
         if (_charCtrl.CharState.IsDying)

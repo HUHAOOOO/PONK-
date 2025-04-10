@@ -8,6 +8,8 @@ public class CharInput : CoreMonoBehaviour
     [SerializeField] protected bool inputDodge;
 
     [SerializeField] protected int timeDelaySetFalseInput = 1;
+    [SerializeField] protected KeyCode keyAttack = KeyCode.A;
+    [SerializeField] protected KeyCode keyDodge = KeyCode.S;
 
 
     public bool InputAttack { get => inputAttack; }
@@ -30,10 +32,9 @@ public class CharInput : CoreMonoBehaviour
     }
     protected virtual void GetInput()
     {
-        inputAttack = Input.GetKeyDown(KeyCode.A);
-        inputDodge = Input.GetKeyDown(KeyCode.S);
+        inputAttack = Input.GetKeyDown(keyAttack);
+        inputDodge = Input.GetKeyDown(keyDodge);
     }
-
 
     public void SetFalseInput()
     {

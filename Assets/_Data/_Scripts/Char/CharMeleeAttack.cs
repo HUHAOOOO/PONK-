@@ -48,7 +48,11 @@ public class CharMeleeAttack : CoreMonoBehaviour
 
     private void Update()
     {
-        Attack();
+        //if (!charCtrl.CharState.IsCanAttack()) return;
+        if (charCtrl.CharInput.InputAttack)
+        {
+            Attack();
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -61,14 +65,14 @@ public class CharMeleeAttack : CoreMonoBehaviour
     private void Attack()
     {
         //if (!IsCanAttack()) return;
-        if (charCtrl.CharState.IsAttacking)
-        {
-            Invoke(nameof(MeleeAttack), timeDelayMeleeAttack);
-        }
+        CancelInvokeAttack();
+        Invoke(nameof(MeleeAttack), timeDelayMeleeAttack);
     }
 
     private void MeleeAttack()
     {
+
+        Debug.Log(charCtrl.transform.name + "MeleeAttack isCanOverlapCircleMeleeAttack :" + isCanOverlapCircleMeleeAttack);
         if (!isCanOverlapCircleMeleeAttack) return;
 
         Collider2D ballDamSender_Collider2D = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);

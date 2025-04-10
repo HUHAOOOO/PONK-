@@ -6,16 +6,25 @@ using UnityEngine;
 
 public class BallCtrl : CoreMonoBehaviour
 {
+    private static BallCtrl instance;
+    public static BallCtrl Instance => instance;
+
     [SerializeField] protected Transform currentBall;
+    [SerializeField] protected TypeBall currentTypeBall;
     [SerializeField] protected BallRotate ballRotate;
     [SerializeField] protected Transform balls;
     [SerializeField] protected List<Transform> ballsModel = new();
 
     public Transform CurrentBall => currentBall;
+    public TypeBall CurrentTypeBall => currentTypeBall;
     public BallRotate BallRotate => ballRotate;
     public Transform Balls => balls;
     public List<Transform> BallsModel => ballsModel;
-
+    protected override void Awake()
+    {
+        if (instance != null) Debug.LogError("only allow 1 BallCtrl | Singleton");
+        BallCtrl.instance = this;
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -30,7 +39,7 @@ public class BallCtrl : CoreMonoBehaviour
     }
     protected virtual void LoadModel()
     {
-        if (this.balls != null ) return;
+        if (this.balls != null) return;
         balls = transform.Find("BALLS").GetComponent<Transform>();
         Debug.LogWarning(transform.name + ": LoadModel", gameObject);
 
@@ -96,11 +105,28 @@ public class BallCtrl : CoreMonoBehaviour
     {
         this.currentBall = currentBall;
         //ballRotate.InitRotate();
+        currentTypeBall = GetTypeBallByTransform(currentBall);
     }
-
+    private TypeBall GetTypeBallByTransform(Transform transformBall)
+    {
+        if (transformBall == ballsModel[0])
+        {
+            return TypeBall.DeffaultBall;
+        }
+        else if (transformBall == ballsModel[1])
+        {
+            return TypeBall.LightningBall;
+        }
+        else if (transformBall == ballsModel[2])
+        {
+            return TypeBall.FireBall;
+        }
+        else return TypeBall.DeffaultBall;
+    }
     private Transform GetBallByType(TypeBall typeBall)
     {
-        if(typeBall == TypeBall.DeffaultBall)
+        currentTypeBall = typeBall;
+        if (typeBall == TypeBall.DeffaultBall)
         {
             return ballsModel[0];
         }
@@ -113,5 +139,11 @@ public class BallCtrl : CoreMonoBehaviour
             return ballsModel[2];
         }
         else return null;
+    }
+
+    public bool BallBotCanSpawn()
+    {
+        if (currentTypeBall == TypeBall.FireBall) return false;
+        return true;
     }
 }
