@@ -14,6 +14,9 @@ public class CharInput : CoreMonoBehaviour
 
     public bool InputAttack { get => inputAttack; }
     public bool InputDodge { get => inputDodge; }
+    public KeyCode KeyAttack { get => keyAttack; set => keyAttack = value; }
+    public KeyCode KeyDodge { get => keyDodge; set => keyDodge = value; }
+
 
     void Update()
     {
