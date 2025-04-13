@@ -28,12 +28,14 @@ public class GameManager : CoreMonoBehaviour
     [SerializeField] protected List<Transform> pos4Players = new();
     [SerializeField] protected List<Transform> pos4GO = new();
     [SerializeField] protected List<CharCtrl> players = new();
-    [SerializeField] protected int indexPos;
+    //[SerializeField] protected int indexPos;
 
-    [SerializeField] protected bool posP1IsOn;
-    [SerializeField] protected bool posP2IsOn;
-    [SerializeField] protected bool posP3IsOn;
-    [SerializeField] protected bool posP4IsOn;
+    //[SerializeField] protected bool posP1IsOn;
+    //[SerializeField] protected bool posP2IsOn;
+    //[SerializeField] protected bool posP3IsOn;
+    //[SerializeField] protected bool posP4IsOn;
+
+    [SerializeField] protected List<KeyPair> playerKC;
 
     public WorldAreaType CurrentArea => currentArea;
     public WorldAreaType PreviousArea => previousArea;
@@ -45,10 +47,10 @@ public class GameManager : CoreMonoBehaviour
     public bool LeftPoint => leftPoint;
 
 
-    public bool PosP1IsOn { get => posP1IsOn; set => posP1IsOn = value; }
-    public bool PosP2IsOn { get => posP2IsOn; set => posP2IsOn = value; }
-    public bool PosP3IsOn { get => posP3IsOn; set => posP3IsOn = value; }
-    public bool PosP4IsOn { get => posP4IsOn; set => posP4IsOn = value; }
+    //public bool PosP1IsOn { get => posP1IsOn; set => posP1IsOn = value; }
+    //public bool PosP2IsOn { get => posP2IsOn; set => posP2IsOn = value; }
+    //public bool PosP3IsOn { get => posP3IsOn; set => posP3IsOn = value; }
+    //public bool PosP4IsOn { get => posP4IsOn; set => posP4IsOn = value; }
 
     protected override void Awake()
     {
@@ -63,6 +65,7 @@ public class GameManager : CoreMonoBehaviour
     {
         int indexRandom = UnityEngine.Random.Range(0, pos4GO.Count);
         ballCtrl.CurrentBall.position = pos4GO[indexRandom].position;
+
         //ballCtrl.Ball.rotation = pos4GO[indexRandom].rotation;
     }
 
@@ -84,8 +87,10 @@ public class GameManager : CoreMonoBehaviour
         LoadPlayers();
         LoadPos4GO();
         //
-        indexPos = pos4Players.Count;
+        //indexPos = pos4Players.Count;
         SetPosForPlayer();
+        ListKeyCodeForPlayer();
+        SetInputForPlayer();
     }
 
     protected virtual void LoadBallCtrl()
@@ -178,63 +183,71 @@ public class GameManager : CoreMonoBehaviour
 
     public virtual void SetPosForPlayer()
     {
-        players[0].SetPosChar(PosAvailable(0),0);
-        players[1].SetPosChar(PosAvailable(1),1);
-        players[2].SetPosChar(PosAvailable(2),2);
-        players[3].SetPosChar(PosAvailable(3),3);
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].SetPosChar(PosAvailable(i), i);
+        }
+    }
+    protected virtual void ListKeyCodeForPlayer()
+    {
+        //KeyCode Deault for player
+        playerKC.Add(new KeyPair(KeyCode.Q, KeyCode.W));
+        playerKC.Add(new KeyPair(KeyCode.X, KeyCode.C));
+        playerKC.Add(new KeyPair(KeyCode.B, KeyCode.N));
+        playerKC.Add(new KeyPair(KeyCode.O, KeyCode.P));
+    }
+    public virtual void SetInputForPlayer()
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].CharInput.KeyAttack = playerKC[i].keyAttack;
+            players[i].CharInput.KeyDodge = playerKC[i].keyDodge;
+        }
     }
     public virtual Transform PosAvailable(int indexPos)
     {
-        SetPosPiIsOn(indexPos);
+        //SetPosPiIsOn(indexPos);
         return pos4Players[indexPos];
     }
-    //public virtual Transform PosAvailable()
+    //public virtual void SetPosPiIsOn(int indexPosIsOn)
     //{
-    //    if (indexPos <= 0) return null;
-    //    indexPos--;
-    //    SetPosPiIsOn(indexPos);
-    //    return pos4Players[indexPos];
-    //    //return pos4Players[0];
+    //    if (indexPosIsOn == 0)
+    //    {
+    //        posP1IsOn = true;
+    //    }
+    //    else if (indexPosIsOn == 1)
+    //    {
+    //        posP2IsOn = true;
+    //    }
+    //    else if (indexPosIsOn == 2)
+    //    {
+    //        posP3IsOn = true;
+    //    }
+    //    else if (indexPosIsOn == 3)
+    //    {
+    //        posP4IsOn = true;
+    //    }
     //}
-    public virtual void SetPosPiIsOn(int indexPosIsOn)
-    {
-        if(indexPosIsOn == 0)
-        {
-            posP1IsOn = true;
-        }
-        else if (indexPosIsOn == 1)
-        {
-            posP2IsOn = true;
-        }
-        else if (indexPosIsOn == 2)
-        {
-            posP3IsOn = true;
-        }
-        else if (indexPosIsOn == 3)
-        {
-            posP4IsOn = true;
-        }
-    }
-    // Khi player Dead goi lai 
-    public virtual void SetPosPiOff(int indexPosOff)
-    {
-        if (indexPosOff == 0)
-        {
-            posP1IsOn = false;
-        }
-        else if (indexPosOff == 1)
-        {
-            posP2IsOn = false;
-        }
-        else if (indexPosOff == 2)
-        {
-            posP3IsOn = false;
-        }
-        else if (indexPosOff == 3)
-        {
-            posP4IsOn = false;
-        }
-    }
+    //// Khi player Dead goi lai 
+    //public virtual void SetPosPiOff(int indexPosOff)
+    //{
+    //    if (indexPosOff == 0)
+    //    {
+    //        posP1IsOn = false;
+    //    }
+    //    else if (indexPosOff == 1)
+    //    {
+    //        posP2IsOn = false;
+    //    }
+    //    else if (indexPosOff == 2)
+    //    {
+    //        posP3IsOn = false;
+    //    }
+    //    else if (indexPosOff == 3)
+    //    {
+    //        posP4IsOn = false;
+    //    }
+    //}
 
     protected virtual void AreaPreCur()
     {
@@ -297,7 +310,7 @@ public class GameManager : CoreMonoBehaviour
         foreach (CharCtrl charCtrl in players)
         {
             Debug.Log("GameManager : " + charCtrl.transform.name + " : " + isCanOverlapCircleMeleeAttack);
-            
+
             charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = isCanOverlapCircleMeleeAttack;
         }
     }

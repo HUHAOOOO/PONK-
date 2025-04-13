@@ -92,11 +92,11 @@ public class CharCtrl : CoreMonoBehaviour
 
     private void Update()
     {
-        if(damReceive.IsDie)
-        {
-            GameManager.Instance.SetPosPiOff(posIndex);
-            this.gameObject.SetActive(false);
-        }
+        //if(damReceive.IsDie)
+        //{
+        //    GameManager.Instance.SetPosPiOff(posIndex);
+        //    this.gameObject.SetActive(false);
+        //}
     }
 
 
