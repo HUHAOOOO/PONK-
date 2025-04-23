@@ -11,4 +11,8 @@ public class KeyPair
         keyAttack = kAttak;
         keyDodge = kDodge;
     }
+    public KeyPair Clone()
+    {
+        return new KeyPair(this.keyAttack, this.keyDodge);
+    }
 }
