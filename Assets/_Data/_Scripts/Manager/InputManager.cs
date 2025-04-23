@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+
+public class InputManager : CoreMonoBehaviour
+{
+    private static InputManager instance;
+    public static InputManager Instance => instance;
+
+    [SerializeField] protected List<KeyPair> playerKC;
+    [SerializeField] protected List<CharCtrl> players = new();
+
+    public List<KeyPair> PlayerKC => playerKC;
+
+
+    protected override void Awake()
+    {
+        if (instance != null) Debug.LogError("only allow 1 InputManager | Singleton");
+        InputManager.instance = this;
+    }
+    protected override void LoadComponents()
+    {
+        InputManager.instance = this;
+
+        base.LoadComponents();
+        GetListPlayer();
+        //LoadPlayers();
+        //
+        ListKeyCodeForPlayer();
+        SetInputForPlayer();
+    }
+    private void GetListPlayer()
+    {
+        if (GameManager.Instance == null){
+            Debug.LogWarning("GameManager chua co Instance kia Reset lai di:v");
+            return;
+        }
+        players = GameManager.Instance.Players;
+
+    }
+    //protected virtual void LoadPlayers()
+    //{
+    //    if (this.players.Count > 0) return;
+    //    CharCtrl[] listPlayers = FindObjectsByType<CharCtrl>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+    //    //FindObjectsInactive.Exclude // GO active
+    //    //FindObjectsInactive.Include // GO inactive
+    //    //this.players = listPlayers.ToList();
+    //    this.players = listPlayers.OrderBy(p => p.transform.name).ToList();
+    //    Debug.LogWarning(transform.name + ": LoadPlayers", gameObject);
+    //}
+    protected virtual void ListKeyCodeForPlayer()
+    {
+        //KeyCode Deault for player
+        playerKC.Add(new KeyPair(KeyCode.Q, KeyCode.W));
+        playerKC.Add(new KeyPair(KeyCode.X, KeyCode.C));
+        playerKC.Add(new KeyPair(KeyCode.B, KeyCode.N));
+        playerKC.Add(new KeyPair(KeyCode.O, KeyCode.P));
+    }
+
+
+    public virtual void SetInputForPlayer()
+    {
+        KeyPair newKeyPair;
+        for (int i = 0; i < players.Count; i++)
+        {
+            newKeyPair = playerKC[i].Clone();
+            players[i].CharInput.KeyAttack = newKeyPair.keyAttack;
+            players[i].CharInput.KeyDodge = newKeyPair.keyDodge;
+        }
+    }
+
+
+}

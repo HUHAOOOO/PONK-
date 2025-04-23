@@ -35,7 +35,6 @@ public class GameManager : CoreMonoBehaviour
     //[SerializeField] protected bool posP3IsOn;
     //[SerializeField] protected bool posP4IsOn;
 
-    [SerializeField] protected List<KeyPair> playerKC;
 
     public WorldAreaType CurrentArea => currentArea;
     public WorldAreaType PreviousArea => previousArea;
@@ -45,6 +44,7 @@ public class GameManager : CoreMonoBehaviour
     public bool RightPoint => rightPoint;
     public bool BottomPoint => bottomPoint;
     public bool LeftPoint => leftPoint;
+    public List<CharCtrl> Players => players;
 
 
     //public bool PosP1IsOn { get => posP1IsOn; set => posP1IsOn = value; }
@@ -81,6 +81,8 @@ public class GameManager : CoreMonoBehaviour
 
     protected override void LoadComponents()
     {
+        GameManager.instance = this;
+
         base.LoadComponents();
         LoadBallCtrl();
         LoadPos4Players();
@@ -89,8 +91,6 @@ public class GameManager : CoreMonoBehaviour
         //
         //indexPos = pos4Players.Count;
         SetPosForPlayer();
-        ListKeyCodeForPlayer();
-        SetInputForPlayer();
     }
 
     protected virtual void LoadBallCtrl()
@@ -188,22 +188,8 @@ public class GameManager : CoreMonoBehaviour
             players[i].SetPosChar(PosAvailable(i), i);
         }
     }
-    protected virtual void ListKeyCodeForPlayer()
-    {
-        //KeyCode Deault for player
-        playerKC.Add(new KeyPair(KeyCode.Q, KeyCode.W));
-        playerKC.Add(new KeyPair(KeyCode.X, KeyCode.C));
-        playerKC.Add(new KeyPair(KeyCode.B, KeyCode.N));
-        playerKC.Add(new KeyPair(KeyCode.O, KeyCode.P));
-    }
-    public virtual void SetInputForPlayer()
-    {
-        for (int i = 0; i < players.Count; i++)
-        {
-            players[i].CharInput.KeyAttack = playerKC[i].keyAttack;
-            players[i].CharInput.KeyDodge = playerKC[i].keyDodge;
-        }
-    }
+
+
     public virtual Transform PosAvailable(int indexPos)
     {
         //SetPosPiIsOn(indexPos);
@@ -309,7 +295,7 @@ public class GameManager : CoreMonoBehaviour
     {
         foreach (CharCtrl charCtrl in players)
         {
-            Debug.Log("GameManager : " + charCtrl.transform.name + " : " + isCanOverlapCircleMeleeAttack);
+            //Debug.Log("GameManager : " + charCtrl.transform.name + " : " + isCanOverlapCircleMeleeAttack);
 
             charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = isCanOverlapCircleMeleeAttack;
         }
