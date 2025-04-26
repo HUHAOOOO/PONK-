@@ -1,1 +1,0 @@
-{"playerIndexType":1,"nameP":"P0","keyPairP":{"keyAttack":113,"keyDodge":119}}

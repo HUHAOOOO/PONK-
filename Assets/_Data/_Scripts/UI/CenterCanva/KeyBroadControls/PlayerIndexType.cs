@@ -17,4 +17,12 @@ public static class PlayerIndexTypeExtensions
         // C2 string -> lay ky tu tu vi tri 1 tro di
          return int.Parse(player.ToString().Substring(1));
     }
+    public static PlayerIndexType IndexToPlayerIndexType(int index)
+    {
+        if (index == 0) return PlayerIndexType.P0;
+        if (index == 1) return PlayerIndexType.P1;
+        if (index == 2) return PlayerIndexType.P2;
+        if (index == 3) return PlayerIndexType.P3;
+        return PlayerIndexType.None;
+    }
 }

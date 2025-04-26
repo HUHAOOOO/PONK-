@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PanelPlayerCtrl : CoreMonoBehaviour
 {
+    [SerializeField] protected PanelPlayersCtrl panelPlayersCtrl;
+    [SerializeField] protected PlayerIndexType playerIndexType;
     [SerializeField] protected BtnChangeChar btnChangeChar;
     [SerializeField] protected BtnChangeName btnChangeName;
     [SerializeField] protected BtnChangeInputSkill btnChangeInputSkill;
@@ -18,12 +20,26 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        LoadPanelPlayersCtrl();
+        LoadPlayerIndexType();
         LoadBtnChangeChar();
         LoadBtnChangeName();
         LoadBtnChangeInputSkill();
         LoadInputFieldName();
     }
-
+    private void LoadPanelPlayersCtrl()
+    {
+        if (panelPlayersCtrl != null) return;
+        panelPlayersCtrl = this.transform.parent.GetComponent<PanelPlayersCtrl>();
+        Debug.LogWarning(transform.name + ": LoadPanelPlayersCtrl", gameObject);
+    }
+    private void LoadPlayerIndexType()
+    {
+        if (playerIndexType != PlayerIndexType.None) return;
+        int indexPlayer = StringGetLastNumber.ExtractLastNumber(this.gameObject.name);
+        playerIndexType = PlayerIndexTypeExtensions.IndexToPlayerIndexType(indexPlayer);
+        Debug.LogWarning(transform.name + ": LoadPlayerIndexType", gameObject);
+    }
     private void LoadBtnChangeChar()
     {
         if (btnChangeChar != null) return;
@@ -48,7 +64,6 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
         if (inputFieldName != null) return;
         inputFieldName = GetComponentInChildren<InputFieldName>();
         Debug.LogWarning(transform.name + ": LoadInputFieldName", gameObject);
-        inputFieldName.gameObject.SetActive(false);
     }
 
 
@@ -63,7 +78,7 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
     //BTN
     //Chose new Char
     // khi an vao avatar thi se hien anh cac nhan vat ... co id anh de load cho Player khi vao tran
-    // 
+    // NAY NANG CAO v ... ma hay vl .-. MUON 
 
 
     // Rename
@@ -75,8 +90,18 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
         inputFieldName.TextNow();
     }
 
+    public void UpdateDataForPlayer()
+    {
+        SaveLoadManager.Instance.SaveNewInfoToSO(playerIndexType, btnChangeName.TxtNameP.text, btnChangeInputSkill.KeyPair);
+    }
 
-
+    public void BTN_ReInputAD()
+    {
+        panelPlayersCtrl.InFor4PlayerCtrl.CenterCanva.PlayerIndexType = playerIndexType;
+        panelPlayersCtrl.InFor4PlayerCtrl.CenterCanva.SetActiveGOKeyBroadControlsCtrl();
+        //panelPlayersCtrl.InFor4PlayerCtrl.CenterCanva.;//SetActive(true);
+        //inputFieldName.TextNow();
+    }
     // Change input Attack and Dodge 
     // Done UI 
     // [ ] gan 

@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharCtrl : CoreMonoBehaviour
 {
@@ -6,6 +8,7 @@ public class CharCtrl : CoreMonoBehaviour
 
     [SerializeField] protected CharInput charInput;
     [SerializeField] protected CharState charState;
+    [SerializeField] protected SpriteRenderer charSpriteRenderer;
     [SerializeField] protected Animator charAnim;
     [SerializeField] protected CharAnimatorCtrl charAnimatorCtrl;
     [SerializeField] protected CharMeleeAttack charMeleeAttack;
@@ -14,11 +17,14 @@ public class CharCtrl : CoreMonoBehaviour
     [SerializeField] protected CharImmortalSheild charImmortalShield;
 
     [SerializeField] protected Transform currentPos;
+
+
     public int PosIndex { get => posIndex; set => posIndex = value; }
-    public CharInput CharInput { get => charInput; }
+    public CharInput CharInput { get => charInput; set => charInput = value; }
 
-    public Animator CharAnim { get => charAnim; }
+    public Animator CharAnim { get => charAnim; set => charAnim = value; }
 
+    public SpriteRenderer CharSpriteRenderer { get => charSpriteRenderer; set => charSpriteRenderer = value; }
     public CharState CharState { get => charState; }
     public CharAnimatorCtrl CharAnimatorCtrl { get => charAnimatorCtrl; }
     public DamReceive DamReceive => damReceive;
@@ -27,9 +33,15 @@ public class CharCtrl : CoreMonoBehaviour
     public CharMeleeAttack CharMeleeAttack => charMeleeAttack;
     public Transform CurrentPos => currentPos;
 
+
+    //XXXXXXXXXXXX
+    [SerializeField] protected TextMeshProUGUI namePlayer;
+    public TextMeshProUGUI NamePlayer { get => namePlayer; set => namePlayer = value; }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        LoadCharImage();
         LoadCharAnimator();
         LoadCharAnimatorCtrl();
         LoadCharInput();
@@ -38,8 +50,19 @@ public class CharCtrl : CoreMonoBehaviour
         LoadCharDodge();
         LoadCharImmortalShield();
         LoadCharMeleeAttack();
-    }
 
+        //XXXX
+        LoadNamePlayer();
+    }
+    protected virtual void LoadCharImage()
+    {
+        if (this.charSpriteRenderer != null) return;
+        //GameObject go = transform.Find("Model").GetComponentInChildren<GameObject>();
+        //charSprite = go.GetComponentInChildren<Sprite>();
+        charSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        //harSprite = sr.sprite;
+        Debug.LogWarning(transform.name + ": LoadCharImage", gameObject);
+    }
     protected virtual void LoadCharAnimator()
     {
         if (this.charAnim != null) return;
@@ -89,6 +112,14 @@ public class CharCtrl : CoreMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadCharMeleeAttack", gameObject);
     }
 
+
+    //XXXX
+    protected virtual void LoadNamePlayer()
+    {
+        if (this.namePlayer != null) return;
+        namePlayer = GetComponentInChildren<TextMeshProUGUI>();
+        Debug.LogWarning(transform.name + ": LoadNamePlayer", gameObject);
+    }
 
     private void Update()
     {

@@ -7,7 +7,8 @@ public class InFoPlayerDum : CoreMonoBehaviour
     [SerializeField] protected Image imagePlayer;
     [SerializeField] protected TextMeshProUGUI txtNamePlayer;
 
-    //public int PosIndex { get => posIndex; set => posIndex = value; }
+    public Image ImagePlayer { get => imagePlayer; set => imagePlayer = value; }
+    public TextMeshProUGUI TxtNamePlayer { get => txtNamePlayer; set => txtNamePlayer = value; }
 
     protected override void LoadComponents()
     {

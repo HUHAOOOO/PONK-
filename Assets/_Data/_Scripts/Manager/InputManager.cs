@@ -32,7 +32,8 @@ public class InputManager : CoreMonoBehaviour
     }
     private void GetListPlayer()
     {
-        if (GameManager.Instance == null){
+        if (GameManager.Instance == null)
+        {
             Debug.LogWarning("GameManager chua co Instance kia Reset lai di:v");
             return;
         }
@@ -52,10 +53,17 @@ public class InputManager : CoreMonoBehaviour
     protected virtual void ListKeyCodeForPlayer()
     {
         //KeyCode Deault for player
-        playerKC.Add(new KeyPair(KeyCode.Q, KeyCode.W));
-        playerKC.Add(new KeyPair(KeyCode.X, KeyCode.C));
-        playerKC.Add(new KeyPair(KeyCode.B, KeyCode.N));
-        playerKC.Add(new KeyPair(KeyCode.O, KeyCode.P));
+
+        for (int i = 0; i < 4; i++)
+        {
+            SOInfoPlayer newSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
+            newSOInfoPlayer = SaveLoadManager.Instance.SONewInfoPlayers[i];
+
+            playerKC.Add(new KeyPair(newSOInfoPlayer.keyPairP.keyAttack, newSOInfoPlayer.keyPairP.keyDodge));
+        }
+        //playerKC.Add(new KeyPair(KeyCode.X, KeyCode.C));
+        //playerKC.Add(new KeyPair(KeyCode.B, KeyCode.N));
+        //playerKC.Add(new KeyPair(KeyCode.O, KeyCode.P));
     }
 
 

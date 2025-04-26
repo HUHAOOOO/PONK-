@@ -6,12 +6,16 @@ using UnityEngine;
 using UnityEngine.U2D;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+
 [System.Serializable]
 public class InForPlayerDummy
 {
     public PlayerIndexType playerIndexType;
     public string nameP;
     public KeyPair keyPairP;
+    //public assetType assetTypekeyPairP;
 
     //////////////// C1 TextureToBase64
     //public string spritePStringBase64;
@@ -98,65 +102,65 @@ public class InForPlayerDummy
 
     //
 
-    //////////////// C2 spritePath
-    public string spritePath; // Luu duong dan den file anh
+//    //////////////// C2 spritePath
+//    public string spritePath; // Luu duong dan den file anh
+//    public string Sprite2Path(Sprite sprite)
+//    {
+//#if UNITY_EDITOR
+//        if (sprite == null)
+//        {
+//            Debug.LogWarning("Khong co sprite duoc truyen vao!");
+//            return null;
+//        }
 
-    //public Sprite spriteP;
-    //public string spritePath; // neu muon luu sprite bang ten hoac duong dan
-    public string Sprite2Path(Sprite sprite)
-    {
-#if UNITY_EDITOR
-        if (sprite == null)
-        {
-            Debug.LogWarning("Khong co sprite duoc truyen vao!");
-            return null;
-        }
+//        // Lay duong dan day du cua sprite trong Assets/
+//        string fullPath = AssetDatabase.GetAssetPath(sprite);
 
-        // Lay duong dan day du cua sprite trong Assets/
-        string fullPath = AssetDatabase.GetAssetPath(sprite);
+//        // Kiem tra xem sprite co nam trong Resources/ hay khong
+//        const string resourcesFolder = "Resources/";
+//        int index = fullPath.IndexOf(resourcesFolder);
 
-        // Kiem tra xem sprite co nam trong Resources/ hay khong
-        const string resourcesFolder = "Resources/";
-        int index = fullPath.IndexOf(resourcesFolder);
+//        if (index == -1)
+//        {
+//            Debug.LogWarning("Sprite khong nam trong thu muc Resources/, khong the lay path.");
+//            return null;
+//        }
 
-        if (index == -1)
-        {
-            Debug.LogWarning("Sprite khong nam trong thu muc Resources/, khong the lay path.");
-            return null;
-        }
+//        // Cat duong dan tu Resources/ tro di
+//        int startIndex = index + resourcesFolder.Length;
+//        string pathWithExt = fullPath.Substring(startIndex);
 
-        // Cat duong dan tu Resources/ tro di
-        int startIndex = index + resourcesFolder.Length;
-        string pathWithExt = fullPath.Substring(startIndex);
+//        // Bo duoi file (.png, .jpg...)
+//        string finalPath = System.IO.Path.ChangeExtension(pathWithExt, null);
 
-        // Bo duoi file (.png, .jpg...)
-        string finalPath = System.IO.Path.ChangeExtension(pathWithExt, null);
+//        Debug.Log("Da lay path sprite: " + finalPath);
+//        return finalPath;
+//#else
+//    Debug.LogWarning("Chi chay duoc trong Editor!");
+//    return null;
+//#endif
+//    }
 
-        Debug.Log("Da lay path sprite: " + finalPath);
-        return finalPath;
-#else
-    Debug.LogWarning("Chi chay duoc trong Editor!");
-    return null;
-#endif
-    }
-
-    public Sprite LoadSpriteFromPath(string resourcesPath)
-    {
-        if (string.IsNullOrEmpty(resourcesPath))
-        {
-            Debug.LogWarning("Chua co path de load sprite.");
-            return null;
-        }
-        Sprite loaded = Resources.Load<Sprite>(resourcesPath);
-        return loaded;
+//    public Sprite LoadSpriteFromPath(string resourcesPath)
+//    {
+//        if (string.IsNullOrEmpty(resourcesPath))
+//        {
+//            Debug.LogWarning("Chua co path de load sprite.");
+//            return null;
+//        }
+//        Sprite loaded = Resources.Load<Sprite>(resourcesPath);
+//        return loaded;
+//    }
 
 
-        //byte[] imgData = File.ReadAllBytes(path); // Doc byte tu file
-        //Texture2D tex = new Texture2D(2, 2);
-        //tex.LoadImage(imgData); // Load byte vao texture
 
-        //return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
-    }
+
+    /////////// C3 ADDRESSABLES 
+    //public AssetReferenceSprite spriteRef; // ko keo dc 
+    public AssetReference spriteRefDummy;
+
+
+
 }
 
 [System.Serializable]

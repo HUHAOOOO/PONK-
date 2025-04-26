@@ -5,6 +5,7 @@ public class GORotateParent : CoreMonoBehaviour
     [Header("GO Rotate Parent")]
     [SerializeField] protected float speedRotate = 0.1f;
     [SerializeField] protected TypeRotate typeRorate = TypeRotate.None;
+    [SerializeField] protected bool isRandomRotate;
 
     public float SpeedRotate => speedRotate;
     void Update()
@@ -19,5 +20,16 @@ public class GORotateParent : CoreMonoBehaviour
                 transform.parent.Rotate(Vector3.forward * speedRotate * Time.deltaTime);
                 break;
         }
+    }
+
+    protected override void Start()
+    {
+        RandomRotateParent();
+    }
+    void RandomRotateParent()
+    {
+        if (!isRandomRotate) return;
+        float randomAngle = Random.Range(0f, 360f);
+        transform.parent.rotation = Quaternion.Euler(0f, 0f, randomAngle);
     }
 }

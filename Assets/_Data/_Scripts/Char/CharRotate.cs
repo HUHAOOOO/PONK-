@@ -19,10 +19,13 @@ public class CharRotate : CoreMonoBehaviour
         get => _charCtrl;
         private set => _charCtrl = value;
     }
-    protected override void Start()
+    //protected override void Start()
+    //{
+    //    StartCoroutine(InitRotateAfterUpdate());
+    //}
+    protected override void OnEnable()
     {
         StartCoroutine(InitRotateAfterUpdate());
-
     }
     IEnumerator InitRotateAfterUpdate()
     {
