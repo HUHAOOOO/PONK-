@@ -4,11 +4,14 @@ using System.Reflection;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class KeyBroadControlsCtrl : CoreMonoBehaviour
 {
-    [SerializeField] protected PlayerIndexType playerIndex = PlayerIndexType.None;
+    [SerializeField] protected CenterCanva centerCanva;
+
+    [SerializeField] protected PlayerIndexType playerIndexType = PlayerIndexType.None;
     [SerializeField] protected KeySkillType currentKeyType = KeySkillType.None;
     [SerializeField] protected KeyCode currentKeyCode = KeyCode.None;
 
@@ -22,13 +25,15 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     [SerializeField] protected TextMeshProUGUI txtPressTheNewKey;
     [SerializeField] protected KeyPair keyPair;
 
-
+    public CenterCanva CenterCanva => centerCanva;
     public KeySkillType CurrentKeyType { get => currentKeyType; set => currentKeyType = value; }
     public KeyCode CurrentKeyCode { get => currentKeyCode; set => currentKeyCode = value; }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        LoadCenterCanva();
+
         LoadGoContens();
 
         LoadInFoPlayer();
@@ -37,6 +42,13 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         LoadBtnExit();
         LoadPanelWaitPressTheNewKey();
         LoadTxtPressTheNewKey();
+    }
+
+    protected virtual void LoadCenterCanva()
+    {
+        if (this.centerCanva != null) return;
+        centerCanva = this.transform.parent.parent.GetComponent<CenterCanva>();
+        Debug.LogWarning(transform.name + ": LoadCenterCanva", gameObject);
     }
     protected virtual void LoadGoContens()
     {
@@ -85,48 +97,48 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     }
     private void Update()
     {
-        SetPlayerIndex(playerIndex);
-
-        //SetDefaultKey();
+        //SetPlayerIndex(playerIndexType);// sd de test thoi 
     }
-    protected override void Start()
+    //protected override void Start()
+    //{
+    //    LoadDataPlayerFromSO();
+    //}
+
+    protected override void OnEnable()
     {
-        SetDefaultKey();
+        base.OnEnable();
+        playerIndexType = centerCanva.PlayerIndexType;
+        LoadDataPlayerFromSO();
     }
-    // [ ] an nut chon P thi se goi 1 lan de lay deffault key
-    public void SetDefaultKey()//(PlayerIndexType playerIndexType)
-    {
-
-        int index = GetIndexByPlayerIndexType(playerIndex);
 
 
-        if (index >= 0 && index < InputManager.Instance.PlayerKC.Count)
-        {
-            keyPair = InputManager.Instance.PlayerKC[index].Clone();
-//#if UNITY_EDITOR
-//            UnityEditor.EditorUtility.SetDirty(this);
-//#endif
-            //keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;//.Clone();
-            //keyPair.keyDodge = InputManager.Instance.PlayerKC[index].keyDodge;//.Clone();
-        }
-        else
-        {
-            keyPair = new KeyPair(KeyCode.F, KeyCode.F);
-        }
-        UpdateDataToUI(keyPair);
-    }
-    private void UpdateDataToUI(KeyPair newKeyPair)
-    {
-        ctrlInputs.InputCtrls[0].TxtKey.text = newKeyPair.keyAttack.ToString();
-        ctrlInputs.InputCtrls[1].TxtKey.text = newKeyPair.keyDodge.ToString();
+    //// [ ] an nut chon P thi se goi 1 lan de lay deffault key
+    //public void SetDefaultKey()//(PlayerIndexType playerIndexType)
+    //{
 
-        ctrlInputs.InputCtrls[0].KeyDefault.KeyCode = newKeyPair.keyAttack;
-        ctrlInputs.InputCtrls[1].KeyDefault.KeyCode = newKeyPair.keyDodge;
-    }
+    //    int index = GetIndexByPlayerIndexType(playerIndexType);
+
+
+    //    if (index >= 0 && index < InputManager.Instance.PlayerKC.Count)
+    //    {
+    //        keyPair = InputManager.Instance.PlayerKC[index].Clone();
+    //        //#if UNITY_EDITOR
+    //        //            UnityEditor.EditorUtility.SetDirty(this);
+    //        //#endif
+    //        //keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;//.Clone();
+    //        //keyPair.keyDodge = InputManager.Instance.PlayerKC[index].keyDodge;//.Clone();
+    //    }
+    //    else
+    //    {
+    //        keyPair = new KeyPair(KeyCode.F, KeyCode.F);
+    //    }
+    //    UpdateDataToUI(keyPair);
+    //}
+
     //
     private void SetKeyForPlayer(KeyCode keyAttack, KeyCode keyDodge)
     {
-        CharCtrl charCtrl = GetCharByPlayerIndexType(playerIndex);
+        CharCtrl charCtrl = GetCharByPlayerIndexType(playerIndexType);
         if (charCtrl == null) return;
 
         charCtrl.CharInput.KeyAttack = keyAttack;
@@ -134,10 +146,24 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
 
         UpdateDataToUI(keyPair);
     }
+
+    private void UpdateDataToUI(KeyPair newKeyPair)
+    {
+        // Key
+        ctrlInputs.InputCtrls[0].TxtKey.text = newKeyPair.keyAttack.ToString();
+        ctrlInputs.InputCtrls[1].TxtKey.text = newKeyPair.keyDodge.ToString();
+
+        ctrlInputs.InputCtrls[0].KeyDefault.KeyCode = newKeyPair.keyAttack;
+        ctrlInputs.InputCtrls[1].KeyDefault.KeyCode = newKeyPair.keyDodge;
+    }
     private void SetPlayerIndex(PlayerIndexType playerIndexType)
     {
-        this.playerIndex = playerIndexType;
+        this.playerIndexType = playerIndexType;
+        LoadDataPlayerFromSO(); // set phat load cai moi luon 
+
     }
+
+    //// Da co Extantion -> [ ] XOA
     private int GetIndexByPlayerIndexType(PlayerIndexType playerIndexNow)
     {
         int index = -1;
@@ -166,7 +192,10 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
             keyPair.keyDodge = e.keyCode;
             //ctrlInputs.InputCtrls[1].TxtKey.text = e.keyCode.ToString();
         }
-        SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+        //SetDataForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+        //SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+        SetNewData2SO(keyPair);
+        LoadDataPlayerFromSO();
         SetDefautlNoneData();
     }
 
@@ -200,29 +229,102 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     }
 
 
+    /// <summary>
+    /// SO
+    /// </summary>
+    /// 
+    private void SetNewData2SO(KeyPair keyPair)
+    {
+        SaveLoadManager.Instance.SaveNewInfoKeyToSO(playerIndexType, keyPair);
+    }
+
+    private void LoadDataPlayerFromSO()
+    {
+        if (SaveLoadManager.Instance == null)
+        {
+            Debug.Log(" SaveLoadManager.Instance == null ");
+            return;
+        }
+        SOInfoPlayer newSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
+        if (SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType) == null)
+        {
+            //Debug.Log("NULL newSOInfoPlayer");
+            return;
+        }
+        //newSOInfoPlayer = (SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
+        newSOInfoPlayer.CopyDataFromAnotherSO(SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
+ 
+        SetDataForPlayer(newSOInfoPlayer.spriteP, newSOInfoPlayer.nameP, newSOInfoPlayer.keyPairP);
+
+        keyPair = newSOInfoPlayer.keyPairP;
+    }
+
+    private void SetDataForPlayer(Sprite sprite, string name, KeyPair keyPair)
+    {
+        //Char
+        CharCtrl charCtrl = GetCharByPlayerIndexType(playerIndexType);
+        if (charCtrl == null) return;
+
+        //charCtrl.CharSpriteRenderer.sprite = sprite;
+        charCtrl.NamePlayer.text = name;
+        charCtrl.CharInput.KeyAttack = keyPair.keyAttack;
+        charCtrl.CharInput.KeyDodge = keyPair.keyDodge;
+
+        //UI
+        UpdateNewDataToUI4Player(sprite, name, keyPair);
+    }
+    private void UpdateNewDataToUI4Player(Sprite sprite, string name, KeyPair newKeyPair)
+    {
+        //sprite
+        inFoPlayer.ImagePlayer.sprite = sprite;
+        // name
+        inFoPlayer.TxtNamePlayer.text = name;
+        UpdateKey2UI(newKeyPair);
+    }
+
+
+    private void UpdateKey2UI(KeyPair newKeyPair)
+    {
+        // Key
+        ctrlInputs.InputCtrls[0].TxtKey.text = newKeyPair.keyAttack.ToString();
+        ctrlInputs.InputCtrls[1].TxtKey.text = newKeyPair.keyDodge.ToString();
+
+        ctrlInputs.InputCtrls[0].KeyDefault.KeyCode = newKeyPair.keyAttack;
+        ctrlInputs.InputCtrls[1].KeyDefault.KeyCode = newKeyPair.keyDodge;
+    }
+
+
 
     //////////////BTN
     public void SetDefaultAllKeyBTN()
     {
+        //LoadDataPlayerFromSO();
+
+
         Debug.Log("SetDefaultKeyBTN called");
-        int index = GetIndexByPlayerIndexType(playerIndex);
+        int index = GetIndexByPlayerIndexType(playerIndexType);
         keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;//charCtrl.CharInput.KeyAttack;
         keyPair.keyDodge = InputManager.Instance.PlayerKC[index].keyDodge;//charCtrl.CharInput.KeyAttack;
-        //Debug.Log(""
-        //    + "key Attack : " + InputManager.Instance.PlayerKC[index].keyAttack + " "
-        //    + "key Dodge : " + InputManager.Instance.PlayerKC[index].keyDodge);
+                                                                          //Debug.Log(""
+                                                                          //    + "key Attack : " + InputManager.Instance.PlayerKC[index].keyAttack + " "
+                                                                          //    + "key Dodge : " + InputManager.Instance.PlayerKC[index].keyDodge);
 
         //Debug.Log("keyPair : KeyAttack = " + keyPair.keyAttack + ", KeyDodge = " + keyPair.keyDodge);
-        SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+        //SetDataForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+
+        //SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+        UpdateKey2UI(keyPair);
     }
 
     public void SetDefaultOneKeyBTN(KeySkillType keySkillType)
     {
+        //LoadDataPlayerFromSO();
+
         // set ddang nut nao
         currentKeyType = keySkillType;
         // lay gia tri tu Inputmanager
 
-        int index = GetIndexByPlayerIndexType(playerIndex);
+        int index = GetIndexByPlayerIndexType(playerIndexType);
         if (currentKeyType == KeySkillType.SkillAttack)
         {
             keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;
@@ -231,6 +333,10 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         {
             keyPair.keyDodge = InputManager.Instance.PlayerKC[index].keyDodge;//charCtrl.CharInput.KeyAttack;
         }
-        SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+        //SetDataForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+
+        //SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+
+        UpdateKey2UI(keyPair);
     }
 }

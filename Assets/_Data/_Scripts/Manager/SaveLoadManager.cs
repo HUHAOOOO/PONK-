@@ -1,44 +1,109 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class SaveLoadManager : CoreMonoBehaviour
 {
+    private static SaveLoadManager instance;
+    public static SaveLoadManager Instance => instance;
+
     [SerializeField] protected List<SOInfoPlayer> soDefaultInfoPlayers;
     [SerializeField] protected List<SOInfoPlayer> soNewInfoPlayers;
 
-    public Image spriteCharTest;
+    public List<SOInfoPlayer> SODefaultInfoPlayers => soDefaultInfoPlayers;
+    public List<SOInfoPlayer> SONewInfoPlayers => soNewInfoPlayers;
+
     protected override void LoadComponents()
     {
+        SaveLoadManager.instance = this;
+
         base.LoadComponents();
         LoadSODefaultInfoPlayers();
         LoadSONewInfoPlayers();
 
-        //
-        Save();
-        Load();
+        ////
+        //Save();
+        //Load();
     }
     protected virtual void LoadSODefaultInfoPlayers()
     {
-        if (this.soDefaultInfoPlayers.Count > 0) return;
-        SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/DefaultInFoSO");
 
-        this.soDefaultInfoPlayers = soDefaultInfoPlayers.ToList();
-        Debug.LogWarning(transform.name + ": LoadSODefaultInfoPlayers", gameObject);
+        string pathAddressables;// = "Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP0.asset";
+
+        for (int i = 0; i < 4; i++)
+        {
+            pathAddressables = "Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP" + i + ".asset";
+            AsyncOperationHandle<IList<SOInfoPlayer>> handle = Addressables.LoadAssetsAsync<SOInfoPlayer>(
+                pathAddressables,
+                (so) =>
+            {
+                soDefaultInfoPlayers.Add(so);
+                Debug.Log($"Loaded SO: {so.name}");
+            });
+
+            handle.Completed += (op) =>
+            {
+                // Sau khi load xong và dùng xong thì release
+                Addressables.Release(op);
+                Debug.Log("release handle sau khi xong.");
+            };
+        }
+        soDefaultInfoPlayers.OrderBy(p => p.name);
+
+
+        //// Resources
+        //if (this.soDefaultInfoPlayers.Count > 0) return;
+        //SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/DefaultInFoSO");
+
+        //this.soDefaultInfoPlayers = soDefaultInfoPlayers.ToList();
+        //Debug.LogWarning(transform.name + ": LoadSODefaultInfoPlayers", gameObject);
     }
     protected virtual void LoadSONewInfoPlayers()
     {
-        if (this.soNewInfoPlayers.Count > 0) return;
-        SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/NewInFoSO");
+        string pathAddressables;// = "Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP0.asset";
 
-        this.soNewInfoPlayers = soDefaultInfoPlayers.ToList();
-        //soNewInfoPlayers = (List<SOInfoPlayer>)soDefaultInfoPlayers.Clone();
-        Debug.LogWarning(transform.name + ": LoadSONewInfoPlayers", gameObject);
+        for (int i = 0; i < 4; i++)
+        {
+            pathAddressables = "Assets/_Data/_Scripts/Resources_moved/SO/NewInFoSO/InforP" + i + ".asset";
+            AsyncOperationHandle<IList<SOInfoPlayer>> handle = Addressables.LoadAssetsAsync<SOInfoPlayer>(pathAddressables, (so) =>
+            {
+                soNewInfoPlayers.Add(so);
+                Debug.Log($"Loaded SO: {so.name}");
+            });
+
+            handle.Completed += (op) =>
+            {
+                // Sau khi load xong và dùng xong thì release
+                Addressables.Release(op);
+                Debug.Log("release handle sau khi xong.");
+            };
+        }
+        soNewInfoPlayers.OrderBy(p => p.name);
+
+
+
+        //// Resources
+        //if (this.soNewInfoPlayers.Count > 0) return;
+        //SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/NewInFoSO");
+
+        //this.soNewInfoPlayers = soDefaultInfoPlayers.ToList();
+        ////soNewInfoPlayers = (List<SOInfoPlayer>)soDefaultInfoPlayers.Clone();
+        //Debug.LogWarning(transform.name + ": LoadSONewInfoPlayers", gameObject);
     }
 
     protected override void Awake()
     {
+        if (instance != null) Debug.LogError("only allow 1 SaveLoadManager | Singleton");
+        SaveLoadManager.instance = this;
+
         SaveSystem.Init();
     }
     private void Update()
@@ -52,16 +117,10 @@ public class SaveLoadManager : CoreMonoBehaviour
         {
             Load();
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            LoadTestSprite();
-        }
     }
-    private void LoadTestSprite()
+    protected override void OnDisable()
     {
-        spriteCharTest.sprite = soNewInfoPlayers[0].spriteP;
-        // ok load dc . NHUNG anh bi vo 
+        SaveEndNewSO();
     }
     private void Save()
     {
@@ -70,12 +129,12 @@ public class SaveLoadManager : CoreMonoBehaviour
         //inForPlayerDummyData.playerIndexType = soDefaultInfoPlayers[0].playerIndexType;
         //inForPlayerDummyData.nameP = soDefaultInfoPlayers[0].nameP;
         //inForPlayerDummyData.keyPairP = soDefaultInfoPlayers[0].keyPairP;
+
         // v2 Save one piece of data to JSON
         //InForPlayerDummy inForPlayerDummyData = soDefaultInfoPlayers[0].ToData();
         //string jsonStringData = JsonUtility.ToJson(inForPlayerDummyData, true);
         //SaveSystem.Save(jsonStringData);
         //Debug.Log("Da save jsonString tu inForPlayerDummyData[0]");
-
 
         ////v3 Save multiple pieces of data
         //SOInfoPlayerList soInfoPlayerList = new();
@@ -97,7 +156,7 @@ public class SaveLoadManager : CoreMonoBehaviour
         //// for
         for (int i = 0; i < soDefaultInfoPlayers.Count; i++)
         {
-            Debug.Log("soDefaultInfoPlayers : " + i);
+            Debug.Log("soDefaultInfoPlayers : " + i, gameObject);
 
             inForPlayerDummyList.data.Add(soDefaultInfoPlayers[i].ToData());
         }
@@ -105,7 +164,7 @@ public class SaveLoadManager : CoreMonoBehaviour
         string jsonStringData = JsonUtility.ToJson(inForPlayerDummyList, true);
         SaveSystem.Save(jsonStringData);
 
-        Debug.Log("Da save jsonString xuong");
+        Debug.Log("Da save jsonString xuong", gameObject);
     }
 
     private void Load()
@@ -114,7 +173,7 @@ public class SaveLoadManager : CoreMonoBehaviour
         string saveDataString = SaveSystem.Load();
         if (saveDataString == null) return;
         InForPlayerDummyList inForPlayerDummyList = JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
-        
+
         ///// for
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
@@ -146,4 +205,61 @@ public class SaveLoadManager : CoreMonoBehaviour
         Debug.Log("Da load saveDataString len");
     }
 
+
+    public void ResetDefaultInfoPlayer()
+    {
+        for(int i= 0; i < soNewInfoPlayers.Count; i++)
+        {
+            soNewInfoPlayers[i].CopyDataFromAnotherSO(soDefaultInfoPlayers[i]);
+        }
+    }
+
+
+    public void SaveNewInfoToSO(PlayerIndexType playerIndexType,string nameP , KeyPair keyPair)
+    {
+        int index = playerIndexType.ToIndex();
+
+        soNewInfoPlayers[index].nameP = nameP;
+        soNewInfoPlayers[index].keyPairP = keyPair;
+    }
+    public void SaveNewInfoKeyToSO(PlayerIndexType playerIndexType, KeyPair keyPair)
+    {
+        int index = playerIndexType.ToIndex();
+
+        soNewInfoPlayers[index].keyPairP = keyPair;
+    }
+
+    public SOInfoPlayer GetDataByPlayerIndexType(PlayerIndexType playerIndexType)
+    {
+        if (playerIndexType == PlayerIndexType.None) return null;
+        int index = playerIndexType.ToIndex();
+        return soNewInfoPlayers[index];
+    }
+
+    public SOInfoPlayer GetDataByIndex(int index)
+    {
+        return soNewInfoPlayers[index];
+    }
+
+
+
+
+
+
+    private void SaveEndNewSO()
+    {
+        InForPlayerDummyList inForPlayerDummyList = new();
+
+        for (int i = 0; i < soNewInfoPlayers.Count; i++)
+        {
+            Debug.Log("soNewInfoPlayers : " + i, gameObject);
+
+            inForPlayerDummyList.data.Add(soNewInfoPlayers[i].ToData());
+        }
+
+        string jsonStringData = JsonUtility.ToJson(inForPlayerDummyList, true);
+        SaveSystem.Save(jsonStringData);
+
+        Debug.Log("Da save jsonString xuong", gameObject);
+    }
 }

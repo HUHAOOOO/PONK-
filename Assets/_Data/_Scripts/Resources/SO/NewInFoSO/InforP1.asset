@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc324a64a49ab4449afb9e8fd6422e34, type: 3}
   m_Name: InforP1
   m_EditorClassIdentifier: 
-  playerIndexType: 0
-  spriteP: {fileID: 0}
-  nameP: 
+  playerIndexType: 2
+  nameP: P1
   keyPairP:
-    keyAttack: 0
-    keyDodge: 0
+    keyAttack: 120
+    keyDodge: 99
+  spriteP: {fileID: 21300000, guid: 7a0fabecba02bd94cab05a896ed61a18, type: 2}
+  spriteRef:
+    m_AssetGUID: 7a0fabecba02bd94cab05a896ed61a18
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

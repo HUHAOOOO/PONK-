@@ -24,6 +24,7 @@ public class InputFieldName : CoreMonoBehaviour
     {
         base.Awake();
         AddEvent();
+        this.gameObject.SetActive(false);
     }
     private void LoadPanelPlayerCtrl()
     {
@@ -43,6 +44,14 @@ public class InputFieldName : CoreMonoBehaviour
     private void AddEvent()
     {
         tMP_InputField.onEndEdit.AddListener(OnNameInputEndEdit);
+        //tMP_InputField.onValueChanged.AddListener((text) =>
+        //{
+        //    tMP_InputField.text = text;
+        //});
+        //tMP_InputField.onSubmit.AddListener((text) =>
+        //{
+        //    tMP_InputField.text = text;
+        //});
     }
 
     private void OnNameInputEndEdit(string inputText)
@@ -56,6 +65,7 @@ public class InputFieldName : CoreMonoBehaviour
         panelPlayerCtrl.BtnChangeName.TxtNameP.text = inputText;
 
         tMP_InputField.text = "";
+        panelPlayerCtrl.UpdateDataForPlayer();
         this.gameObject.SetActive(false);
     }
 

@@ -79,6 +79,22 @@ public class GameManager : CoreMonoBehaviour
         //PlayerIsCanOverlapCircleMeleeAttack();
     }
 
+    protected override void Start()
+    {
+        DataCHarIntoGame();
+    }
+    // Vao game phai cap nhat lai NAME do 
+    public void DataCHarIntoGame()
+    {
+        SOInfoPlayer newSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
+        for (int i = 0; i < players.Count; i++)
+        {
+            newSOInfoPlayer = SaveLoadManager.Instance.GetDataByIndex(i);
+
+            players[i].NamePlayer.text = newSOInfoPlayer.nameP;
+        }
+    }
+
     protected override void LoadComponents()
     {
         GameManager.instance = this;
