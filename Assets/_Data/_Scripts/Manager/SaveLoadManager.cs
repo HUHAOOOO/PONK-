@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -33,6 +34,7 @@ public class SaveLoadManager : CoreMonoBehaviour
         //Save();
         //Load();
     }
+
     protected virtual void LoadSODefaultInfoPlayers()
     {
 
@@ -108,21 +110,27 @@ public class SaveLoadManager : CoreMonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Save();
-        }
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    Save();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Load();
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    Load();
+        //}
+    }
+
+    protected override void OnEnable()
+    {
+        //Save();
+        Load();
     }
     protected override void OnDisable()
     {
         SaveEndNewSO();
     }
-    private void Save()
+    private void Save() // Save default -> Json 
     {
         // v1
         //InForPlayerDummy inForPlayerDummyData = new InForPlayerDummy();
@@ -202,7 +210,7 @@ public class SaveLoadManager : CoreMonoBehaviour
         //soNewInfoPlayers[0].keyPairP = inForPlayerDummyData.keyPairP;
         //Debug.Log("Da load saveDataString vao soNewInfoPlayers[0]");
 
-        Debug.Log("Da load saveDataString len");
+        Debug.Log("Da load saveDataString vao soNewInfoPlayers");
     }
 
 
@@ -220,13 +228,16 @@ public class SaveLoadManager : CoreMonoBehaviour
         int index = playerIndexType.ToIndex();
 
         soNewInfoPlayers[index].nameP = nameP;
-        soNewInfoPlayers[index].keyPairP = keyPair;
+
+        SaveNewInfoKeyToSO(playerIndexType, keyPair);
     }
     public void SaveNewInfoKeyToSO(PlayerIndexType playerIndexType, KeyPair keyPair)
     {
         int index = playerIndexType.ToIndex();
 
         soNewInfoPlayers[index].keyPairP = keyPair;
+
+        InputManager.Instance.UpdateKey4Pkayer();
     }
 
     public SOInfoPlayer GetDataByPlayerIndexType(PlayerIndexType playerIndexType)
@@ -241,18 +252,24 @@ public class SaveLoadManager : CoreMonoBehaviour
         return soNewInfoPlayers[index];
     }
 
+    //XXX
+    public SOInfoPlayer GetDataDefaultByPlayerIndexType(PlayerIndexType playerIndexType)
+    {
+        if (playerIndexType == PlayerIndexType.None) return null;
+        int index = playerIndexType.ToIndex();
+        return soDefaultInfoPlayers[index];
+    }
 
 
 
 
-
-    private void SaveEndNewSO()
+    public void SaveEndNewSO()
     {
         InForPlayerDummyList inForPlayerDummyList = new();
 
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
-            Debug.Log("soNewInfoPlayers : " + i, gameObject);
+            //Debug.Log("soNewInfoPlayers : " + i, gameObject);
 
             inForPlayerDummyList.data.Add(soNewInfoPlayers[i].ToData());
         }
@@ -261,5 +278,6 @@ public class SaveLoadManager : CoreMonoBehaviour
         SaveSystem.Save(jsonStringData);
 
         Debug.Log("Da save jsonString xuong", gameObject);
+        InputManager.Instance.ListKeyCodeForPlayer();
     }
 }

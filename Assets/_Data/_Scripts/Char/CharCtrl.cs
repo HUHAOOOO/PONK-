@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CharCtrl : CoreMonoBehaviour
 {
     [SerializeField] protected int posIndex;
+    [SerializeField] protected PlayerIndexType playerIndexType;
 
     [SerializeField] protected CharInput charInput;
     [SerializeField] protected CharState charState;
@@ -20,6 +21,7 @@ public class CharCtrl : CoreMonoBehaviour
 
 
     public int PosIndex { get => posIndex; set => posIndex = value; }
+    public PlayerIndexType PlayerIndexType { get => playerIndexType; set => playerIndexType = value; }
     public CharInput CharInput { get => charInput; set => charInput = value; }
 
     public Animator CharAnim { get => charAnim; set => charAnim = value; }

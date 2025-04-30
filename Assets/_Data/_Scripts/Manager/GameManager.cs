@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using UnityEngine;
 using static UnityEngine.EventSystems.StandaloneInputModule;
@@ -30,10 +31,12 @@ public class GameManager : CoreMonoBehaviour
     [SerializeField] protected List<CharCtrl> players = new();
     //[SerializeField] protected int indexPos;
 
-    //[SerializeField] protected bool posP1IsOn;
-    //[SerializeField] protected bool posP2IsOn;
-    //[SerializeField] protected bool posP3IsOn;
-    //[SerializeField] protected bool posP4IsOn;
+    [SerializeField] protected bool isP0Die = false;
+    [SerializeField] protected bool isP1Die = false;
+    [SerializeField] protected bool isP2Die = false;
+    [SerializeField] protected bool isP3Die = false;
+    [SerializeField] protected int countDie = 0;
+    [SerializeField] protected int countToEndGame = 0;
 
 
     public WorldAreaType CurrentArea => currentArea;
@@ -47,27 +50,70 @@ public class GameManager : CoreMonoBehaviour
     public List<CharCtrl> Players => players;
 
 
-    //public bool PosP1IsOn { get => posP1IsOn; set => posP1IsOn = value; }
-    //public bool PosP2IsOn { get => posP2IsOn; set => posP2IsOn = value; }
-    //public bool PosP3IsOn { get => posP3IsOn; set => posP3IsOn = value; }
-    //public bool PosP4IsOn { get => posP4IsOn; set => posP4IsOn = value; }
+    public bool IsP0Die { get => isP0Die; set => isP0Die = value; }
+    public bool IsP1Die { get => isP1Die; set => isP1Die = value; }
+    public bool IsP2Die { get => isP2Die; set => isP2Die = value; }
+    public bool IsP3Die { get => isP3Die; set => isP3Die = value; }
 
     protected override void Awake()
     {
         if (instance != null) Debug.LogError("only allow 1 GameManager | Singleton");
         GameManager.instance = this;
 
-        //[ ]
+        
         //InitGame();
+
+
+    }
+    protected override void OnEnable()
+    {
+        SetDefaultData();
+    }
+    // Caanf goi lai khi start lai game moi 
+
+    public void SetDefaultData()
+    {
+        isP0Die = false;
+        isP1Die = false;
+        isP2Die = false;
+        isP3Die = false;
+        countDie = 0;
     }
 
-    protected virtual void InitGame()
+    public void InitGame()
     {
         int indexRandom = UnityEngine.Random.Range(0, pos4GO.Count);
-        ballCtrl.CurrentBall.position = pos4GO[indexRandom].position;
+
+        //Vector3 newPos = pos4GO[indexRandom].position;
+        //Vector3 newPos = pos4GO[indexRandom].localPosition;
+        //if (newPos.x > 0) newPos.x = 12;
+        //else if (newPos.x < 0) newPos.x = -12;
+        //newPos.y = 0;
+
+        //ballCtrl.CurrentBall.transform.parent.localPosition = newPos;
+        //ballCtrl.CurrentBall.transform.parent.localPosition = pos4GO[indexRandom].localPosition; // ko chinh xac vi tri dc spawn TOAN spawn gan sat player ?  
+        ballCtrl.CurrentBall.transform.parent.position = pos4GO[indexRandom].position;
+        //ballCtrl.CurrentBall.transform.parent.rotation = pos4GO[indexRandom].rotation * Quaternion.Euler(0, 0, 90f); //+ Z 90 do
+
+
+        //Quaternion baseRot = pos4GO[indexRandom].rotation;
+        //Vector3 euler = baseRot.eulerAngles;
+        //euler.z += 90f;
+        //ballCtrl.CurrentBall.transform.parent.rotation = Quaternion.Euler(euler);
+
+        //ballCtrl.CurrentBall.transform.parent.position = newPos;
+        ballCtrl.BallRotate.InitRotate();
+        //Vector3 newPos = ballCtrl.CurrentBall.transform.parent.position;
+        //newPos.x = pos4GO[indexRandom].position.x;
+        //newPos.y = pos4GO[indexRandom].position.y;
+        //newPos.y = 0;
+        //newPos.z = 0;
+        //ballCtrl.CurrentBall.transform.parent.transform.position = newPos;
 
         //ballCtrl.Ball.rotation = pos4GO[indexRandom].rotation;
     }
+
+
 
     private void Update()
     {
@@ -107,6 +153,7 @@ public class GameManager : CoreMonoBehaviour
         //
         //indexPos = pos4Players.Count;
         SetPosForPlayer();
+        SetPlayerIndexTypeForPlayer();
     }
 
     protected virtual void LoadBallCtrl()
@@ -204,7 +251,13 @@ public class GameManager : CoreMonoBehaviour
             players[i].SetPosChar(PosAvailable(i), i);
         }
     }
-
+    public virtual void SetPlayerIndexTypeForPlayer()
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].PlayerIndexType = PlayerIndexTypeExtensions.IndexToPlayerIndexType(i);
+        }
+    }
 
     public virtual Transform PosAvailable(int indexPos)
     {
@@ -316,4 +369,89 @@ public class GameManager : CoreMonoBehaviour
             charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = isCanOverlapCircleMeleeAttack;
         }
     }
+
+
+    public void SetDiePlayerByPlayerIndexType(PlayerIndexType playerIndexType)
+    {
+        if (playerIndexType == PlayerIndexType.P0)
+        {
+            isP0Die = true;
+        }
+        if (playerIndexType == PlayerIndexType.P1)
+        {
+            isP1Die = true;
+        }
+        if (playerIndexType == PlayerIndexType.P2)
+        {
+            isP2Die = true;
+        }
+        if (playerIndexType == PlayerIndexType.P3)
+        {
+            isP3Die = true;
+        }
+
+        countDie++;
+        if (countDie == countToEndGame)
+        {
+            // End Game
+            // Show name Player win
+            //Time.timeScale = 0;
+            PlayerIndexType playerIndexTypeWINER = GetIndexPlayerWin();
+            string nameWINER = SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexTypeWINER).nameP;
+            CANVAS_CTRL.Instance.EndGame(nameWINER);
+        }
+    }
+
+    private PlayerIndexType GetIndexPlayerWin()
+    {
+        if (isP0Die == false) return PlayerIndexType.P0;
+        else if (isP1Die == false) return PlayerIndexType.P1;
+        else if (isP2Die == false) return PlayerIndexType.P2;
+        else if (isP3Die == false) return PlayerIndexType.P3;
+        return PlayerIndexType.None;
+    }
+
+
+
+
+
+    // 0 1 2 3 
+
+    public void SetActivePlayer(int soluong)
+    {
+        if (soluong == 1)
+        {
+            players[0].gameObject.SetActive(true);
+            countToEndGame = 1000;//no end
+            players[1].gameObject.SetActive(false);
+            players[2].gameObject.SetActive(false);
+            players[3].gameObject.SetActive(false);
+        }
+        else if (soluong == 2)
+        {
+            players[0].gameObject.SetActive(true);
+            players[2].gameObject.SetActive(true);
+            countToEndGame = 1;
+            players[1].gameObject.SetActive(false);
+            players[3].gameObject.SetActive(false);
+
+        }
+        if (soluong == 3)
+        {
+            players[0].gameObject.SetActive(true);
+            players[1].gameObject.SetActive(true);
+            players[2].gameObject.SetActive(true);
+            countToEndGame = 2;
+            players[3].gameObject.SetActive(false);
+        }
+        if (soluong == 4)
+        {
+            players[0].gameObject.SetActive(true);
+            players[1].gameObject.SetActive(true);
+            players[2].gameObject.SetActive(true);
+            players[3].gameObject.SetActive(true);
+            countToEndGame = 3;
+        }
+    }
+
 }

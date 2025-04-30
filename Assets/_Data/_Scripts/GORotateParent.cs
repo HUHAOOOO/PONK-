@@ -22,7 +22,7 @@ public class GORotateParent : CoreMonoBehaviour
         }
     }
 
-    protected override void Start()
+    protected override void OnEnable()
     {
         RandomRotateParent();
     }

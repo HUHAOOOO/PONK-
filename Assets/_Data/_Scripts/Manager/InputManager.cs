@@ -30,6 +30,12 @@ public class InputManager : CoreMonoBehaviour
         ListKeyCodeForPlayer();
         SetInputForPlayer();
     }
+    protected override void OnEnable()
+    {
+        ListKeyCodeForPlayer();
+        //Debug.LogWarning("ListKeyCodeForPlayer new ! ");
+    }
+
     private void GetListPlayer()
     {
         if (GameManager.Instance == null)
@@ -50,10 +56,10 @@ public class InputManager : CoreMonoBehaviour
     //    this.players = listPlayers.OrderBy(p => p.transform.name).ToList();
     //    Debug.LogWarning(transform.name + ": LoadPlayers", gameObject);
     //}
-    protected virtual void ListKeyCodeForPlayer()
+    public void ListKeyCodeForPlayer()
     {
+        playerKC.Clear();
         //KeyCode Deault for player
-
         for (int i = 0; i < 4; i++)
         {
             SOInfoPlayer newSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
@@ -78,5 +84,10 @@ public class InputManager : CoreMonoBehaviour
         }
     }
 
+    public void UpdateKey4Pkayer()
+    {
+        ListKeyCodeForPlayer();
+        SetInputForPlayer();
+    }
 
 }

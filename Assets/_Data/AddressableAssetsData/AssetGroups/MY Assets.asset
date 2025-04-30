@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MY Assets
+  m_EditorClassIdentifier: 
+  m_GroupName: MY Assets
+  m_GUID: 51046c0ac2e2df947bac9d601d5117a0
+  m_SerializeEntries:
+  - m_GUID: 7a0fabecba02bd94cab05a896ed61a18
+    m_Address: Assets/_Data/_Scripts/Resources_moved/CharS/Chara/AvatarChar/idle_strip12_0.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9d85d0d532606146a50787bbb70c05d
+    m_Address: Assets/_Data/_Scripts/Resources_moved/CharS/FINN/AvatarChar/FinnSprite_9.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bf36774cc8efbf94b809de11c885e469, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 606e8a48cfa35a14eb74c2cb0051714e, type: 2}
+    - {fileID: 11400000, guid: 061b513dab6fe944a8ac678121a79a26, type: 2}

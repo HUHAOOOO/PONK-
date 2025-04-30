@@ -11,7 +11,10 @@ public class BotDespawn : Despawn
     {
         isCanDespawn = false;
     }
-
+    protected override void OnDisable()
+    {
+        BotSpawner.Instance.Despawn(transform.parent);
+    }
     public override void DespawnObject()
     {
         BotSpawner.Instance.Despawn(transform.parent);

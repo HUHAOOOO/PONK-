@@ -8,20 +8,29 @@ public class BotSpawnerRandom : SpawnerRandom
     [Header("Spawner Random")]
     [SerializeField] protected int indexPointSpawn;
     //public int IndexPointSpawn { get => indexPointSpawn; set => indexPointSpawn = value; }
+
+    protected override void OnEnable()
+    {
+        randomTimer = 0;
+    }
     private void Update()
     {
         UpdateIndexPointSpawn();
     }
     protected override void GOSpawning()
     {
+        //Debug.Log("if (this.RandomReachLimit()) return;");
         if (this.RandomReachLimit()) return;
         //if (!BotCtrl.Instance.BotIsCanSpawn()) return;
+        //Debug.Log("if (!BallCtrl.Instance.BallBotCanSpawn()) return;");
         if (!BallCtrl.Instance.BallBotCanSpawn()) return;
-
+        //Debug.Log("this.randomTimer : " + this.randomTimer);
         this.randomTimer += Time.fixedDeltaTime;
         if (this.randomTimer < this.randomDelay) return;
         if (!BotArea.Instance.IsStartNewArea()) return;
         this.randomTimer = 0;
+        //Debug.Log("this.randomTimer = 0; ");
+
 
         //
         //Transform ranPoint = this.spawnerCtrl.SpawnPoints.GetRandom();
@@ -36,7 +45,13 @@ public class BotSpawnerRandom : SpawnerRandom
         obj.gameObject.SetActive(true);
 
         BotCtrl.Instance.SetPosBot(ranPoint);
+        RandomTimeDelaySpawnBot();
     }
+
+    //protected override void RandomTimeDelaySpawnBot()
+    //{
+    //    this.randomDelay = Random.Range(5f, 20f);
+    //}
 
     public void UpdateIndexPointSpawn()
     {

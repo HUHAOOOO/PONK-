@@ -8,7 +8,7 @@ public class ItemLightningTrigger : ItemTrigger
     {
         indexBall = 1;
         timeReset = 5;
-        addSpeedBall = 100;
+        addSpeedBall = 20;
     }
     protected override void EffectItem(BallCtrl ballCtrl)
     {

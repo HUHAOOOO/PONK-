@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharInput : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl charCtrl;
+    [SerializeField] protected CharCtrl _charCtrl;
 
     [SerializeField] protected bool inputAttack;
     [SerializeField] protected bool inputDodge;
@@ -20,6 +20,8 @@ public class CharInput : CoreMonoBehaviour
 
     void Update()
     {
+        if (_charCtrl.DamReceive.IsDie == true) return;
+
         GetInput();
     }
     protected override void LoadComponents()
@@ -29,8 +31,8 @@ public class CharInput : CoreMonoBehaviour
     }
     protected virtual void LoadCharCtrl()
     {
-        if (this.charCtrl != null) return;
-        charCtrl = GetComponent<CharCtrl>();
+        if (this._charCtrl != null) return;
+        _charCtrl = GetComponent<CharCtrl>();
         Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
     }
     protected virtual void GetInput()

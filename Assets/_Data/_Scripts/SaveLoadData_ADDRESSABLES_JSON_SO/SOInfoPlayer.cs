@@ -74,19 +74,19 @@ public class SOInfoPlayer : ScriptableObject
     //private async void LoadDataFromAddressables(AssetReference spriteRefDummy)
     private void LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
     {
-        // Viet gon OK //TOP2
-        spriteRefDummy.LoadAssetAsync<Sprite>().Completed += (AsyncOperationHandle<Sprite> task) =>
-        {
-            if (task.Status == AsyncOperationStatus.Succeeded)
-            {
-                spriteP = task.Result;
-                Debug.Log("load sprite ok!");
-            }
-            else
-            {
-                Debug.LogError($"Khong load dc asset tu Addressables: {task.OperationException}");
-            }
-        };
+        //// Viet gon OK //TOP2
+        //spriteRefDummy.LoadAssetAsync<Sprite>().Completed += (AsyncOperationHandle<Sprite> task) =>
+        //{
+        //    if (task.Status == AsyncOperationStatus.Succeeded)
+        //    {
+        //        spriteP = task.Result;
+        //        Debug.Log("load sprite ok!");
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError($"Khong load dc asset tu Addressables: {task.OperationException}");
+        //    }
+        //};
         //////// Completed : khi load xong thi goi HAM    ~ await
 
         //////// ME test OK //TOP3
@@ -204,7 +204,8 @@ public class SOInfoPlayer : ScriptableObject
     {
         this.playerIndexType = source.playerIndexType;
         this.nameP = source.nameP;
-        this.keyPairP = source.keyPairP;
+        //this.keyPairP = source.keyPairP;
+        this.keyPairP = new KeyPair(source.keyPairP.keyAttack, source.keyPairP.keyDodge);
         this.spriteP = source.spriteP;
         this.spriteRef = source.spriteRef;
     }

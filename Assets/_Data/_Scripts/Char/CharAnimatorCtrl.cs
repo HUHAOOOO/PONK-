@@ -38,6 +38,13 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     public float DodgeAnimTime => _dodgeAnimTime;
     public float HurtAnimTime => _hurtAnimTime;
     //public bool CanGetState { get => canGetState; private set => canGetState = value; }
+
+    protected override void OnEnable()
+    {
+        canGetState = true;
+        state = Idle;
+    }
+
     protected override void LoadComponents()
     {
         LoadCharCtrl();
@@ -69,6 +76,7 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     void Update()
     {
         //if (_charCtrl.DamReceive.IsDie) return _currentState;
+        //if (_charCtrl.DamReceive.IsDie == true) return;
 
         state = GetState();
         if (state == _currentState) return;
@@ -89,9 +97,11 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
         if (_charCtrl.CharState.IsDying)
         {
             //Debug.Log("IsDying", gameObject);
-            SetTimeDelayAnim(_dieAnimTime);
-            Debug.Log("Player has been DIE !", gameObject);
-            return Die;
+            //SetTimeDelayAnim(_dieAnimTime);
+
+            //Debug.Log("Player has been DIE !", gameObject);
+            //return Die;
+            return SetNewState(Die, _dieAnimTime);
         }
         else if (_charCtrl.CharState.IsHurting)
         {

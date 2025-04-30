@@ -108,7 +108,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     {
         base.OnEnable();
         playerIndexType = centerCanva.PlayerIndexType;
-        LoadDataPlayerFromSO();
+        LoadNewDataPlayerFromSO(playerIndexType);
     }
 
 
@@ -159,7 +159,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     private void SetPlayerIndex(PlayerIndexType playerIndexType)
     {
         this.playerIndexType = playerIndexType;
-        LoadDataPlayerFromSO(); // set phat load cai moi luon 
+        LoadNewDataPlayerFromSO(playerIndexType); // set phat load cai moi luon 
 
     }
 
@@ -195,7 +195,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         //SetDataForPlayer(keyPair.keyAttack, keyPair.keyDodge);
         //SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
         SetNewData2SO(keyPair);
-        LoadDataPlayerFromSO();
+        LoadNewDataPlayerFromSO(playerIndexType);
         SetDefautlNoneData();
     }
 
@@ -238,25 +238,27 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         SaveLoadManager.Instance.SaveNewInfoKeyToSO(playerIndexType, keyPair);
     }
 
-    private void LoadDataPlayerFromSO()
+    private KeyPair LoadNewDataPlayerFromSO(PlayerIndexType playerIndexType)
     {
         if (SaveLoadManager.Instance == null)
         {
             Debug.Log(" SaveLoadManager.Instance == null ");
-            return;
+            return null;
         }
         SOInfoPlayer newSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
         if (SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType) == null)
         {
             //Debug.Log("NULL newSOInfoPlayer");
-            return;
+            return null;
         }
         //newSOInfoPlayer = (SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
         newSOInfoPlayer.CopyDataFromAnotherSO(SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
- 
+
         SetDataForPlayer(newSOInfoPlayer.spriteP, newSOInfoPlayer.nameP, newSOInfoPlayer.keyPairP);
 
         keyPair = newSOInfoPlayer.keyPairP;
+
+        return newSOInfoPlayer.keyPairP;
     }
 
     private void SetDataForPlayer(Sprite sprite, string name, KeyPair keyPair)
@@ -266,9 +268,11 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         if (charCtrl == null) return;
 
         //charCtrl.CharSpriteRenderer.sprite = sprite;
-        charCtrl.NamePlayer.text = name;
+
         charCtrl.CharInput.KeyAttack = keyPair.keyAttack;
         charCtrl.CharInput.KeyDodge = keyPair.keyDodge;
+
+        if (name != "") charCtrl.NamePlayer.text = name;
 
         //UI
         UpdateNewDataToUI4Player(sprite, name, keyPair);
@@ -278,7 +282,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         //sprite
         inFoPlayer.ImagePlayer.sprite = sprite;
         // name
-        inFoPlayer.TxtNamePlayer.text = name;
+        if (name != "") inFoPlayer.TxtNamePlayer.text = name;
         UpdateKey2UI(newKeyPair);
     }
 
@@ -293,21 +297,39 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         ctrlInputs.InputCtrls[1].KeyDefault.KeyCode = newKeyPair.keyDodge;
     }
 
+    private KeyPair LoadefaultDataPlayerFromSO(PlayerIndexType playerIndexType)
+    {
+        if (SaveLoadManager.Instance == null)
+        {
+            Debug.Log(" SaveLoadManager.Instance == null ");
+            return null;
+        }
+        SOInfoPlayer defaultSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
+        if (SaveLoadManager.Instance.GetDataDefaultByPlayerIndexType(playerIndexType) == null)
+        {
+            //Debug.Log("NULL newSOInfoPlayer");
+            return null;
+        }
+        //newSOInfoPlayer = (SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
+        defaultSOInfoPlayer.CopyDataFromAnotherSO(SaveLoadManager.Instance.GetDataDefaultByPlayerIndexType(playerIndexType));
 
+        SetDataForPlayer(defaultSOInfoPlayer.spriteP, "", defaultSOInfoPlayer.keyPairP);
+        SaveLoadManager.Instance.SaveNewInfoKeyToSO(playerIndexType, defaultSOInfoPlayer.keyPairP);
+        keyPair = defaultSOInfoPlayer.keyPairP;
+
+        return defaultSOInfoPlayer.keyPairP;
+    }
 
     //////////////BTN
     public void SetDefaultAllKeyBTN()
     {
-        //LoadDataPlayerFromSO();
+        keyPair = LoadefaultDataPlayerFromSO(playerIndexType);
 
-
+ 
         Debug.Log("SetDefaultKeyBTN called");
-        int index = GetIndexByPlayerIndexType(playerIndexType);
-        keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;//charCtrl.CharInput.KeyAttack;
-        keyPair.keyDodge = InputManager.Instance.PlayerKC[index].keyDodge;//charCtrl.CharInput.KeyAttack;
-                                                                          //Debug.Log(""
-                                                                          //    + "key Attack : " + InputManager.Instance.PlayerKC[index].keyAttack + " "
-                                                                          //    + "key Dodge : " + InputManager.Instance.PlayerKC[index].keyDodge);
+        //int index = GetIndexByPlayerIndexType(playerIndexType);
+        //keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;//charCtrl.CharInput.KeyAttack;
+        //keyPair.keyDodge = InputManager.Instance.PlayerKC[index].keyDodge;//charCtrl.CharInput.KeyAttack;
 
         //Debug.Log("keyPair : KeyAttack = " + keyPair.keyAttack + ", KeyDodge = " + keyPair.keyDodge);
         //SetDataForPlayer(keyPair.keyAttack, keyPair.keyDodge);
@@ -325,17 +347,27 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         // lay gia tri tu Inputmanager
 
         int index = GetIndexByPlayerIndexType(playerIndexType);
+        KeyPair newKey = new KeyPair(SaveLoadManager.Instance.GetDataDefaultByPlayerIndexType(playerIndexType).keyPairP.keyAttack,
+         SaveLoadManager.Instance.GetDataDefaultByPlayerIndexType(playerIndexType).keyPairP.keyDodge);
         if (currentKeyType == KeySkillType.SkillAttack)
         {
-            keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;
+            keyPair.keyAttack = newKey.keyAttack;
         }
         if (currentKeyType == KeySkillType.SkillDodge)
         {
-            keyPair.keyDodge = InputManager.Instance.PlayerKC[index].keyDodge;//charCtrl.CharInput.KeyAttack;
+            keyPair.keyDodge = newKey.keyDodge;//charCtrl.CharInput.KeyAttack;
         }
         //SetDataForPlayer(keyPair.keyAttack, keyPair.keyDodge);
 
         //SetKeyForPlayer(keyPair.keyAttack, keyPair.keyDodge);
+
+        // Cap nhat data len cac cho [ ] roi qua 
+        SOInfoPlayer defaultSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
+        defaultSOInfoPlayer.CopyDataFromAnotherSO(SaveLoadManager.Instance.GetDataDefaultByPlayerIndexType(playerIndexType));
+
+        SetDataForPlayer(defaultSOInfoPlayer.spriteP, "", keyPair);
+        SaveLoadManager.Instance.SaveNewInfoKeyToSO(playerIndexType, keyPair);
+
 
         UpdateKey2UI(keyPair);
     }

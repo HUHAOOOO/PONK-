@@ -9,7 +9,11 @@ public class SpawnerRandom : CoreMonoBehaviour
     [SerializeField] protected float randomDelay = 2f;
     [SerializeField] protected float randomTimer = 0f;
     [SerializeField] protected float randomLimit = 2f;
-
+    public float RandomTimer { get => randomTimer; set => randomTimer = value; }
+    protected override void OnEnable()
+    {
+        randomTimer = 0;
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -22,7 +26,14 @@ public class SpawnerRandom : CoreMonoBehaviour
         this.spawnerCtrl = GetComponent<SpawnerCtrl>();
         Debug.LogWarning(transform.name + ": LoadSpawnerCtrl", gameObject);
     }
-
+    protected override void Start()
+    {
+        RandomTimeDelaySpawnBot();
+    }
+    protected virtual void RandomTimeDelaySpawnBot()
+    {
+        this.randomDelay = Random.Range(10f, 40f);
+    }
     protected virtual void FixedUpdate()
     {
         this.GOSpawning();
@@ -43,6 +54,9 @@ public class SpawnerRandom : CoreMonoBehaviour
         Transform prefab = this.spawnerCtrl.Spawner.RandomPrefab();
         Transform obj = this.spawnerCtrl.Spawner.Spawn(prefab, pos, rot);
         obj.gameObject.SetActive(true);
+
+
+        RandomTimeDelaySpawnBot();
     }
 
     protected virtual bool RandomReachLimit()

@@ -79,6 +79,15 @@ public class BallCtrl : CoreMonoBehaviour
     //    SetCurrentBall(ballsModel[index].transform);
     //    ballRotate.InitRotate();
     //}
+
+    protected override void OnEnable()
+    {
+        SetActiveBalls(GetBallByType(TypeBall.DeffaultBall));
+
+        //SetCurrentBall(BallsModel[0]);
+    }
+
+
     public void SetActiveBallsByTime(TypeBall typeBall, float timeReset)
     {
         SetActiveBalls(GetBallByType(typeBall));
@@ -146,4 +155,10 @@ public class BallCtrl : CoreMonoBehaviour
         if (currentTypeBall == TypeBall.FireBall) return false;
         return true;
     }
+
+    private void Update()
+    {
+        //if(GameManager.Instance.IsClockwise) 
+    }
+
 }

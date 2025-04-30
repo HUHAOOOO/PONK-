@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: d4a4c03760a21de458dfba259085256d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6601499650419845115
+    second: staff_dtilt_strip11_0
+  - first:
+      213: -5381908956171490720
+    second: staff_dtilt_strip11_1
+  - first:
+      213: -470384904629134414
+    second: staff_dtilt_strip11_2
+  - first:
+      213: -6845840757085045972
+    second: staff_dtilt_strip11_3
+  - first:
+      213: 9040870073378642140
+    second: staff_dtilt_strip11_4
+  - first:
+      213: -8870325488221424709
+    second: staff_dtilt_strip11_5
+  - first:
+      213: 506204429917066856
+    second: staff_dtilt_strip11_6
+  - first:
+      213: -3422359686966312287
+    second: staff_dtilt_strip11_7
+  - first:
+      213: -4897240408848283936
+    second: staff_dtilt_strip11_8
+  - first:
+      213: -3789499187413596348
+    second: staff_dtilt_strip11_9
+  - first:
+      213: -2475369222998484792
+    second: staff_dtilt_strip11_10
+  - first:
+      213: 1345003799859125178
+    second: staff_dtilt_strip11_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 46
+        width: 48
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7e320b4fc3d9b50800000000000000
+      internalID: 6601499650419845115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 46
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06aa7e5a15e9f45b0800000000000000
+      internalID: -5381908956171490720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_2
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 46
+        width: 44
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bbdfd3eb6bd879f0800000000000000
+      internalID: -470384904629134414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_3
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 47
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bfd0d2a10bef0a0800000000000000
+      internalID: -6845840757085045972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_4
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 46
+        width: 47
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd891306e6f977d70800000000000000
+      internalID: 9040870073378642140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_5
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 46
+        width: 57
+        height: 52
+      alignment: 9
+      pivot: {x: 0.2, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb3f77827f546e480800000000000000
+      internalID: -8870325488221424709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_6
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 46
+        width: 53
+        height: 54
+      alignment: 9
+      pivot: {x: 0.2, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8669fec3f36660700800000000000000
+      internalID: 506204429917066856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_8
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 46
+        width: 53
+        height: 48
+      alignment: 9
+      pivot: {x: 0.2, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6c8ea7bc1890cb0800000000000000
+      internalID: -4897240408848283936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_9
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 46
+        width: 51
+        height: 28
+      alignment: 9
+      pivot: {x: 0.2, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447c491119ef86bc0800000000000000
+      internalID: -3789499187413596348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_10
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 46
+        width: 49
+        height: 30
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c89d378ec8b5add0800000000000000
+      internalID: -2475369222998484792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_dtilt_strip11_11
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 46
+        width: 48
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb572074d96aa210800000000000000
+      internalID: 1345003799859125178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 93234b08c88f12541be45cc1e7a45262
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      staff_dtilt_strip11_0: 6601499650419845115
+      staff_dtilt_strip11_1: -5381908956171490720
+      staff_dtilt_strip11_10: -2475369222998484792
+      staff_dtilt_strip11_11: 1345003799859125178
+      staff_dtilt_strip11_2: -470384904629134414
+      staff_dtilt_strip11_3: -6845840757085045972
+      staff_dtilt_strip11_4: 9040870073378642140
+      staff_dtilt_strip11_5: -8870325488221424709
+      staff_dtilt_strip11_6: 506204429917066856
+      staff_dtilt_strip11_7: -3422359686966312287
+      staff_dtilt_strip11_8: -4897240408848283936
+      staff_dtilt_strip11_9: -3789499187413596348
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

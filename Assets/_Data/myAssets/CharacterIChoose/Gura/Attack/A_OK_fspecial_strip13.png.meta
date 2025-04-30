@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 307d695bb1766694388664d0bd263c5e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1252026514042118870
+    second: fspecial_strip13_0
+  - first:
+      213: 5505815641320483208
+    second: fspecial_strip13_1
+  - first:
+      213: -1508555612982913946
+    second: fspecial_strip13_2
+  - first:
+      213: 2451756033491725419
+    second: fspecial_strip13_3
+  - first:
+      213: -3992795421744009193
+    second: fspecial_strip13_4
+  - first:
+      213: 7370802670534725881
+    second: fspecial_strip13_5
+  - first:
+      213: 8973903481451467234
+    second: fspecial_strip13_6
+  - first:
+      213: 8415025037767843858
+    second: fspecial_strip13_7
+  - first:
+      213: -6815842550537456170
+    second: fspecial_strip13_8
+  - first:
+      213: 6683162270422291464
+    second: fspecial_strip13_9
+  - first:
+      213: 6869933702387111855
+    second: fspecial_strip13_10
+  - first:
+      213: 3863684520045180181
+    second: fspecial_strip13_11
+  - first:
+      213: -8584715435494886025
+    second: fspecial_strip13_12
+  - first:
+      213: 2027399213956330007
+    second: fspecial_strip13_13
+  - first:
+      213: -1665753919203130898
+    second: fspecial_strip13_14
+  - first:
+      213: 4362202457693039707
+    second: fspecial_strip13_15
+  - first:
+      213: 6679596362241973134
+    second: fspecial_strip13_16
+  - first:
+      213: 8071276719675873080
+    second: fspecial_strip13_17
+  - first:
+      213: 6745631397680184435
+    second: fspecial_strip13_18
+  - first:
+      213: 7533241922339428120
+    second: fspecial_strip13_19
+  - first:
+      213: -8252131545148399072
+    second: fspecial_strip13_20
+  - first:
+      213: 3930920870684451037
+    second: fspecial_strip13_21
+  - first:
+      213: -8937501080583505582
+    second: fspecial_strip13_22
+  - first:
+      213: 1507846015529437143
+    second: fspecial_strip13_23
+  - first:
+      213: -3288675111775184131
+    second: fspecial_strip13_24
+  - first:
+      213: 1048630538570243077
+    second: fspecial_strip13_25
+  - first:
+      213: 6910458804319741331
+    second: fspecial_strip13_26
+  - first:
+      213: 2973114794502082347
+    second: fspecial_strip13_27
+  - first:
+      213: 995671919663785146
+    second: fspecial_strip13_28
+  - first:
+      213: -5866982924379707770
+    second: fspecial_strip13_29
+  - first:
+      213: 2750787359478911200
+    second: fspecial_strip13_30
+  - first:
+      213: 5934044193114834185
+    second: fspecial_strip13_31
+  - first:
+      213: -2388391607789080677
+    second: fspecial_strip13_32
+  - first:
+      213: -8313951065176935814
+    second: fspecial_strip13_33
+  - first:
+      213: 3147905843138094692
+    second: fspecial_strip13_34
+  - first:
+      213: -3760050594714259355
+    second: fspecial_strip13_35
+  - first:
+      213: 1733568550067185731
+    second: fspecial_strip13_36
+  - first:
+      213: 8948191694179538661
+    second: fspecial_strip13_37
+  - first:
+      213: -7153046368287679654
+    second: fspecial_strip13_38
+  - first:
+      213: 7288623696184106497
+    second: fspecial_strip13_39
+  - first:
+      213: -1747370997541795675
+    second: fspecial_strip13_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fspecial_strip13_55
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1
+        width: 152
+        height: 102
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2e9d22b77106110800000000000000
+      internalID: 1252026514042118870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_99
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 3
+        width: 108
+        height: 116
+      alignment: 9
+      pivot: {x: 0.7, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa79449cd48e65f50800000000000000
+      internalID: 6869933702387111855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_100
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 3
+        width: 88
+        height: 100
+      alignment: 9
+      pivot: {x: 0.7, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515f77da9909e9530800000000000000
+      internalID: 3863684520045180181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_77
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 3
+        width: 159
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775b3819bc6fcd880800000000000000
+      internalID: -8584715435494886025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_88
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 3
+        width: 154
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 712f5cde7d4c22c10800000000000000
+      internalID: 2027399213956330007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_111
+      rect:
+        serializedVersion: 2
+        x: 2215
+        y: 3
+        width: 82
+        height: 94
+      alignment: 9
+      pivot: {x: 0.7, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b9c6e5081b2bc50800000000000000
+      internalID: 6679596362241973134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_122
+      rect:
+        serializedVersion: 2
+        x: 2411
+        y: 3
+        width: 82
+        height: 92
+      alignment: 9
+      pivot: {x: 0.7, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8371920c96fe20070800000000000000
+      internalID: 8071276719675873080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 3
+        width: 83
+        height: 86
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37cf27c240c4d9d50800000000000000
+      internalID: 6745631397680184435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_22
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 3
+        width: 108
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8175f149d937b8860800000000000000
+      internalID: 7533241922339428120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_33
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 3
+        width: 110
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02262a3d41a8a7d80800000000000000
+      internalID: -8252131545148399072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_66
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 3
+        width: 159
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0e05974bf6d8630800000000000000
+      internalID: 3930920870684451037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 3
+        width: 50
+        height: 66
+      alignment: 9
+      pivot: {x: 0.6, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50c1b104beb7d8e00800000000000000
+      internalID: 1048630538570243077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fspecial_strip13_44
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 3
+        width: 128
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab4246ce55651dd00800000000000000
+      internalID: 995671919663785146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ac4b99b7d57702c43b3c54e9e5e395fd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fspecial_strip13_0: 1048630538570243077
+      fspecial_strip13_1: 6745631397680184435
+      fspecial_strip13_100: 3863684520045180181
+      fspecial_strip13_111: 6679596362241973134
+      fspecial_strip13_122: 8071276719675873080
+      fspecial_strip13_14: -1665753919203130898
+      fspecial_strip13_15: 4362202457693039707
+      fspecial_strip13_22: 7533241922339428120
+      fspecial_strip13_23: 1507846015529437143
+      fspecial_strip13_24: -3288675111775184131
+      fspecial_strip13_26: 6910458804319741331
+      fspecial_strip13_27: 2973114794502082347
+      fspecial_strip13_29: -5866982924379707770
+      fspecial_strip13_30: 2750787359478911200
+      fspecial_strip13_31: 5934044193114834185
+      fspecial_strip13_32: -2388391607789080677
+      fspecial_strip13_33: -8252131545148399072
+      fspecial_strip13_34: 3147905843138094692
+      fspecial_strip13_35: -3760050594714259355
+      fspecial_strip13_36: 1733568550067185731
+      fspecial_strip13_37: 8948191694179538661
+      fspecial_strip13_38: -7153046368287679654
+      fspecial_strip13_39: 7288623696184106497
+      fspecial_strip13_40: -1747370997541795675
+      fspecial_strip13_44: 995671919663785146
+      fspecial_strip13_55: 1252026514042118870
+      fspecial_strip13_66: 3930920870684451037
+      fspecial_strip13_77: -8584715435494886025
+      fspecial_strip13_88: 2027399213956330007
+      fspecial_strip13_99: 6869933702387111855
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

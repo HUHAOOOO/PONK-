@@ -4,8 +4,9 @@ using static UnityEngine.EventSystems.StandaloneInputModule;
 public class DamReceive : CoreMonoBehaviour
 {
     [SerializeField] protected CharCtrl charCtrl;
+    [SerializeField] protected BoxCollider2D boxCollider2D;
 
-    [SerializeField] protected int maxHealthPoints = 5;
+    [SerializeField] protected int maxHealthPoints = 10;
     [SerializeField] protected int currentHealthPoints;
     [SerializeField] protected bool isDie;
     public int MaxHealthPoints { get => maxHealthPoints; set => maxHealthPoints = value; }
@@ -14,7 +15,10 @@ public class DamReceive : CoreMonoBehaviour
 
     protected override void OnEnable()
     {
+        boxCollider2D.enabled = true;
+
         isDie = false;
+        currentHealthPoints = maxHealthPoints;
     }
     protected override void Start()
     {
@@ -31,12 +35,19 @@ public class DamReceive : CoreMonoBehaviour
     {
         base.LoadComponents();
         LoadCharCtrl();
+        LoadboxCollider2D();
     }
     protected virtual void LoadCharCtrl()
     {
         if (this.charCtrl != null) return;
         charCtrl = transform.parent.GetComponent<CharCtrl>();
         Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
+    }
+    protected virtual void LoadboxCollider2D()
+    {
+        if (this.boxCollider2D != null) return;
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        Debug.LogWarning(transform.name + ": LoadboxCollider2D", gameObject);
     }
     public virtual void Hurt()
     {
@@ -51,5 +62,8 @@ public class DamReceive : CoreMonoBehaviour
         charCtrl.CharState.IsDying = true;
 
         isDie = true;
+        GameManager.Instance.SetDiePlayerByPlayerIndexType(charCtrl.PlayerIndexType);
+        //charCtrl.gameObject.SetActive(false);
+        boxCollider2D.enabled = false;
     }
 }

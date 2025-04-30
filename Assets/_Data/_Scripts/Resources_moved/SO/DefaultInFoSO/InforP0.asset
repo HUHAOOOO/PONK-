@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InforP0
   m_EditorClassIdentifier: 
   playerIndexType: 1
-  nameP: P0
+  nameP: CHARA
   keyPairP:
     keyAttack: 113
     keyDodge: 119

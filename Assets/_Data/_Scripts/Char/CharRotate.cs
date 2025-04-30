@@ -25,8 +25,31 @@ public class CharRotate : CoreMonoBehaviour
     //}
     protected override void OnEnable()
     {
+        SetDefaultRotate();
         StartCoroutine(InitRotateAfterUpdate());
     }
+    private void SetDefaultRotate()
+    {
+        if(_charCtrl.PlayerIndexType == PlayerIndexType.P0)
+        {
+            _charCtrl.transform.rotation = Quaternion.identity;
+            //_charCtrl.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (_charCtrl.PlayerIndexType == PlayerIndexType.P1)
+        {
+            _charCtrl.transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        if (_charCtrl.PlayerIndexType == PlayerIndexType.P2)
+        {
+            _charCtrl.transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        if (_charCtrl.PlayerIndexType == PlayerIndexType.P3)
+        {
+            _charCtrl.transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+
+    }
+
     IEnumerator InitRotateAfterUpdate()
     {
         yield return null; // Wait next frame 
@@ -41,6 +64,7 @@ public class CharRotate : CoreMonoBehaviour
 
     private void Update()
     {
+        if (_charCtrl.DamReceive.IsDie == true) return;
         RotateChar();
     }
 

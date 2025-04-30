@@ -1,5 +1,6 @@
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class CharTimeAnimClip : CoreMonoBehaviour
 {
@@ -36,20 +37,23 @@ public class CharTimeAnimClip : CoreMonoBehaviour
     protected virtual void LoadAnimClipTime()
     {
         Animator _charAnim = charAnimatorCtrl.CharCtrl.CharAnim;
+        RuntimeAnimatorController controllerCharAnim = _charAnim.runtimeAnimatorController;
+        string controllerName = controllerCharAnim != null ? controllerCharAnim.name : "None";
+        string resultControllerName = controllerName.Replace("Ctrl", "");  // => "Chara"
 
         if (_charAnim != null)
         {
-            AtackAnimTime = GetAnimationClipLength(_charAnim, "CharaAttack");
-            Debug.Log("time animation Attack: " + AtackAnimTime);
+            AtackAnimTime = GetAnimationClipLength(_charAnim, resultControllerName + "Attack");
+            Debug.Log(resultControllerName +" time animation Attack: " + AtackAnimTime);
 
-            _dodgeAnimTime = GetAnimationClipLength(_charAnim, "CharaDodge");
-            Debug.Log("time animation Dodge: " + _dodgeAnimTime);
+            _dodgeAnimTime = GetAnimationClipLength(_charAnim, resultControllerName+ "Dodge");
+            Debug.Log(resultControllerName + " time animation Dodge: " + _dodgeAnimTime);
 
-            _hurtAnimTime = GetAnimationClipLength(_charAnim, "CharaHurt");
-            Debug.Log("time animation Hurt: " + _hurtAnimTime);
+            _hurtAnimTime = GetAnimationClipLength(_charAnim, resultControllerName + "Hurt");
+            Debug.Log(resultControllerName + " time animation Hurt: " + _hurtAnimTime);
 
-            _dieAnimTime = GetAnimationClipLength(_charAnim, "CharaDie");
-            Debug.Log("time animation Die: " + _dieAnimTime);
+            _dieAnimTime = GetAnimationClipLength(_charAnim, resultControllerName + "Die");
+            Debug.Log(resultControllerName + " time animation Die: " + _dieAnimTime);
         }
     }
 
