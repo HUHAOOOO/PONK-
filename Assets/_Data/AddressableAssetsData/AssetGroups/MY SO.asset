@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MY SO
+  m_EditorClassIdentifier: 
+  m_GroupName: MY SO
+  m_GUID: 5ca50df04862b564181f5b287a16f4ae
+  m_SerializeEntries:
+  - m_GUID: 15b776eaf38d6414b96fbbc06879f767
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/NewInFoSO/InforP1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c603b7a917e91041bf2241c2c8e34c5
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP0.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 508a49a776b6a3249873e8a129700195
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/NewInFoSO/InforP3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c87b62d67b61d344991b85da7150a91
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 855f7f1739793904dade22210a7cd02e
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/NewInFoSO/InforP0.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b173307ef283e24dafae7ab082c872d
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b09a68ec46bd44d4397e9690b5a22aac
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/NewInFoSO/InforP2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df73fcd2f837aee4d9a92fcf1d126e64
+    m_Address: Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bf36774cc8efbf94b809de11c885e469, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a7fb37a6062816a478eaf39221716131, type: 2}
+    - {fileID: 11400000, guid: 52d77725214951940b28a64a1fc967e6, type: 2}

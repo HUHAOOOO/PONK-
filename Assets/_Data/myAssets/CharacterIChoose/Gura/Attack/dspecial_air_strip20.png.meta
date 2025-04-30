@@ -1,0 +1,742 @@
+fileFormatVersion: 2
+guid: d1ac54ecf11f5c54eb43db8673881784
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5972084174695616247
+    second: dspecial_air_strip20_0
+  - first:
+      213: 2288458072463151406
+    second: dspecial_air_strip20_1
+  - first:
+      213: 5172033349489726626
+    second: dspecial_air_strip20_2
+  - first:
+      213: 6895282336525838995
+    second: dspecial_air_strip20_3
+  - first:
+      213: 5076656919238172200
+    second: dspecial_air_strip20_4
+  - first:
+      213: 810404504386065283
+    second: dspecial_air_strip20_5
+  - first:
+      213: 8894199531532092541
+    second: dspecial_air_strip20_6
+  - first:
+      213: -4301195804810564671
+    second: dspecial_air_strip20_7
+  - first:
+      213: 3306543531209386875
+    second: dspecial_air_strip20_8
+  - first:
+      213: -2961215324541328250
+    second: dspecial_air_strip20_9
+  - first:
+      213: 2183435616497519906
+    second: dspecial_air_strip20_10
+  - first:
+      213: -7385324461560276199
+    second: dspecial_air_strip20_11
+  - first:
+      213: -7598138457032879239
+    second: dspecial_air_strip20_12
+  - first:
+      213: 6546750664532639943
+    second: dspecial_air_strip20_13
+  - first:
+      213: 220762295586092050
+    second: dspecial_air_strip20_14
+  - first:
+      213: -5451776285206027032
+    second: dspecial_air_strip20_15
+  - first:
+      213: 7724879234242269381
+    second: dspecial_air_strip20_16
+  - first:
+      213: 4237823889626046781
+    second: dspecial_air_strip20_17
+  - first:
+      213: -6865594093035432232
+    second: dspecial_air_strip20_18
+  - first:
+      213: 12978703612561795
+    second: dspecial_air_strip20_19
+  - first:
+      213: 6474990887249430164
+    second: dspecial_air_strip20_20
+  - first:
+      213: 5571071552465250985
+    second: dspecial_air_strip20_21
+  - first:
+      213: -2063069928295279791
+    second: dspecial_air_strip20_22
+  - first:
+      213: -341771366111036933
+    second: dspecial_air_strip20_23
+  - first:
+      213: -8235832150585539173
+    second: dspecial_air_strip20_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dspecial_air_strip20_0
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 119
+        width: 62
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9013986a515ee1da0800000000000000
+      internalID: -5972084174695616247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_1
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 121
+        width: 78
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e219a8cfd7c32cf10800000000000000
+      internalID: 2288458072463151406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_2
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 119
+        width: 94
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a41fc2cde0c6c740800000000000000
+      internalID: 5172033349489726626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_3
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 119
+        width: 92
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ae5a690c6f0bf50800000000000000
+      internalID: 6895282336525838995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_4
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 85
+        width: 74
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e58bd1298e37640800000000000000
+      internalID: 5076656919238172200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_5
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 83
+        width: 74
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 383de406a922f3b00800000000000000
+      internalID: 810404504386065283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_6
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 87
+        width: 72
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d748a66b95b8e6b70800000000000000
+      internalID: 8894199531532092541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_7
+      rect:
+        serializedVersion: 2
+        x: 2375
+        y: 87
+        width: 70
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbadd844351f44c0800000000000000
+      internalID: -4301195804810564671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_8
+      rect:
+        serializedVersion: 2
+        x: 2693
+        y: 87
+        width: 72
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7be914a2d333ed20800000000000000
+      internalID: 3306543531209386875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_9
+      rect:
+        serializedVersion: 2
+        x: 2717
+        y: 187
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 684654df956a7e6d0800000000000000
+      internalID: -2961215324541328250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_10
+      rect:
+        serializedVersion: 2
+        x: 3331
+        y: 123
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d4547ff1f1d4e10800000000000000
+      internalID: 2183435616497519906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_11
+      rect:
+        serializedVersion: 2
+        x: 3647
+        y: 123
+        width: 86
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b52b5088e028990800000000000000
+      internalID: -7385324461560276199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_12
+      rect:
+        serializedVersion: 2
+        x: 3969
+        y: 123
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973125a745dfd8690800000000000000
+      internalID: -7598138457032879239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_13
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 123
+        width: 76
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c045801b0bbada50800000000000000
+      internalID: 6546750664532639943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_14
+      rect:
+        serializedVersion: 2
+        x: 4615
+        y: 123
+        width: 68
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2147530632e401300800000000000000
+      internalID: 220762295586092050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_15
+      rect:
+        serializedVersion: 2
+        x: 4931
+        y: 123
+        width: 66
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e465657a566754b0800000000000000
+      internalID: -5451776285206027032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_16
+      rect:
+        serializedVersion: 2
+        x: 5251
+        y: 123
+        width: 66
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c05dc14cb8443b60800000000000000
+      internalID: 7724879234242269381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_17
+      rect:
+        serializedVersion: 2
+        x: 5565
+        y: 123
+        width: 66
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3123d9ef56cfca30800000000000000
+      internalID: 4237823889626046781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_18
+      rect:
+        serializedVersion: 2
+        x: 3017
+        y: 121
+        width: 54
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d65a904c8288b0a0800000000000000
+      internalID: -6865594093035432232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_19
+      rect:
+        serializedVersion: 2
+        x: 4373
+        y: 141
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389c87aef0c1e2000800000000000000
+      internalID: 12978703612561795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_20
+      rect:
+        serializedVersion: 2
+        x: 4677
+        y: 149
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496c46ee7e9cbd950800000000000000
+      internalID: 6474990887249430164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_21
+      rect:
+        serializedVersion: 2
+        x: 5881
+        y: 123
+        width: 78
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aaa9f66f0c605d40800000000000000
+      internalID: 5571071552465250985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_22
+      rect:
+        serializedVersion: 2
+        x: 6201
+        y: 123
+        width: 74
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1535b21b4d08e53e0800000000000000
+      internalID: -2063069928295279791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_23
+      rect:
+        serializedVersion: 2
+        x: 4611
+        y: 135
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf93d88d0c8c14bf0800000000000000
+      internalID: -341771366111036933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_air_strip20_24
+      rect:
+        serializedVersion: 2
+        x: 4697
+        y: 139
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b958b9a5b4274bd80800000000000000
+      internalID: -8235832150585539173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

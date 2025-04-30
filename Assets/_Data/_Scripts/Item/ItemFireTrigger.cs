@@ -7,7 +7,7 @@ public class ItemFireTrigger : ItemTrigger
     protected override void ResetValue()
     {
         indexBall = 2;
-        timeReset = 4;
+        timeReset = 5;
         addSpeedBall = 10;
     }
 

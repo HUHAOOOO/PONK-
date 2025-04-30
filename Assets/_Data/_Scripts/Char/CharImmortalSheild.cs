@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharImmortalSheild : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl charCtrl;
+    [SerializeField] protected CharCtrl _charCtrl;
     [SerializeField] protected BoxCollider2D boxCollider2D;
     [SerializeField] protected Transform model;
 
@@ -24,8 +24,8 @@ public class CharImmortalSheild : CoreMonoBehaviour
     }
     protected virtual void LoadCharCtrl()
     {
-        if (this.charCtrl != null) return;
-        charCtrl = transform.parent.GetComponent<CharCtrl>();
+        if (this._charCtrl != null) return;
+        _charCtrl = transform.parent.GetComponent<CharCtrl>();
         Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
     }
 
@@ -38,16 +38,30 @@ public class CharImmortalSheild : CoreMonoBehaviour
 
     protected virtual void LoadData()
     {
-        boxCollider2D = charCtrl.DamReceive.gameObject.GetComponent<BoxCollider2D>();
+        boxCollider2D = _charCtrl.DamReceive.gameObject.GetComponent<BoxCollider2D>();
         if (boxCollider2D == null) Debug.Log("boxCollider2D null", gameObject);
     }
     //protected override void Awake()
     //{
     //    OnOffFxSheild(false);
     //}
+    protected override void OnEnable()
+    {
+        isSheildOn = false;
 
+        //model.gameObject.SetActive(false);
+        //Debug.Log("============== OnOffFxSheild(false);", gameObject);
+    }
+    protected override void OnDisable()
+    {
+        isSheildOn = false;
+        //model.gameObject.SetActive(false);
+        //Debug.Log("============== OnOffFxSheild(false);", gameObject);
+    }
     private void Update()
     {
+        if (_charCtrl.DamReceive.IsDie == true) return;
+
         if (!isSheildOn) return;
         Immortal(timeImmortalSheild);
     }

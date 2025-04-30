@@ -1,0 +1,1547 @@
+fileFormatVersion: 2
+guid: acd39f62c1d83ef499ba26f314899c92
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7748650092353659777
+    second: ftilt_strip47_0
+  - first:
+      213: -6277981926023812452
+    second: ftilt_strip47_1
+  - first:
+      213: 915956707301057388
+    second: ftilt_strip47_2
+  - first:
+      213: 2634255276586964910
+    second: ftilt_strip47_3
+  - first:
+      213: -1514162177289640872
+    second: ftilt_strip47_4
+  - first:
+      213: 3704437004744603324
+    second: ftilt_strip47_5
+  - first:
+      213: 8183757572866201275
+    second: ftilt_strip47_6
+  - first:
+      213: -6944961814885282984
+    second: ftilt_strip47_7
+  - first:
+      213: -6618212952063215997
+    second: ftilt_strip47_8
+  - first:
+      213: -4889779285242680698
+    second: ftilt_strip47_9
+  - first:
+      213: 229910959148911946
+    second: ftilt_strip47_10
+  - first:
+      213: -1908588279350354628
+    second: ftilt_strip47_11
+  - first:
+      213: -8447495896231846431
+    second: ftilt_strip47_12
+  - first:
+      213: 9106353709141864230
+    second: ftilt_strip47_13
+  - first:
+      213: 4233801572519158395
+    second: ftilt_strip47_14
+  - first:
+      213: 5431371405046175823
+    second: ftilt_strip47_15
+  - first:
+      213: -5537198205881729511
+    second: ftilt_strip47_16
+  - first:
+      213: 729138512448733533
+    second: ftilt_strip47_17
+  - first:
+      213: 869646348380269938
+    second: ftilt_strip47_18
+  - first:
+      213: -7509514927489222611
+    second: ftilt_strip47_19
+  - first:
+      213: -4234847748990518503
+    second: ftilt_strip47_20
+  - first:
+      213: 1452001893586893305
+    second: ftilt_strip47_21
+  - first:
+      213: 4359452408382767276
+    second: ftilt_strip47_22
+  - first:
+      213: -8604220017592595401
+    second: ftilt_strip47_23
+  - first:
+      213: 784180344374845965
+    second: ftilt_strip47_24
+  - first:
+      213: -3174144300713328889
+    second: ftilt_strip47_25
+  - first:
+      213: -8344393452660562254
+    second: ftilt_strip47_26
+  - first:
+      213: -189122066824005732
+    second: ftilt_strip47_27
+  - first:
+      213: 2060731136397051565
+    second: ftilt_strip47_28
+  - first:
+      213: -8359469201689093135
+    second: ftilt_strip47_29
+  - first:
+      213: 8106956928168884621
+    second: ftilt_strip47_30
+  - first:
+      213: 1155714836900678945
+    second: ftilt_strip47_31
+  - first:
+      213: -8416243857645152158
+    second: ftilt_strip47_32
+  - first:
+      213: -5860556817236062995
+    second: ftilt_strip47_33
+  - first:
+      213: -7383297351956588921
+    second: ftilt_strip47_34
+  - first:
+      213: -2272913835265270961
+    second: ftilt_strip47_35
+  - first:
+      213: 2750855277687050040
+    second: ftilt_strip47_36
+  - first:
+      213: 8378892477778393512
+    second: ftilt_strip47_37
+  - first:
+      213: 4242895914807342941
+    second: ftilt_strip47_38
+  - first:
+      213: -3062022857389183171
+    second: ftilt_strip47_39
+  - first:
+      213: 900690467250659249
+    second: ftilt_strip47_40
+  - first:
+      213: 3067580681304824579
+    second: ftilt_strip47_41
+  - first:
+      213: 246264998472568393
+    second: ftilt_strip47_42
+  - first:
+      213: 3693035140653714058
+    second: ftilt_strip47_43
+  - first:
+      213: -3382628596037204656
+    second: ftilt_strip47_44
+  - first:
+      213: -3224343108480827246
+    second: ftilt_strip47_45
+  - first:
+      213: 1040759917276417597
+    second: ftilt_strip47_46
+  - first:
+      213: -4508381515337811054
+    second: ftilt_strip47_47
+  - first:
+      213: 3471689674137155762
+    second: ftilt_strip47_48
+  - first:
+      213: 6217048482339144562
+    second: ftilt_strip47_49
+  - first:
+      213: 8651324666062188703
+    second: ftilt_strip47_50
+  - first:
+      213: 7773885956952585348
+    second: ftilt_strip47_51
+  - first:
+      213: -1157558503960480049
+    second: ftilt_strip47_52
+  - first:
+      213: -8863957026474278556
+    second: ftilt_strip47_53
+  - first:
+      213: 6327699424989626040
+    second: ftilt_strip47_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ftilt_strip47_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c567c8bc3477490800000000000000
+      internalID: -7748650092353659777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a270153b020e8a0800000000000000
+      internalID: -6277981926023812452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63e058b5c126bc00800000000000000
+      internalID: 915956707301057388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_3
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea71aa89731ce8420800000000000000
+      internalID: 2634255276586964910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_4
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854a15aa58d9cfae0800000000000000
+      internalID: -1514162177289640872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_5
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb63d9034ddc86330800000000000000
+      internalID: 3704437004744603324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_6
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb65a92372c829170800000000000000
+      internalID: 8183757572866201275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_7
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b4c1d760a8e9f90800000000000000
+      internalID: -6944961814885282984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_8
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386f16882626724a0800000000000000
+      internalID: -6618212952063215997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_9
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68aeb01b5a3042cb0800000000000000
+      internalID: -4889779285242680698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_10
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d4a0a9ccec03300800000000000000
+      internalID: 229910959148911946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_11
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d19d272155385e0800000000000000
+      internalID: -1908588279350354628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_12
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1edd7873d3774ca80800000000000000
+      internalID: -8447495896231846431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_13
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f26707374406e70800000000000000
+      internalID: 9106353709141864230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_14
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72ae7b391c71ca30800000000000000
+      internalID: 4233801572519158395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_15
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48ddf8248b106b40800000000000000
+      internalID: 5431371405046175823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_16
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91e3d7fa19be723b0800000000000000
+      internalID: -5537198205881729511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_17
+      rect:
+        serializedVersion: 2
+        x: 1853
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51409a2d9b6e1a00800000000000000
+      internalID: 729138512448733533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_18
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27deb6b0fba911c00800000000000000
+      internalID: 869646348380269938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_19
+      rect:
+        serializedVersion: 2
+        x: 2071
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28f287e5f7d8c790800000000000000
+      internalID: -7509514927489222611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_20
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bbe83d86cca35c0800000000000000
+      internalID: -4234847748990518503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_21
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9f078770c862410800000000000000
+      internalID: 1452001893586893305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_22
+      rect:
+        serializedVersion: 2
+        x: 2398
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca040e83ed2ef7c30800000000000000
+      internalID: 4359452408382767276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_23
+      rect:
+        serializedVersion: 2
+        x: 2507
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c861a2b7ba79880800000000000000
+      internalID: -8604220017592595401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_24
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d026e425ed7f1ea00800000000000000
+      internalID: 784180344374845965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_25
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fb62a639c23f3d0800000000000000
+      internalID: -3174144300713328889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_26
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b662148d52c23c80800000000000000
+      internalID: -8344393452660562254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_27
+      rect:
+        serializedVersion: 2
+        x: 2943
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9774c37b7a106df0800000000000000
+      internalID: -189122066824005732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_28
+      rect:
+        serializedVersion: 2
+        x: 3052
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da68882ec00399c10800000000000000
+      internalID: 2060731136397051565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_29
+      rect:
+        serializedVersion: 2
+        x: 3161
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fbd08a2d033dfb80800000000000000
+      internalID: -8359469201689093135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_30
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89f5e8af52b18070800000000000000
+      internalID: 8106956928168884621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_31
+      rect:
+        serializedVersion: 2
+        x: 3379
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d0d1b558ce90010800000000000000
+      internalID: 1155714836900678945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_32
+      rect:
+        serializedVersion: 2
+        x: 3488
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2685ff97dce733b80800000000000000
+      internalID: -8416243857645152158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_33
+      rect:
+        serializedVersion: 2
+        x: 3597
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec86a210ae1baea0800000000000000
+      internalID: -5860556817236062995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_34
+      rect:
+        serializedVersion: 2
+        x: 3706
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7869b814d22498990800000000000000
+      internalID: -7383297351956588921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_35
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4b51f3c8ecf470e0800000000000000
+      internalID: -2272913835265270961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_36
+      rect:
+        serializedVersion: 2
+        x: 3924
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f8b07ec400d2620800000000000000
+      internalID: 2750855277687050040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_37
+      rect:
+        serializedVersion: 2
+        x: 4033
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a97c25b05ec74470800000000000000
+      internalID: 8378892477778393512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_38
+      rect:
+        serializedVersion: 2
+        x: 4142
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d573c0dca5bc1ea30800000000000000
+      internalID: 4242895914807342941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_39
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3fe03b3f628185d0800000000000000
+      internalID: -3062022857389183171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_40
+      rect:
+        serializedVersion: 2
+        x: 4360
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf5e093535ef7c00800000000000000
+      internalID: 900690467250659249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_41
+      rect:
+        serializedVersion: 2
+        x: 4469
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30b560d706c329a20800000000000000
+      internalID: 3067580681304824579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_42
+      rect:
+        serializedVersion: 2
+        x: 4578
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ec19a16b8ea6300800000000000000
+      internalID: 246264998472568393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_43
+      rect:
+        serializedVersion: 2
+        x: 4687
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a03b5d4eb404330800000000000000
+      internalID: 3693035140653714058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_44
+      rect:
+        serializedVersion: 2
+        x: 4796
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 055cf1eb63d7e01d0800000000000000
+      internalID: -3382628596037204656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_45
+      rect:
+        serializedVersion: 2
+        x: 4905
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2908501b605d043d0800000000000000
+      internalID: -3224343108480827246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_46
+      rect:
+        serializedVersion: 2
+        x: 5014
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ec9bd61a5817e00800000000000000
+      internalID: 1040759917276417597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_47
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b3a52f5e20f61c0800000000000000
+      internalID: -4508381515337811054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_48
+      rect:
+        serializedVersion: 2
+        x: 5232
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b836556d5bed2030800000000000000
+      internalID: 3471689674137155762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_49
+      rect:
+        serializedVersion: 2
+        x: 5341
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273c435c7a4674650800000000000000
+      internalID: 6217048482339144562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_50
+      rect:
+        serializedVersion: 2
+        x: 5450
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90363572fdaf0870800000000000000
+      internalID: 8651324666062188703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_51
+      rect:
+        serializedVersion: 2
+        x: 5559
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4847e8c071462eb60800000000000000
+      internalID: 7773885956952585348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_52
+      rect:
+        serializedVersion: 2
+        x: 5668
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc6f3b47ca68fefe0800000000000000
+      internalID: -1157558503960480049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_53
+      rect:
+        serializedVersion: 2
+        x: 5777
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4614ca43c06ecf480800000000000000
+      internalID: -8863957026474278556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ftilt_strip47_54
+      rect:
+        serializedVersion: 2
+        x: 5886
+        y: 0
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81cc3da72b21e34083a6b543d25e620
+      internalID: 6327699424989626040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ftilt_strip47_0: -7748650092353659777
+      ftilt_strip47_1: -6277981926023812452
+      ftilt_strip47_10: 229910959148911946
+      ftilt_strip47_11: -1908588279350354628
+      ftilt_strip47_12: -8447495896231846431
+      ftilt_strip47_13: 9106353709141864230
+      ftilt_strip47_14: 4233801572519158395
+      ftilt_strip47_15: 5431371405046175823
+      ftilt_strip47_16: -5537198205881729511
+      ftilt_strip47_17: 729138512448733533
+      ftilt_strip47_18: 869646348380269938
+      ftilt_strip47_19: -7509514927489222611
+      ftilt_strip47_2: 915956707301057388
+      ftilt_strip47_20: -4234847748990518503
+      ftilt_strip47_21: 1452001893586893305
+      ftilt_strip47_22: 4359452408382767276
+      ftilt_strip47_23: -8604220017592595401
+      ftilt_strip47_24: 784180344374845965
+      ftilt_strip47_25: -3174144300713328889
+      ftilt_strip47_26: -8344393452660562254
+      ftilt_strip47_27: -189122066824005732
+      ftilt_strip47_28: 2060731136397051565
+      ftilt_strip47_29: -8359469201689093135
+      ftilt_strip47_3: 2634255276586964910
+      ftilt_strip47_30: 8106956928168884621
+      ftilt_strip47_31: 1155714836900678945
+      ftilt_strip47_32: -8416243857645152158
+      ftilt_strip47_33: -5860556817236062995
+      ftilt_strip47_34: -7383297351956588921
+      ftilt_strip47_35: -2272913835265270961
+      ftilt_strip47_36: 2750855277687050040
+      ftilt_strip47_37: 8378892477778393512
+      ftilt_strip47_38: 4242895914807342941
+      ftilt_strip47_39: -3062022857389183171
+      ftilt_strip47_4: -1514162177289640872
+      ftilt_strip47_40: 900690467250659249
+      ftilt_strip47_41: 3067580681304824579
+      ftilt_strip47_42: 246264998472568393
+      ftilt_strip47_43: 3693035140653714058
+      ftilt_strip47_44: -3382628596037204656
+      ftilt_strip47_45: -3224343108480827246
+      ftilt_strip47_46: 1040759917276417597
+      ftilt_strip47_47: -4508381515337811054
+      ftilt_strip47_48: 3471689674137155762
+      ftilt_strip47_49: 6217048482339144562
+      ftilt_strip47_5: 3704437004744603324
+      ftilt_strip47_50: 8651324666062188703
+      ftilt_strip47_51: 7773885956952585348
+      ftilt_strip47_52: -1157558503960480049
+      ftilt_strip47_53: -8863957026474278556
+      ftilt_strip47_54: 6327699424989626040
+      ftilt_strip47_6: 8183757572866201275
+      ftilt_strip47_7: -6944961814885282984
+      ftilt_strip47_8: -6618212952063215997
+      ftilt_strip47_9: -4889779285242680698
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,7 +3,7 @@ using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class CharState : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl charCtrl;
+    [SerializeField] protected CharCtrl _charCtrl;
 
 
     [SerializeField] protected bool isAttackingFake;
@@ -38,14 +38,34 @@ public class CharState : CoreMonoBehaviour
     }
     protected virtual void LoadCharCtrl()
     {
-        if (this.charCtrl != null) return;
-        charCtrl = GetComponent<CharCtrl>();
+        if (this._charCtrl != null) return;
+        _charCtrl = GetComponent<CharCtrl>();
         Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
     }
     private void Update()
     {
+        if (_charCtrl.DamReceive.IsDie == true) return;
+
         if (!IsCanPress()) return;
         GetInput();
+    }
+
+    protected override void OnEnable()
+    {
+        isDying = false;
+
+        canAttack = true;
+        canDodge = true;
+        isCanPress = true;
+
+
+        isAttacking = false;
+        isAttackingFake = false;
+
+        isDodging = false;
+        isHurting = false;
+
+        IsCanPressBool = true;
     }
 
     private void GetInput()
@@ -73,11 +93,11 @@ public class CharState : CoreMonoBehaviour
     public virtual void InputAttack()
     {
         if (!IsCanAttack()) return;
-        if (charCtrl.CharInput.InputAttack)
+        if (_charCtrl.CharInput.InputAttack)
         {
             isAttacking = true; isAttackingFake = true;
             canAttack = false;
-            charCtrl.CharInput.SetFalseInput();
+            _charCtrl.CharInput.SetFalseInput();
 
             IsCanPressBool = false;
         }
@@ -95,11 +115,11 @@ public class CharState : CoreMonoBehaviour
     public virtual void InputDodge()
     {
         if (!IsCanDodge()) return;
-        if (charCtrl.CharInput.InputDodge)
+        if (_charCtrl.CharInput.InputDodge)
         {
             isDodging = true;
             canDodge = false;
-            charCtrl.CharInput.SetFalseInput();
+            _charCtrl.CharInput.SetFalseInput();
 
             IsCanPressBool = false;
         }

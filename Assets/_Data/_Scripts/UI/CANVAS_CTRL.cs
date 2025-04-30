@@ -5,22 +5,23 @@ public class CANVAS_CTRL : MonoBehaviour
     private static CANVAS_CTRL instance;
     public static CANVAS_CTRL Instance => instance;
     [SerializeField] protected GameObject goStartGame;
-    [SerializeField] protected GameObject Canvas4Player;
-    [SerializeField] protected GameObject CanvasKeyBinding;
+    [SerializeField] protected GameObject Canvas4PlayerCtrl;
+    [SerializeField] protected GameObject CanvasKeyBindingCtrl;
     [SerializeField] protected GameObject CanvasMENU;
+    [SerializeField] protected CanvasENDGAME canvasENDGAME;
+    public int soLuongPlayer;
+
+
     private  void Awake()
     {
         if (instance != null) Debug.LogError("only allow 1 GameManager | Singleton");
         CANVAS_CTRL.instance = this;
-
-        //[ ]
-        //InitGame();
     }
     private void Start()
     {
         SetFalseAll();
         //MENU();
-        Debug.Log("CANVAS_CTRL Start");
+        //Debug.Log("CANVAS_CTRL Start");
     }
     public void MENU()
     {
@@ -31,7 +32,9 @@ public class CANVAS_CTRL : MonoBehaviour
     {
         SetFalseAll();
         goStartGame.gameObject.SetActive(true);
+
         GameManager.Instance.DataCHarIntoGame();
+        InputManager.Instance.UpdateKey4Pkayer();// cap nhat input player khi vao game
     }
 
     public void OptionsCanva()
@@ -42,14 +45,39 @@ public class CANVAS_CTRL : MonoBehaviour
     public void SetttingONCanvas4Player()
     {
         SetFalseAll();
-        Canvas4Player.gameObject.SetActive(true);
+        Canvas4PlayerCtrl.gameObject.SetActive(true);
     }
+
+    public void Nut1()
+    {
+        soLuongPlayer = 1;
+        StartGame();
+    }
+    public void Nut2()
+    {
+        soLuongPlayer = 2;
+        StartGame();
+    }
+    public void Nut3()
+    {
+        soLuongPlayer = 3;
+        StartGame();
+    }
+    public void Nut4()
+    {
+        soLuongPlayer = 4;
+        StartGame();
+    }
+
     private void SetFalseAll()
     {
         goStartGame.gameObject.SetActive(false);
-        Canvas4Player.gameObject.SetActive(false);
-        CanvasKeyBinding.gameObject.SetActive(false);
+        Canvas4PlayerCtrl.gameObject.SetActive(false);
+        CanvasKeyBindingCtrl.gameObject.SetActive(false);
         CanvasMENU.gameObject.SetActive(false);
+
+        CanvasPauseManu.SetActive(false);
+        canvasENDGAME.gameObject.SetActive(false);
     }
 
     public void QuitGame()
@@ -57,4 +85,45 @@ public class CANVAS_CTRL : MonoBehaviour
         Debug.Log("QUIT!");
         Application.Quit();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    ////////// PAUSE MENU
+    [SerializeField] protected GameObject CanvasPauseManu;
+    [SerializeField] protected bool isGamePaused = false;
+
+
+    public void Resume()
+    {
+        CanvasPauseManu.SetActive(false);
+        Time.timeScale = 1f;
+        isGamePaused = false;
+    }
+    public void Pause()
+    {
+        CanvasPauseManu.SetActive(true);
+        Time.timeScale = 0f;
+        isGamePaused = true;
+    }
+
+
+
+    //// END GAME
+    
+    public void EndGame(string nameWINER)
+    {
+        canvasENDGAME.gameObject.SetActive(true);
+        canvasENDGAME.txtNameWiner.text = nameWINER;
+    }
+
+
 }

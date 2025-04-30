@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: f1777f61ca797614ea5ce5001908e8bb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3669326319907562632
+    second: fstrong_strip12_0
+  - first:
+      213: -1528407244803404540
+    second: fstrong_strip12_1
+  - first:
+      213: -7782969681715867438
+    second: fstrong_strip12_2
+  - first:
+      213: -7718286671903182007
+    second: fstrong_strip12_3
+  - first:
+      213: 4697686691394445485
+    second: fstrong_strip12_4
+  - first:
+      213: 8918562089540341501
+    second: fstrong_strip12_5
+  - first:
+      213: -5709282447270152751
+    second: fstrong_strip12_6
+  - first:
+      213: -5372859491405426852
+    second: fstrong_strip12_7
+  - first:
+      213: 7639487070179453721
+    second: fstrong_strip12_8
+  - first:
+      213: 7403613402414439579
+    second: fstrong_strip12_9
+  - first:
+      213: -4269751097847481249
+    second: fstrong_strip12_10
+  - first:
+      213: -5574183627580855935
+    second: fstrong_strip12_11
+  - first:
+      213: 3754052196336807872
+    second: fstrong_strip12_12
+  - first:
+      213: -923408540577819824
+    second: fstrong_strip12_13
+  - first:
+      213: 5079623579585552244
+    second: fstrong_strip12_14
+  - first:
+      213: -2606202059134088404
+    second: fstrong_strip12_15
+  - first:
+      213: 4853028750603637099
+    second: fstrong_strip12_16
+  - first:
+      213: 3542388469976969588
+    second: fstrong_strip12_17
+  - first:
+      213: -909831189445817306
+    second: fstrong_strip12_18
+  - first:
+      213: 28172906965870822
+    second: fstrong_strip12_19
+  - first:
+      213: 6704970269109882919
+    second: fstrong_strip12_20
+  - first:
+      213: -2441371913094002499
+    second: fstrong_strip12_21
+  - first:
+      213: 3151495871336383742
+    second: fstrong_strip12_22
+  - first:
+      213: 6888572812183096579
+    second: fstrong_strip12_23
+  - first:
+      213: -3445149671253520187
+    second: fstrong_strip12_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fstrong_strip12_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 17
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b1be8272fe31dc0800000000000000
+      internalID: -3669326319907562632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_1
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 63
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d0c5d65b10acae0800000000000000
+      internalID: -1528407244803404540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 57
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0d0b77f465df390800000000000000
+      internalID: -7782969681715867438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_3
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 17
+        width: 112
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94334964a2323e490800000000000000
+      internalID: -7718286671903182007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_4
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 17
+        width: 130
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da065aa0829813140800000000000000
+      internalID: 4697686691394445485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_5
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 17
+        width: 130
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfe4156c7f815cb70800000000000000
+      internalID: 8918562089540341501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_6
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 17
+        width: 98
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d5f6100ddd84c0b0800000000000000
+      internalID: -5709282447270152751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_7
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 17
+        width: 158
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f81ba52c4cf65b0800000000000000
+      internalID: -5372859491405426852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_8
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 17
+        width: 140
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b6c3cb309e40a60800000000000000
+      internalID: 7639487070179453721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_9
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 17
+        width: 140
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9cdb39d92beeb660800000000000000
+      internalID: 7403613402414439579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_10
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 17
+        width: 138
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c7775affbceb4c0800000000000000
+      internalID: -4269751097847481249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_11
+      rect:
+        serializedVersion: 2
+        x: 2129
+        y: 17
+        width: 116
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 189ae35268584a2b0800000000000000
+      internalID: -5574183627580855935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_12
+      rect:
+        serializedVersion: 2
+        x: 2347
+        y: 17
+        width: 84
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf2eee2592191430800000000000000
+      internalID: 3754052196336807872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_13
+      rect:
+        serializedVersion: 2
+        x: 2573
+        y: 17
+        width: 80
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0531c4423d46f23f0800000000000000
+      internalID: -923408540577819824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_14
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 49
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f15ed8bb27e7640800000000000000
+      internalID: 5079623579585552244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_15
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 51
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bcb641909e4dbd0800000000000000
+      internalID: -2606202059134088404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_16
+      rect:
+        serializedVersion: 2
+        x: 2443
+        y: 31
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61dc7cafeb695340800000000000000
+      internalID: 4853028750603637099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_17
+      rect:
+        serializedVersion: 2
+        x: 2659
+        y: 31
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 471ba698b87192130800000000000000
+      internalID: 3542388469976969588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_18
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 41
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62cc28b8a51af53f0800000000000000
+      internalID: -909831189445817306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_19
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 33
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e8adff0c17146000800000000000000
+      internalID: 28172906965870822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_20
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 41
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72099df6fe6dc0d50800000000000000
+      internalID: 6704970269109882919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_21
+      rect:
+        serializedVersion: 2
+        x: 2433
+        y: 37
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db88a631e218e1ed0800000000000000
+      internalID: -2441371913094002499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_22
+      rect:
+        serializedVersion: 2
+        x: 2683
+        y: 37
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef48d123ccc5cbb20800000000000000
+      internalID: 3151495871336383742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_23
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 29
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d4697b970299f50800000000000000
+      internalID: 6888572812183096579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fstrong_strip12_24
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 27
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c051ee80ae5030d0800000000000000
+      internalID: -3445149671253520187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fstrong_strip12_0: -3669326319907562632
+      fstrong_strip12_1: -1528407244803404540
+      fstrong_strip12_10: -4269751097847481249
+      fstrong_strip12_11: -5574183627580855935
+      fstrong_strip12_12: 3754052196336807872
+      fstrong_strip12_13: -923408540577819824
+      fstrong_strip12_14: 5079623579585552244
+      fstrong_strip12_15: -2606202059134088404
+      fstrong_strip12_16: 4853028750603637099
+      fstrong_strip12_17: 3542388469976969588
+      fstrong_strip12_18: -909831189445817306
+      fstrong_strip12_19: 28172906965870822
+      fstrong_strip12_2: -7782969681715867438
+      fstrong_strip12_20: 6704970269109882919
+      fstrong_strip12_21: -2441371913094002499
+      fstrong_strip12_22: 3151495871336383742
+      fstrong_strip12_23: 6888572812183096579
+      fstrong_strip12_24: -3445149671253520187
+      fstrong_strip12_3: -7718286671903182007
+      fstrong_strip12_4: 4697686691394445485
+      fstrong_strip12_5: 8918562089540341501
+      fstrong_strip12_6: -5709282447270152751
+      fstrong_strip12_7: -5372859491405426852
+      fstrong_strip12_8: 7639487070179453721
+      fstrong_strip12_9: 7403613402414439579
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

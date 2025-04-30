@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: afca2e5627829ba4b9d363db3342b363
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2735176436707414433
+    second: dspecial_strip11_0
+  - first:
+      213: -8375090141582377205
+    second: dspecial_strip11_1
+  - first:
+      213: 3749018565106886039
+    second: dspecial_strip11_2
+  - first:
+      213: 7388764951699359317
+    second: dspecial_strip11_3
+  - first:
+      213: 4573255640460450941
+    second: dspecial_strip11_4
+  - first:
+      213: 3518480078518928640
+    second: dspecial_strip11_5
+  - first:
+      213: 1862000462830849255
+    second: dspecial_strip11_6
+  - first:
+      213: 1669755396205774730
+    second: dspecial_strip11_7
+  - first:
+      213: 2786390831224177980
+    second: dspecial_strip11_8
+  - first:
+      213: 1821182087949810301
+    second: dspecial_strip11_9
+  - first:
+      213: 2874818414084139804
+    second: dspecial_strip11_10
+  - first:
+      213: -614338215892023543
+    second: dspecial_strip11_11
+  - first:
+      213: 6315002485838468672
+    second: dspecial_strip11_12
+  - first:
+      213: 3822191315641963264
+    second: dspecial_strip11_13
+  - first:
+      213: 3958486173225946441
+    second: dspecial_strip11_14
+  - first:
+      213: -8241035393558047960
+    second: dspecial_strip11_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dspecial_strip11_0
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 123
+        width: 48
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e290cb583ba0ad0800000000000000
+      internalID: -2735176436707414433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_1
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 123
+        width: 98
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f3b1da3e3b5cb80800000000000000
+      internalID: -8375090141582377205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_2
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 123
+        width: 112
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7956a859580370430800000000000000
+      internalID: 3749018565106886039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_3
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 123
+        width: 108
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55685e2839a2a8660800000000000000
+      internalID: 7388764951699359317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_4
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 121
+        width: 140
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c52bc56c7777f30800000000000000
+      internalID: 4573255640460450941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_5
+      rect:
+        serializedVersion: 2
+        x: 1713
+        y: 121
+        width: 142
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005c86d5df624d030800000000000000
+      internalID: 3518480078518928640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_6
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 121
+        width: 134
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec45ae3e8727d910800000000000000
+      internalID: 1862000462830849255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_7
+      rect:
+        serializedVersion: 2
+        x: 2365
+        y: 121
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8703a4afa92c2710800000000000000
+      internalID: 1669755396205774730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_8
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 121
+        width: 122
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35c584b2bf3ba620800000000000000
+      internalID: 2786390831224177980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_9
+      rect:
+        serializedVersion: 2
+        x: 3007
+        y: 123
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a7d8fb573264910800000000000000
+      internalID: 1821182087949810301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_10
+      rect:
+        serializedVersion: 2
+        x: 3073
+        y: 141
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1bac3dbd1865e720800000000000000
+      internalID: 2874818414084139804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_11
+      rect:
+        serializedVersion: 2
+        x: 3095
+        y: 147
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9070fc5c5ae6977f0800000000000000
+      internalID: -614338215892023543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_12
+      rect:
+        serializedVersion: 2
+        x: 3323
+        y: 123
+        width: 70
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0465c147d4563a750800000000000000
+      internalID: 6315002485838468672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_13
+      rect:
+        serializedVersion: 2
+        x: 3401
+        y: 141
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0031c6030c62b0530800000000000000
+      internalID: 3822191315641963264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_14
+      rect:
+        serializedVersion: 2
+        x: 3421
+        y: 145
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d8d6b933e5fe630800000000000000
+      internalID: 3958486173225946441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dspecial_strip11_15
+      rect:
+        serializedVersion: 2
+        x: 3431
+        y: 147
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8231d81f8f5f1ad80800000000000000
+      internalID: -8241035393558047960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dspecial_strip11_0: -2735176436707414433
+      dspecial_strip11_1: -8375090141582377205
+      dspecial_strip11_10: 2874818414084139804
+      dspecial_strip11_11: -614338215892023543
+      dspecial_strip11_12: 6315002485838468672
+      dspecial_strip11_13: 3822191315641963264
+      dspecial_strip11_14: 3958486173225946441
+      dspecial_strip11_15: -8241035393558047960
+      dspecial_strip11_2: 3749018565106886039
+      dspecial_strip11_3: 7388764951699359317
+      dspecial_strip11_4: 4573255640460450941
+      dspecial_strip11_5: 3518480078518928640
+      dspecial_strip11_6: 1862000462830849255
+      dspecial_strip11_7: 1669755396205774730
+      dspecial_strip11_8: 2786390831224177980
+      dspecial_strip11_9: 1821182087949810301
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

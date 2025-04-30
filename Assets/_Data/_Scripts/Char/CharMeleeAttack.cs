@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharMeleeAttack : CoreMonoBehaviour
 {
-    [SerializeField] protected CharCtrl charCtrl;
+    [SerializeField] protected CharCtrl _charCtrl;
 
 
     [SerializeField] protected Transform attackPoint;
@@ -22,7 +22,7 @@ public class CharMeleeAttack : CoreMonoBehaviour
     }
     protected virtual void InitData()
     {
-        timeDelayMeleeAttack = charCtrl.CharAnimatorCtrl.AttackAnimTime;
+        timeDelayMeleeAttack = _charCtrl.CharAnimatorCtrl.AttackAnimTime;
         isCanOverlapCircleMeleeAttack = true;
     }
 
@@ -41,15 +41,17 @@ public class CharMeleeAttack : CoreMonoBehaviour
 
     protected virtual void LoadCharCtrl()
     {
-        if (this.charCtrl != null) return;
-        charCtrl = transform.parent.GetComponent<CharCtrl>();
+        if (this._charCtrl != null) return;
+        _charCtrl = transform.parent.GetComponent<CharCtrl>();
         Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
     }
 
     private void Update()
     {
+        if (_charCtrl.DamReceive.IsDie == true) return;
+
         //if (!charCtrl.CharState.IsCanAttack()) return;
-        if (charCtrl.CharInput.InputAttack)
+        if (_charCtrl.CharInput.InputAttack)
         {
             Attack();
         }
@@ -72,7 +74,7 @@ public class CharMeleeAttack : CoreMonoBehaviour
     private void MeleeAttack()
     {
 
-        Debug.Log(charCtrl.transform.name + "MeleeAttack isCanOverlapCircleMeleeAttack :" + isCanOverlapCircleMeleeAttack);
+        //Debug.Log(_charCtrl.transform.name + "MeleeAttack isCanOverlapCircleMeleeAttack :" + isCanOverlapCircleMeleeAttack);
         if (!isCanOverlapCircleMeleeAttack) return;
 
         Collider2D ballDamSender_Collider2D = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);

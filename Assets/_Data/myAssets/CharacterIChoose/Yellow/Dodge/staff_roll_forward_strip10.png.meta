@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 81d09e965cf67fa40875dd2c0e3dbbc7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1820251216527710026
+    second: staff_roll_forward_strip10_0
+  - first:
+      213: -3720139063371414168
+    second: staff_roll_forward_strip10_1
+  - first:
+      213: -2540401931642705237
+    second: staff_roll_forward_strip10_2
+  - first:
+      213: -3759436523350420900
+    second: staff_roll_forward_strip10_3
+  - first:
+      213: 5596835161431949700
+    second: staff_roll_forward_strip10_4
+  - first:
+      213: -1568509888855331675
+    second: staff_roll_forward_strip10_5
+  - first:
+      213: 3802858419829285331
+    second: staff_roll_forward_strip10_6
+  - first:
+      213: -8048084498138873990
+    second: staff_roll_forward_strip10_7
+  - first:
+      213: 8680334096424727172
+    second: staff_roll_forward_strip10_8
+  - first:
+      213: -7498615913160914438
+    second: staff_roll_forward_strip10_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 46
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8a4e4a92b2db6e0800000000000000
+      internalID: -1820251216527710026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 51
+        width: 48
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86541b46b396f5cc0800000000000000
+      internalID: -3720139063371414168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_2
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 47
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa68bd17edaebcd0800000000000000
+      internalID: -2540401931642705237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 46
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c52911e766cc3dbc0800000000000000
+      internalID: -3759436523350420900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_4
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 46
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 481419f0de3fbad40800000000000000
+      internalID: 5596835161431949700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_5
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 46
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac271001988b3ae0800000000000000
+      internalID: -1568509888855331675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_6
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 46
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1270d959776c430800000000000000
+      internalID: 3802858419829285331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_7
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 46
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7fba1e1ac57f4090800000000000000
+      internalID: -8048084498138873990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_8
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 46
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4827b1dceddb67870800000000000000
+      internalID: 8680334096424727172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff_roll_forward_strip10_9
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 46
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9c3fc6e809fe790800000000000000
+      internalID: -7498615913160914438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      staff_roll_forward_strip10_0: -1820251216527710026
+      staff_roll_forward_strip10_1: -3720139063371414168
+      staff_roll_forward_strip10_2: -2540401931642705237
+      staff_roll_forward_strip10_3: -3759436523350420900
+      staff_roll_forward_strip10_4: 5596835161431949700
+      staff_roll_forward_strip10_5: -1568509888855331675
+      staff_roll_forward_strip10_6: 3802858419829285331
+      staff_roll_forward_strip10_7: -8048084498138873990
+      staff_roll_forward_strip10_8: 8680334096424727172
+      staff_roll_forward_strip10_9: -7498615913160914438
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
