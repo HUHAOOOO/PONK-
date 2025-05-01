@@ -95,6 +95,8 @@ public class CharState : CoreMonoBehaviour
         if (!IsCanAttack()) return;
         if (_charCtrl.CharInput.InputAttack)
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.RandomSoundSword());
+
             isAttacking = true; isAttackingFake = true;
             canAttack = false;
             _charCtrl.CharInput.SetFalseInput();

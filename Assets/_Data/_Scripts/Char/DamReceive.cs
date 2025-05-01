@@ -55,6 +55,7 @@ public class DamReceive : CoreMonoBehaviour
         charCtrl.CharState.IsHurting = true;
         charCtrl.CharImmortalArmor.SetBool_TimeImmortalSheild(true);
         charCtrl.CharMeleeAttack.CancelInvokeAttack();
+        AudioManager.Instance.PlaySFX("Hit");
     }
     public virtual void Die()
     {
@@ -64,6 +65,7 @@ public class DamReceive : CoreMonoBehaviour
         isDie = true;
         GameManager.Instance.SetDiePlayerByPlayerIndexType(charCtrl.PlayerIndexType);
         //charCtrl.gameObject.SetActive(false);
+        AudioManager.Instance.PlaySFX("Die");
         boxCollider2D.enabled = false;
     }
 }

@@ -21,7 +21,8 @@ public class DespawnByTime : Despawn
     protected override bool CanDespawn()
     {
         this.timer += Time.fixedDeltaTime;
-        if(this.timer < this.delay) return false;
+        //this.timer += Time.unscaledDeltaTime;
+        if (this.timer < this.delay) return false;
         return true;
     }
 }
