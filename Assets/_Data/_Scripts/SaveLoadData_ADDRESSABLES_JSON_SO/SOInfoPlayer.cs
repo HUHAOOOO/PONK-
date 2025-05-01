@@ -26,7 +26,7 @@ public class SOInfoPlayer : ScriptableObject
     {
         playerIndexType = data.playerIndexType;
         nameP = data.nameP;
-        keyPairP = data.keyPairP;
+        keyPairP = new KeyPair(data.keyPairP.keyAttack, data.keyPairP.keyDodge);
         spriteRef = data.spriteRefDummy;
         /////////// C1
         ////spriteP = data.CookString2Sprite(data.spritePStringBase64);
@@ -67,12 +67,13 @@ public class SOInfoPlayer : ScriptableObject
         //// C3 ADDRESSABLES
         LoadDataFromAddressablesWithReference(data.spriteRefDummy);
 
-
+        //this.spriteP = ;
 
     }
     //C3 ADDRESSABLES
     //private async void LoadDataFromAddressables(AssetReference spriteRefDummy)
     private void LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
+    //private Sprite LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
     {
         //// Viet gon OK //TOP2
         //spriteRefDummy.LoadAssetAsync<Sprite>().Completed += (AsyncOperationHandle<Sprite> task) =>
@@ -111,21 +112,28 @@ public class SOInfoPlayer : ScriptableObject
         ///////////// DUNG HANDLE += Completed  //TOP1
         AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(spriteRefDummy);
 
+            //Sprite spriteReturn;
         // Khi load xong thi thuc hien Instantiate
         handle.Completed += (AsyncOperationHandle<Sprite> task) =>
         {
             if (task.Status == AsyncOperationStatus.Succeeded)
             {
                 spriteP = task.Result;
+                //spriteReturn = spriteP;//XXX
+                
             }
             else
             {
                 Debug.LogError("Khong load duoc asset tu Addressables.");
+                //spriteReturn = null;
             }
+
             Addressables.Release(handle);// giai phong tai nguyen sau khi sd 
         };
+            //return spriteReturn;
 
 
+        //return null;
         return;
     }
 
@@ -206,7 +214,9 @@ public class SOInfoPlayer : ScriptableObject
         this.nameP = source.nameP;
         //this.keyPairP = source.keyPairP;
         this.keyPairP = new KeyPair(source.keyPairP.keyAttack, source.keyPairP.keyDodge);
-        this.spriteP = source.spriteP;
+        //this.spriteP = source.spriteP;
+        LoadDataFromAddressablesWithReference(source.spriteRef);
+
         this.spriteRef = source.spriteRef;
     }
 }

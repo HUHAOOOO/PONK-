@@ -174,11 +174,19 @@ public class SaveLoadManager : CoreMonoBehaviour
         ////v3
         string saveDataString = SaveSystem.Load();
         if (saveDataString == null) return;
-        InForPlayerDummyList inForPlayerDummyList = JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
+        InForPlayerDummyList inForPlayerDummyList =  JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
+
+        //InForPlayerDummyList inForPlayerDummyList;
+        //inForPlayerDummyList.data = JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
 
         ///// for
+        SOInfoPlayer newSOInfoPlayerClone = ScriptableObject.CreateInstance<SOInfoPlayer>();
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
+            //newSOInfoPlayerClone.LoadFromData(inForPlayerDummyList.data[i]);
+            ////soNewInfoPlayers[i] = newSOInfoPlayerClone;
+            //soNewInfoPlayers[i].CopyDataFromAnotherSO(newSOInfoPlayerClone);
+
             soNewInfoPlayers[i].LoadFromData(inForPlayerDummyList.data[i]);
         }
 
@@ -210,14 +218,14 @@ public class SaveLoadManager : CoreMonoBehaviour
 
     public void ResetDefaultInfoPlayer()
     {
-        for(int i= 0; i < soNewInfoPlayers.Count; i++)
+        for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
             soNewInfoPlayers[i].CopyDataFromAnotherSO(soDefaultInfoPlayers[i]);
         }
     }
 
 
-    public void SaveNewInfoToSO(PlayerIndexType playerIndexType,string nameP , KeyPair keyPair)
+    public void SaveNewInfoToSO(PlayerIndexType playerIndexType, string nameP, KeyPair keyPair)
     {
         int index = playerIndexType.ToIndex();
 

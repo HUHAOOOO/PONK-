@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InforP1
   m_EditorClassIdentifier: 
   playerIndexType: 2
-  nameP: P1
+  nameP: FINN
   keyPairP:
     keyAttack: 120
     keyDodge: 99
