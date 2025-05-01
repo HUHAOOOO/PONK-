@@ -150,6 +150,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -584,7 +597,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      staff_uair_strip14_0: -8081835872265279570
+      staff_uair_strip14_1: -8823495789745706152
+      staff_uair_strip14_10: -1143645200415324090
+      staff_uair_strip14_11: 4746052057532750618
+      staff_uair_strip14_12: 2297068266235618221
+      staff_uair_strip14_13: 2873108613679170937
+      staff_uair_strip14_14: 9039147956984196521
+      staff_uair_strip14_15: 7096101184591289894
+      staff_uair_strip14_16: 1818125629422236539
+      staff_uair_strip14_17: 4140941400636650330
+      staff_uair_strip14_18: -967422312955776923
+      staff_uair_strip14_2: -8990726403232451958
+      staff_uair_strip14_3: 4655422154130434272
+      staff_uair_strip14_4: 7067959711864711842
+      staff_uair_strip14_5: -1375551612386454566
+      staff_uair_strip14_6: 6877131992623107014
+      staff_uair_strip14_7: 4449637053397739719
+      staff_uair_strip14_8: 2619204227298964452
+      staff_uair_strip14_9: 7332576264308783911
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

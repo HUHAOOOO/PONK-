@@ -168,6 +168,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -734,7 +747,32 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dspecial_air_strip20_0: -5972084174695616247
+      dspecial_air_strip20_1: 2288458072463151406
+      dspecial_air_strip20_10: 2183435616497519906
+      dspecial_air_strip20_11: -7385324461560276199
+      dspecial_air_strip20_12: -7598138457032879239
+      dspecial_air_strip20_13: 6546750664532639943
+      dspecial_air_strip20_14: 220762295586092050
+      dspecial_air_strip20_15: -5451776285206027032
+      dspecial_air_strip20_16: 7724879234242269381
+      dspecial_air_strip20_17: 4237823889626046781
+      dspecial_air_strip20_18: -6865594093035432232
+      dspecial_air_strip20_19: 12978703612561795
+      dspecial_air_strip20_2: 5172033349489726626
+      dspecial_air_strip20_20: 6474990887249430164
+      dspecial_air_strip20_21: 5571071552465250985
+      dspecial_air_strip20_22: -2063069928295279791
+      dspecial_air_strip20_23: -341771366111036933
+      dspecial_air_strip20_24: -8235832150585539173
+      dspecial_air_strip20_3: 6895282336525838995
+      dspecial_air_strip20_4: 5076656919238172200
+      dspecial_air_strip20_5: 810404504386065283
+      dspecial_air_strip20_6: 8894199531532092541
+      dspecial_air_strip20_7: -4301195804810564671
+      dspecial_air_strip20_8: 3306543531209386875
+      dspecial_air_strip20_9: -2961215324541328250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

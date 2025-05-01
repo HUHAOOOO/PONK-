@@ -195,6 +195,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -959,7 +972,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      staff_fstrong_strip31_0: 8069519760120089887
+      staff_fstrong_strip31_1: 7220693729908620293
+      staff_fstrong_strip31_10: -841672210314819718
+      staff_fstrong_strip31_11: -61651251189255448
+      staff_fstrong_strip31_12: 6356432990600720965
+      staff_fstrong_strip31_13: -3968663132193259253
+      staff_fstrong_strip31_14: -2902119060016342480
+      staff_fstrong_strip31_15: 1535889046905908968
+      staff_fstrong_strip31_16: 7344656483268699088
+      staff_fstrong_strip31_17: -3528116923399224940
+      staff_fstrong_strip31_18: -6834113723208795374
+      staff_fstrong_strip31_19: -3016693371025335924
+      staff_fstrong_strip31_2: 6080574694357047201
+      staff_fstrong_strip31_20: 8283501867727184395
+      staff_fstrong_strip31_21: -1650097752604516449
+      staff_fstrong_strip31_22: -3265412571239185528
+      staff_fstrong_strip31_23: 2000311753429986889
+      staff_fstrong_strip31_24: -8901793544783971846
+      staff_fstrong_strip31_25: -2304387284803383859
+      staff_fstrong_strip31_26: 3896595535503993773
+      staff_fstrong_strip31_27: -8602670517588795296
+      staff_fstrong_strip31_28: 2685057977195799508
+      staff_fstrong_strip31_29: -2218650187585063728
+      staff_fstrong_strip31_3: -2958373305938346002
+      staff_fstrong_strip31_30: -3341094564852760860
+      staff_fstrong_strip31_31: 8424971554627702420
+      staff_fstrong_strip31_32: 2877139262633741806
+      staff_fstrong_strip31_33: -4942090536601361529
+      staff_fstrong_strip31_4: -2350123247918124249
+      staff_fstrong_strip31_5: -7356753184009351808
+      staff_fstrong_strip31_6: -7914269903425045868
+      staff_fstrong_strip31_7: 2032648580169215303
+      staff_fstrong_strip31_8: 4394221340952762758
+      staff_fstrong_strip31_9: 6659269018066724609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -180,6 +180,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -834,7 +847,36 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lightning_4_512-sheet_0: -218417400677181940
+      Lightning_4_512-sheet_1: -7403053239757687892
+      Lightning_4_512-sheet_10: -7231828767852320690
+      Lightning_4_512-sheet_11: 1031621931757581022
+      Lightning_4_512-sheet_12: 6729775860380537408
+      Lightning_4_512-sheet_13: -7283001356414560940
+      Lightning_4_512-sheet_14: 7531975080146651462
+      Lightning_4_512-sheet_15: 2613848994781087454
+      Lightning_4_512-sheet_16: -8739444831040545703
+      Lightning_4_512-sheet_17: -5972189587074579569
+      Lightning_4_512-sheet_18: 3419744695217644506
+      Lightning_4_512-sheet_19: -632389438291051189
+      Lightning_4_512-sheet_2: -4859820336282504738
+      Lightning_4_512-sheet_20: -5096155328910555579
+      Lightning_4_512-sheet_21: -7348811841093453119
+      Lightning_4_512-sheet_22: -7599198082363440041
+      Lightning_4_512-sheet_23: -3309522184332366797
+      Lightning_4_512-sheet_24: -2985906775936658939
+      Lightning_4_512-sheet_25: 1887342756590500767
+      Lightning_4_512-sheet_26: 6285968215681286265
+      Lightning_4_512-sheet_27: -6349728896692708594
+      Lightning_4_512-sheet_28: -8342710237970409401
+      Lightning_4_512-sheet_3: -599086950052531407
+      Lightning_4_512-sheet_4: 4148972234841613322
+      Lightning_4_512-sheet_5: -3402303969879035437
+      Lightning_4_512-sheet_6: -7829257108581748651
+      Lightning_4_512-sheet_7: 1271931732208677025
+      Lightning_4_512-sheet_8: 5934690974734539848
+      Lightning_4_512-sheet_9: -8951175571056204017
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

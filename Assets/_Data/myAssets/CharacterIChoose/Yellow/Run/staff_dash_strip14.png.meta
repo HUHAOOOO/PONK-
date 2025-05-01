@@ -135,6 +135,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -459,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      staff_dash_strip14_0: -7904669814274669520
+      staff_dash_strip14_1: 6455813086090670547
+      staff_dash_strip14_10: 360001973480772058
+      staff_dash_strip14_11: 6185234495441086344
+      staff_dash_strip14_12: 8276152775238112788
+      staff_dash_strip14_13: -8049399811101060945
+      staff_dash_strip14_2: 9137403638935440380
+      staff_dash_strip14_3: 6564586337272968353
+      staff_dash_strip14_4: -5139827089862965348
+      staff_dash_strip14_5: 5383366723305367611
+      staff_dash_strip14_6: -8833417815367621887
+      staff_dash_strip14_7: 7356103442997235830
+      staff_dash_strip14_8: 8238459354471627160
+      staff_dash_strip14_9: -2588422348810534156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
