@@ -60,10 +60,7 @@ public class GameManager : CoreMonoBehaviour
         if (instance != null) Debug.LogError("only allow 1 GameManager | Singleton");
         GameManager.instance = this;
 
-        
         //InitGame();
-
-
     }
     protected override void OnEnable()
     {

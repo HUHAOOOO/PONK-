@@ -73,6 +73,8 @@ public class BotState : CoreMonoBehaviour
         if (!IsCanAttack()) return;
         if (botCtrl.BotInput.InputAttack)
         {
+            //AudioManager.Instance.PlaySFX(AudioManager.Instance.RandomSoundSword());
+
             isAttacking = true; //isAttackingFake = true;
             canAttack = false;
             botCtrl.BotInput.SetFalseInput();
@@ -81,6 +83,7 @@ public class BotState : CoreMonoBehaviour
     protected virtual bool IsCanAttack()
     {
         if (canAttack) return true;
+        //AudioManager.Instance.PlaySFX(AudioManager.Instance.RandomSoundSword());
 
         timerAttack += Time.deltaTime;
         if (timerAttack < timeDelayAttack) return false;

@@ -10,6 +10,7 @@ public class FXSpawner : Spawner
     public static string FX_1 = "FX_1";
     public static string FX_vetchem1 = "FX_Slash1";
     public static string FX_vetchem2 = "FX_Slash2";
+    public static string FX_MouseClick = "FX_MouseClick";
 
     protected override void Awake()
     {

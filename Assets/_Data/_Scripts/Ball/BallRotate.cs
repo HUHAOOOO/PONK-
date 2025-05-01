@@ -5,8 +5,8 @@ public class BallRotate : GORotateParent
     [Header("Ball Rotale")]
     [SerializeField] protected BallCtrl ballCtrl;
 
-    [SerializeField] protected int upSpeedPoint = 2;
-    [SerializeField] protected int defaultSpeed = 30;
+    [SerializeField] protected int upSpeedPoint = 5;
+    [SerializeField] protected int defaultSpeed = 40;
     [SerializeField] protected int newSpeedAdd;
     [SerializeField] protected int maxSpeed = 100;
     [SerializeField] protected int minSpeed = -100;
@@ -124,6 +124,7 @@ public class BallRotate : GORotateParent
     }
     public void ChangeDirection(int minus = -1)
     {
+        AudioManager.Instance.PlaySFX("HitBall");
         speedRotate *= minus;
         UpSpeed();
         ChangeRotateSprite();

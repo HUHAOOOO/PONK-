@@ -12,6 +12,7 @@ public class STARTGAME : MonoBehaviour
     public int soluongPlayer;
 
 
+    [SerializeField] protected GameObject goTargetBall;
 
     //protected virtual void TimeDelay()
     //{
@@ -50,6 +51,7 @@ public class STARTGAME : MonoBehaviour
         GameManager.Instance.SetDefaultData();
         GameManager.Instance.SetActivePlayer(soluongPlayer);
         GameManager.Instance.InitGame();
+        //goTargetBall.gameObject.SetActive(false);
 
         goCountDown.gameObject.SetActive(true);
         StartCoroutine(DemNguocVaoGame());
@@ -68,18 +70,21 @@ public class STARTGAME : MonoBehaviour
 
         while (count > 0)
         {
+            goTargetBall.gameObject.SetActive(true);
+            AudioManager.Instance.PlaySFX("CountDown");
             txtCountDown.text = count.ToString();
             yield return new WaitForSecondsRealtime(1f); // Dung Realtime
             count--;
         }
 
         txtCountDown.text = "GO!"; // Hoac "" neu muon an di
-
+        AudioManager.Instance.PlaySFX("GOTUYTT");
         // Cho 1 ti xiu de hien "Start!" roi an
         yield return new WaitForSecondsRealtime(0.5f);
 
         txtCountDown.text = "";
         goCountDown.gameObject.SetActive(false);
+        goTargetBall.gameObject.SetActive(false);
         InputManager.Instance.SetInputForPlayer();
         Time.timeScale = 1f; // Giai phong dong bang
     }

@@ -8,6 +8,7 @@ public class CANVAS_CTRL : MonoBehaviour
     [SerializeField] protected GameObject Canvas4PlayerCtrl;
     [SerializeField] protected GameObject CanvasKeyBindingCtrl;
     [SerializeField] protected GameObject CanvasMENU;
+    [SerializeField] protected GameObject CanvasOPTIONS;
     [SerializeField] protected CanvasENDGAME canvasENDGAME;
     public int soLuongPlayer;
 
@@ -40,7 +41,7 @@ public class CANVAS_CTRL : MonoBehaviour
     public void OptionsCanva()
     {
         SetFalseAll();
-        //Canvas4Player.gameObject.SetActive(true);
+        CanvasOPTIONS.gameObject.SetActive(true);
     }
     public void SetttingONCanvas4Player()
     {
@@ -78,6 +79,7 @@ public class CANVAS_CTRL : MonoBehaviour
 
         CanvasPauseManu.SetActive(false);
         canvasENDGAME.gameObject.SetActive(false);
+        CanvasOPTIONS.gameObject.SetActive(false);
     }
 
     public void QuitGame()
@@ -85,17 +87,6 @@ public class CANVAS_CTRL : MonoBehaviour
         Debug.Log("QUIT!");
         Application.Quit();
     }
-
-
-
-
-
-
-
-
-
-
-
 
     ////////// PAUSE MENU
     [SerializeField] protected GameObject CanvasPauseManu;
@@ -114,16 +105,10 @@ public class CANVAS_CTRL : MonoBehaviour
         Time.timeScale = 0f;
         isGamePaused = true;
     }
-
-
-
     //// END GAME
-    
     public void EndGame(string nameWINER)
     {
         canvasENDGAME.gameObject.SetActive(true);
         canvasENDGAME.txtNameWiner.text = nameWINER;
     }
-
-
 }

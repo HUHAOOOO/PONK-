@@ -76,7 +76,7 @@ public class CharMeleeAttack : CoreMonoBehaviour
 
         //Debug.Log(_charCtrl.transform.name + "MeleeAttack isCanOverlapCircleMeleeAttack :" + isCanOverlapCircleMeleeAttack);
         if (!isCanOverlapCircleMeleeAttack) return;
-
+        
         Collider2D ballDamSender_Collider2D = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);
         if (ballDamSender_Collider2D == null) return;
         //Debug.Log(this.transform.parent.name + " hit " + ballDamSender_Collider2D.name);
@@ -85,7 +85,8 @@ public class CharMeleeAttack : CoreMonoBehaviour
 
         BallCtrl ballctrl = ballDamSender.transform.parent.parent.parent.GetComponent<BallCtrl>();
         ballctrl.BallRotate.ChangeDirection();
-
+        
+        //AudioManager.Instance.PlaySFX("HitBall");
         Transform fx = FXSpawner.Instance.Spawn(FXSpawner.FX_vetchem1, ballDamSender.transform.position, Quaternion.Euler(0, 0, Random.Range(0f, 360f)));
         fx.gameObject.SetActive(true);
     }

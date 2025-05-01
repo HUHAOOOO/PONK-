@@ -8,16 +8,23 @@ using UnityEngine.UI;
 using Unity.VisualScripting;
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    private static AudioManager instance;
+    public static AudioManager Instance => instance;
 
-    public Slider sliderVolume;
-    float volumeStart = 0.05f;
+    public Sound[] musicSounds, sfxSounds;
 
-    private int x;
-    //public static AudioManager instance;
-    // Use this for initialization
+    public Sound currentMusicSounds;
+    public Sound currentSFXSounds;
+    public float deffaultVolume = 0.1f;
+    public float deffaultPitch = 1f;
+
+    private int xToRandomTheme;
     void Awake()
     {
+        if (instance != null) Debug.LogError("only allow 1 AudioManager | Singleton");
+        AudioManager.instance = this;
+
+
         //if(instance == null)
         //{
         //    instance = this;
@@ -27,114 +34,113 @@ public class AudioManager : MonoBehaviour
         //    Destroy(gameObject);
         //    return;
         //}
-        foreach (Sound s in sounds)
+        //DontDestroyOnLoad(this.gameObject);
+
+
+        // musicSounds
+        foreach (Sound s in musicSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
+            s.source.volume = s.volume = deffaultVolume;
+            s.source.pitch = s.pitch = deffaultPitch;
             s.source.loop = s.loop;
         }
-    }
-    private void Update()
-    {
 
-        if (x == 0)
+        // sfxSounds
+        foreach (Sound s in sfxSounds)
         {
-            SetVolume("Theme");
-        }
-        else if (x == 1)
-        {
-            SetVolume("Theme1");
-        }
-        else if (x == 2)
-        {
-            SetVolume("Theme2");
-        }
-        else if (x == 3)
-        {
-            SetVolume("Theme3");
-        }
-        else if (x == 4)
-        {
-            SetVolume("Theme4");
-        }
-        else if (x == 5)
-        {
-            SetVolume("Theme5");
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.volume = deffaultVolume;
+            s.source.pitch = s.pitch = deffaultPitch;
+            s.source.loop = s.loop;
         }
     }
     void Start()
     {
-        SetMaxvolume(1);
-        x = Random.Range(0, 6);
-        if (x == 0)
-        {
-            Play("Theme");//nhac back ground //ma ko bt keo slider kieu j nen bo qua vay:v
-        }
-        else if (x == 1)
-        {
-            Play("Theme1");
-        }
-        else if (x == 2)
-        {
-            Play("Theme2");
-        }
-        else if (x == 3)
-        {
-            Play("Theme3");
-        }
-        else if (x == 4)
-        {
-            Play("Theme4");
-        }
-        else if (x == 5)
-        {
-            Play("Theme5");
-        }
-
+        this.PlayMusic("Minecraft_Calm");
     }
-    public void Play(string name)
+    public void PlayMusic(string name)
     {
-        Debug.Log(name + "!!!sound");
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        //Debug.Log(name + "!!!musicSounds");
+        Sound s = Array.Find(musicSounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound: " + name + "not found!!");
+            Debug.LogWarning("musicSounds : " + name + "not found!!");
             return;
         }
-        //Debug.Log("sound : "+s.source);
-        //Debug.Log(" mute "+s.source.mute);
-        //Debug.Log(" volume: "+s.source.volume);
+        currentMusicSounds = s;
         s.source.Play();
 
         //s.source.Stop();Debug.Log("Da Stop source");
+        // ~ AudioSource.Stop : stop 
 
     }
-    //=====================================
-    public void SetMaxvolume(int volume)//dat gia tri slider
+
+    public void PlaySFX(string name)
     {
-        sliderVolume.maxValue = volume;
-        sliderVolume.value = volumeStart;
-    }
-    //public void SetVolume(string name)
-    //{
-    //    float volume = sliderVolume.value;Debug.Log("volume = sliderVolume.value;");
-    //    Sound s = Array.Find(sounds, sound => sound.name == name);
-    //    if(s == null)
-    //    {
-    //        Debug.Log("s NULL");
-    //    }
-    //    s.volume = volume;
-    //}
-    public void SetVolume(string name)//lay gtri slider
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        //Debug.Log(name + "!!!sfxSounds");
+        Sound s = Array.Find(sfxSounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.Log("s NULL");
+            Debug.LogWarning("sfxSounds : " + name + "not found!!");
+            return;
         }
-        s.source.volume = sliderVolume.value;
+        currentSFXSounds = s;
+        //s.source.Play();
+        s.source.PlayOneShot(s.clip);
     }
+
+    public void ToggleMusic()
+    {
+        //AudioSource.mute = !AudioSource.mute;
+        currentMusicSounds.source.mute = !currentMusicSounds.source.mute;
+
+    }
+    public void ToggleSFX()
+    {
+        //AudioSource.mute = !AudioSource.mute;
+        //currentSFXSounds.source.mute = !currentSFXSounds.source.mute;
+        foreach (Sound s in sfxSounds)
+        {
+            s.source.mute = !s.source.mute;
+        }
+    }
+
+    public void MusicVolume(float volume)
+    {
+        //AudioSource.volume = volume;
+        currentMusicSounds.source.volume = volume;
+    }
+
+    public void SFXVolume(float volume)
+    {
+        //AudioSource.volume = volume;
+        //currentSFXSounds.source.volume = volume;
+
+        foreach (Sound s in sfxSounds)
+        {
+            s.source.volume = volume;
+        }
+
+    }
+
+
+
+
+    public string RandomSoundSword()
+    {
+        int random = Random.Range(0, 4);
+
+        if (random == 0) return "Sword Swing 1";
+        if (random == 1) return "Sword Swing 2";
+        if (random == 2) return "Sword Swing 3";
+
+        return "Sword Swing 1";
+    }
+
+
 }
