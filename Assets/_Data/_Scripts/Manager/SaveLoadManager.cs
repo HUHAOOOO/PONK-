@@ -186,6 +186,9 @@ public class SaveLoadManager : CoreMonoBehaviour
         SOInfoPlayer newSOInfoPlayerClone = ScriptableObject.CreateInstance<SOInfoPlayer>();
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
+            //newSOInfoPlayerClone.LoadFromData(inForPlayerDummyList.data[i]);
+            //soNewInfoPlayers[i].CopyDataFromAnotherSO(newSOInfoPlayerClone);
+
             soNewInfoPlayers[i].LoadFromData(inForPlayerDummyList.data[i]);
         }
         Debug.Log("Da load saveDataString vao soNewInfoPlayers");
