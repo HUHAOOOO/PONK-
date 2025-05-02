@@ -6,10 +6,7 @@ public class BtnResetAllDataPlayer : BtnCore
 {
     [SerializeField] protected InFor4PlayerCtrl panelPlayerCtrl;
     [SerializeField] protected Button btnResetAll;
-
     public Button BtnResetAll { get => btnResetAll; set => btnResetAll = value; }
-
-
     protected override void LoadComponents()
     {
         base.LoadComponents();

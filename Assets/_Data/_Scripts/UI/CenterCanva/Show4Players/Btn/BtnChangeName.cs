@@ -11,7 +11,6 @@ public class BtnChangeName : BtnCore
     public Button BtnNameP { get => btnNameP; set => btnNameP = value; }
     public TextMeshProUGUI TxtNameP { get => txtNameP; set => txtNameP = value; }
 
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
