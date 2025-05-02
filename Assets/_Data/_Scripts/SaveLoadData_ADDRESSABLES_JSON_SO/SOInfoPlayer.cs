@@ -16,7 +16,7 @@ public class SOInfoPlayer : ScriptableObject
     public KeyPair keyPairP;
 
     // C2 JSON
-    public Sprite spriteP;
+    //public Sprite spriteP;//////////////////// BO Sprite o SO
 
     // C3 ADDRESSABLES 
     //public AssetReferenceSprite spriteRef;
@@ -66,7 +66,7 @@ public class SOInfoPlayer : ScriptableObject
 
 
         //// C3 ADDRESSABLES
-        LoadDataFromAddressablesWithReference(data.spriteRefDummy);
+        //LoadDataFromAddressablesWithReference(data.spriteRefDummy);//////////////////// BO Sprite o SO
 
         //this.spriteP = ;
 
@@ -81,7 +81,7 @@ public class SOInfoPlayer : ScriptableObject
 
     //C3 ADDRESSABLES
 
-    // MORE
+    // MORE get Sprite | sap ko dung nx 
     public static void LoadDataFromAddressablesWithReference(AssetReference reference, System.Action<Sprite> onDone)
     {
         var handle = Addressables.LoadAssetAsync<Sprite>(reference);
@@ -162,7 +162,7 @@ public class SOInfoPlayer : ScriptableObject
         {
             if (task.Status == AsyncOperationStatus.Succeeded)
             {
-                spriteP = task.Result;
+                //spriteP = task.Result;//////////////////// BO Sprite o SO
                 //spriteReturn = spriteP;//XXX
 
             }
@@ -258,7 +258,7 @@ public class SOInfoPlayer : ScriptableObject
         //this.keyPairP = source.keyPairP;
         this.keyPairP = new KeyPair(source.keyPairP.keyAttack, source.keyPairP.keyDodge);
         //this.spriteP = source.spriteP;
-        LoadDataFromAddressablesWithReference(source.spriteRef);
+        //LoadDataFromAddressablesWithReference(source.spriteRef);//////////////////// BO Sprite o SO
 
         this.spriteRef = source.spriteRef;
     }

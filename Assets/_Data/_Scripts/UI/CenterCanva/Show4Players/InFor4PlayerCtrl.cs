@@ -61,18 +61,22 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
         //Debug.LogWarning(transform.name + ": LoadSONewInfoPlayers", gameObject);
     }
 
-
+    protected override void Awake()
+    {
+        base.Awake();
+        LoadDataPlayer();
+    }
 
     protected override void OnEnable()
     {
         base.OnEnable();
         LoadDataPlayer();
     }
-    protected override void Start()
-    {
-        base.Start();
-        LoadDataPlayer();
-    }
+    //protected override void Start()
+    //{
+    //    base.Start();
+    //    LoadDataPlayer();
+    //}
     private void LoadDataPlayer()
     {
         if (SaveLoadManager.Instance == null) return;
@@ -80,7 +84,7 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
             SOInfoPlayer soInfoPlayer = soNewInfoPlayers[i];
-            panelPlayersCtrl.PanelPlayerCtrls[i].SetDataPlayer(soInfoPlayer.playerIndexType, soInfoPlayer.spriteP, soInfoPlayer.nameP, soInfoPlayer.keyPairP);
+            panelPlayersCtrl.PanelPlayerCtrls[i].SetDataPlayer(soInfoPlayer.playerIndexType, soInfoPlayer.spriteRef, soInfoPlayer.nameP, soInfoPlayer.keyPairP);
         }
     }
 
@@ -90,7 +94,7 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
             SOInfoPlayer soInfoPlayer = soDefaultInfoPlayers[i];
-            panelPlayersCtrl.PanelPlayerCtrls[i].SetDataPlayer(soInfoPlayer.playerIndexType, soInfoPlayer.spriteP, soInfoPlayer.nameP, soInfoPlayer.keyPairP);
+            panelPlayersCtrl.PanelPlayerCtrls[i].SetDataPlayer(soInfoPlayer.playerIndexType, soInfoPlayer.spriteRef, soInfoPlayer.nameP, soInfoPlayer.keyPairP);
         }
         SaveLoadManager.Instance.ResetDefaultInfoPlayer();
     }

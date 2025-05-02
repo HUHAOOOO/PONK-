@@ -120,8 +120,13 @@ public class SaveLoadManager : CoreMonoBehaviour
         //Save();
         Load();
     }
-    protected override void OnDisable()
+    //protected override void OnDisable()
+    //{
+    //    SaveEndNewSO();
+    //}
+    void OnApplicationQuit()
     {
+        Debug.Log("App quitting . SaveEndNewSO !");
         SaveEndNewSO();
     }
     private void Save() // Save default -> Json 

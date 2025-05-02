@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
@@ -26,6 +27,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     [SerializeField] protected TextMeshProUGUI txtPressTheNewKey;
     [SerializeField] protected KeyPair keyPair;
     [SerializeField] protected Sprite sprite_EMPTY;
+    [SerializeField] protected Sprite sprite_runtime;
 
     public CenterCanva CenterCanva => centerCanva;
     public KeySkillType CurrentKeyType { get => currentKeyType; set => currentKeyType = value; }
@@ -311,13 +313,20 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
 
 
         //defaultSOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef, (loadedSprite) =>
-        SOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef, (loadedSprite) =>
-        {
-            if (loadedSprite != null)
-            {
-                inFoPlayer.ImagePlayer.sprite = loadedSprite;
-            }
-        });
+
+
+
+        SetDataPlayer(spriteRef);
+
+        //SOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef, (loadedSprite) =>
+        //    {
+        //        if (loadedSprite != null)
+        //        {
+        //            sprite_runtime = loadedSprite;
+        //            inFoPlayer.ImagePlayer.sprite = sprite_runtime;
+        //        }
+        //    });
+
 
 
         if (inFoPlayer.ImagePlayer.sprite == null) Debug.Log("inFoPlayer Sprite null", gameObject);
@@ -327,7 +336,31 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         if (name != "") inFoPlayer.TxtNamePlayer.text = name;
         UpdateKey2UI(newKeyPair);
     }
+    private AsyncOperationHandle<Sprite> _spriteHandle;
 
+    public void SetDataPlayer(AssetReference spriteRef)
+    {
+        // neu truoc do co data thi giai phong
+        if (_spriteHandle.IsValid())
+            Addressables.Release(_spriteHandle);
+
+        // Load sprite
+        //_spriteHandle = spriteRef.LoadAssetAsync<Sprite>();
+        _spriteHandle = Addressables.LoadAssetAsync<Sprite>(spriteRef);
+
+        _spriteHandle.Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                sprite_runtime = handle.Result;
+                inFoPlayer.ImagePlayer.sprite = sprite_runtime;
+            }
+            else
+            {
+                Debug.LogWarning("Failed to load sprite");
+            }
+        };
+    }
 
     private void UpdateKey2UI(KeyPair newKeyPair)
     {

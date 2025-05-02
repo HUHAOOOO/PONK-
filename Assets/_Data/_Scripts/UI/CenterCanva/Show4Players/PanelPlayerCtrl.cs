@@ -1,6 +1,9 @@
 using System.Collections;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 public class PanelPlayerCtrl : CoreMonoBehaviour
@@ -12,7 +15,8 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
     [SerializeField] protected BtnChangeInputSkill btnChangeInputSkill;
     [SerializeField] protected InputFieldName inputFieldName;
 
-    //public KeyCode KeyDodge { get => keyDodge; set => keyDodge = value; }
+    [SerializeField] protected Sprite sprite_runtime;
+
     public BtnChangeChar BtnChangeChar { get => btnChangeChar; set => btnChangeChar = value; }
     public BtnChangeName BtnChangeName { get => btnChangeName; set => btnChangeName = value; }
     public BtnChangeInputSkill BtnChangeInputSkill { get => btnChangeInputSkill; set => btnChangeInputSkill = value; }
@@ -67,13 +71,51 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
     }
 
 
-    public void SetDataPlayer(PlayerIndexType playerIndexType, Sprite spriteP, string namrP, KeyPair keyPairP)
-    {
-        btnChangeChar.ImageP.sprite = spriteP;
-        btnChangeName.TxtNameP.text = namrP;
-        btnChangeInputSkill.KeyPair = keyPairP;
-    }
+    ////public void SetDataPlayer(PlayerIndexType playerIndexType, Sprite spriteP, string namrP, KeyPair keyPairP)
+    //public void SetDataPlayer(PlayerIndexType playerIndexType, AssetReference spriteRef, string namrP, KeyPair keyPairP)
+    //{
+    //    SOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef, (loadedSprite) =>
+    //    {
+    //        if (loadedSprite != null)
+    //        {
+    //            sprite_runtime = loadedSprite;
+    //            btnChangeChar.ImageP.sprite = sprite_runtime;
+    //        }
+    //    });
 
+
+    //    //btnChangeChar.ImageP.sprite = spriteP;
+    //    btnChangeName.TxtNameP.text = namrP;
+    //    btnChangeInputSkill.KeyPair = keyPairP.Clone();
+    //}
+    private AsyncOperationHandle<Sprite> _spriteHandle;
+
+    public void SetDataPlayer(PlayerIndexType playerIndexType, AssetReference spriteRef, string namrP, KeyPair keyPairP)
+    {
+        // neu truoc do co data thi giai phong
+        if (_spriteHandle.IsValid())
+            Addressables.Release(_spriteHandle);
+
+        // Load sprite
+        //_spriteHandle = spriteRef.LoadAssetAsync<Sprite>();
+        _spriteHandle = Addressables.LoadAssetAsync<Sprite>(spriteRef);
+
+        _spriteHandle.Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                sprite_runtime = handle.Result;
+                btnChangeChar.ImageP.sprite = sprite_runtime;
+            }
+            else
+            {
+                Debug.LogWarning("Failed to load sprite");
+            }
+        };
+
+        btnChangeName.TxtNameP.text = namrP;
+        btnChangeInputSkill.KeyPair = keyPairP.Clone();
+    }
 
     //BTN
     //Chose new Char
