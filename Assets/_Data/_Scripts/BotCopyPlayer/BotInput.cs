@@ -6,10 +6,7 @@ public class BotInput : CoreMonoBehaviour
 
     [SerializeField] protected bool inputAttack;
     [SerializeField] protected bool inputDodge;
-
     [SerializeField] protected int timeDelaySetFalseInput = 1;
-
-
     public bool InputAttack { get => inputAttack; set => inputAttack = value; }
     public bool InputDodge { get => inputDodge; set => inputDodge = value; }
 
@@ -30,10 +27,6 @@ public class BotInput : CoreMonoBehaviour
     }
     public void SetFalseInput()
     {
-        //if(IsInvoking(nameof(SetFalse)))
-        //{
-        //    CancelInvoke(nameof(SetFalse));
-        //}
         Invoke(nameof(SetFalse), timeDelaySetFalseInput);
     }
     public void SetFalse()

@@ -29,12 +29,6 @@ public class CenterCanva : CoreMonoBehaviour
         keyBroadControlsCtrl = GetComponentInChildren<KeyBroadControlsCtrl>();
         Debug.LogWarning(transform.name + ": LoadKeyBroadControlsCtrl", gameObject);
     }
-
-    protected override void Awake()
-    {
-        //SetActiveGOKInFor4PlayerCtrl();
-    }
-
     public void SetActiveGOKeyBroadControlsCtrl()
     {
         SetActiveFalseAll();
@@ -45,7 +39,6 @@ public class CenterCanva : CoreMonoBehaviour
         SetActiveFalseAll();
         inFor4PlayerCtrl.gameObject.SetActive(true);
     }
-
     private void SetActiveFalseAll()
     {
         inFor4PlayerCtrl.gameObject.SetActive(false);

@@ -14,12 +14,7 @@ public class SOInfoPlayer : ScriptableObject
     public PlayerIndexType playerIndexType;
     public string nameP;
     public KeyPair keyPairP;
-
-    // C2 JSON
-    //public Sprite spriteP;//////////////////// BO Sprite o SO
-
     // C3 ADDRESSABLES 
-    //public AssetReferenceSprite spriteRef;
     public AssetReference spriteRef;
 
     // Load du lieu tu object trung gian vao SO
@@ -81,105 +76,91 @@ public class SOInfoPlayer : ScriptableObject
 
     //C3 ADDRESSABLES
 
-    // MORE get Sprite | sap ko dung nx 
-    public static void LoadDataFromAddressablesWithReference(AssetReference reference, System.Action<Sprite> onDone)
-    {
-        var handle = Addressables.LoadAssetAsync<Sprite>(reference);
-        handle.Completed += (operation) =>
-        {
-            if (operation.Status == AsyncOperationStatus.Succeeded)
-            {
-                onDone?.Invoke(operation.Result);
-            }
-            else
-            {
-                Debug.LogError("Load Fail : " + operation.OperationException);
-                onDone?.Invoke(null);
-            }
+    //// MORE get Sprite | sap ko dung nx 
+    //public static void LoadDataFromAddressablesWithReference(AssetReference reference, System.Action<Sprite> onDone)
+    //{
+    //    var handle = Addressables.LoadAssetAsync<Sprite>(reference);
+    //    handle.Completed += (operation) =>
+    //    {
+    //        if (operation.Status == AsyncOperationStatus.Succeeded)
+    //        {
+    //            onDone?.Invoke(operation.Result);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("Load Fail : " + operation.OperationException);
+    //            onDone?.Invoke(null);
+    //        }
 
-            Addressables.Release(handle);
-        };
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ok 
+    //        Addressables.Release(handle);
+    //    };
+    //}
 
     //private async void LoadDataFromAddressables(AssetReference spriteRefDummy)
-    public void LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
-    //private Sprite LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
-    {
-        //// Viet gon OK //TOP2
-        //spriteRefDummy.LoadAssetAsync<Sprite>().Completed += (AsyncOperationHandle<Sprite> task) =>
-        //{
-        //    if (task.Status == AsyncOperationStatus.Succeeded)
-        //    {
-        //        spriteP = task.Result;
-        //        Debug.Log("load sprite ok!");
-        //    }
-        //    else
-        //    {
-        //        Debug.LogError($"Khong load dc asset tu Addressables: {task.OperationException}");
-        //    }
-        //};
-        //////// Completed : khi load xong thi goi HAM    ~ await
+    //public void LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
+    ////private Sprite LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
+    //{
+    //    //// Viet gon OK //TOP2
+    //    //spriteRefDummy.LoadAssetAsync<Sprite>().Completed += (AsyncOperationHandle<Sprite> task) =>
+    //    //{
+    //    //    if (task.Status == AsyncOperationStatus.Succeeded)
+    //    //    {
+    //    //        spriteP = task.Result;
+    //    //        Debug.Log("load sprite ok!");
+    //    //    }
+    //    //    else
+    //    //    {
+    //    //        Debug.LogError($"Khong load dc asset tu Addressables: {task.OperationException}");
+    //    //    }
+    //    //};
+    //    //////// Completed : khi load xong thi goi HAM    ~ await
 
-        //////// ME test OK //TOP3
-        //AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(spriteRefDummy);//C1
-        ////AsyncOperationHandle<Sprite> handle = spriteRefDummy.LoadAssetAsync<Sprite>();//C2
-        //await handle.Task;// cho qua trinh load hoan toan xong
-        ////Dung async vao ten HAM :  //private async void LoadDataFromAddressables(AssetReference spriteRefDummy)
-        //if (handle.Status == AsyncOperationStatus.Succeeded)
-        //{
-        //    this.spriteP = handle.Result;
-        //}
-        //else
-        //{
-        //    Debug.LogError("Khong load duoc asset tu Addressables.");
-        //}
-        //Addressables.Release(handle);// giai phong tai nguyen sau khi sd 
+    //    //////// ME test OK //TOP3
+    //    //AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(spriteRefDummy);//C1
+    //    ////AsyncOperationHandle<Sprite> handle = spriteRefDummy.LoadAssetAsync<Sprite>();//C2
+    //    //await handle.Task;// cho qua trinh load hoan toan xong
+    //    ////Dung async vao ten HAM :  //private async void LoadDataFromAddressables(AssetReference spriteRefDummy)
+    //    //if (handle.Status == AsyncOperationStatus.Succeeded)
+    //    //{
+    //    //    this.spriteP = handle.Result;
+    //    //}
+    //    //else
+    //    //{
+    //    //    Debug.LogError("Khong load duoc asset tu Addressables.");
+    //    //}
+    //    //Addressables.Release(handle);// giai phong tai nguyen sau khi sd 
 
-        ///////   await handle.Task;// load xong thi di tiep ~ Completed
-
-
-
-        ///////////// DUNG HANDLE += Completed  //TOP1
-        AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(spriteRefDummy);
-
-        //Sprite spriteReturn;
-        // Khi load xong thi thuc hien Instantiate
-        handle.Completed += (AsyncOperationHandle<Sprite> task) =>
-        {
-            if (task.Status == AsyncOperationStatus.Succeeded)
-            {
-                //spriteP = task.Result;//////////////////// BO Sprite o SO
-                //spriteReturn = spriteP;//XXX
-
-            }
-            else
-            {
-                Debug.LogError("Khong load duoc asset tu Addressables.");
-                //spriteReturn = null;
-            }
-
-            Addressables.Release(handle);// giai phong tai nguyen sau khi sd 
-        };
-        //return spriteReturn;
+    //    ///////   await handle.Task;// load xong thi di tiep ~ Completed
 
 
-        //return null;
-        return;
-    }
+
+    //    ///////////// DUNG HANDLE += Completed  //TOP1
+    //    AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(spriteRefDummy);
+
+    //    //Sprite spriteReturn;
+    //    // Khi load xong thi thuc hien Instantiate
+    //    handle.Completed += (AsyncOperationHandle<Sprite> task) =>
+    //    {
+    //        if (task.Status == AsyncOperationStatus.Succeeded)
+    //        {
+    //            //spriteP = task.Result;//////////////////// BO Sprite o SO
+    //            //spriteReturn = spriteP;//XXX
+
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("Khong load duoc asset tu Addressables.");
+    //            //spriteReturn = null;
+    //        }
+
+    //        Addressables.Release(handle);// giai phong tai nguyen sau khi sd 
+    //    };
+    //    //return spriteReturn;
+
+
+    //    //return null;
+    //    return;
+    //}
 
 
     //private void LoadDataFromAddressablesWithAddress(string spriteAddressDummy)
@@ -255,9 +236,7 @@ public class SOInfoPlayer : ScriptableObject
     {
         this.playerIndexType = source.playerIndexType;
         this.nameP = source.nameP;
-        //this.keyPairP = source.keyPairP;
         this.keyPairP = new KeyPair(source.keyPairP.keyAttack, source.keyPairP.keyDodge);
-        //this.spriteP = source.spriteP;
         //LoadDataFromAddressablesWithReference(source.spriteRef);//////////////////// BO Sprite o SO
 
         this.spriteRef = source.spriteRef;

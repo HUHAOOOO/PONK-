@@ -7,7 +7,6 @@ public class BotSpawnerRandom : SpawnerRandom
 {
     [Header("Spawner Random")]
     [SerializeField] protected int indexPointSpawn;
-    //public int IndexPointSpawn { get => indexPointSpawn; set => indexPointSpawn = value; }
 
     protected override void OnEnable()
     {
@@ -19,23 +18,14 @@ public class BotSpawnerRandom : SpawnerRandom
     }
     protected override void GOSpawning()
     {
-        //Debug.Log("if (this.RandomReachLimit()) return;");
         if (this.RandomReachLimit()) return;
-        //if (!BotCtrl.Instance.BotIsCanSpawn()) return;
-        //Debug.Log("if (!BallCtrl.Instance.BallBotCanSpawn()) return;");
         if (!BallCtrl.Instance.BallBotCanSpawn()) return;
-        //Debug.Log("this.randomTimer : " + this.randomTimer);
         this.randomTimer += Time.fixedDeltaTime;
         if (this.randomTimer < this.randomDelay) return;
         if (!BotArea.Instance.IsStartNewArea()) return;
         this.randomTimer = 0;
-        //Debug.Log("this.randomTimer = 0; ");
 
-
-        //
-        //Transform ranPoint = this.spawnerCtrl.SpawnPoints.GetRandom();
         Transform ranPoint = this.spawnerCtrl.SpawnPoints.GetPoint(indexPointSpawn);
-
 
         Vector3 pos = ranPoint.position;
         Quaternion rot = ranPoint.rotation;
@@ -48,11 +38,6 @@ public class BotSpawnerRandom : SpawnerRandom
         RandomTimeDelaySpawnBot();
     }
 
-    //protected override void RandomTimeDelaySpawnBot()
-    //{
-    //    this.randomDelay = Random.Range(5f, 20f);
-    //}
-
     public void UpdateIndexPointSpawn()
     {
         bool isClockwise = GameManager.Instance.IsClockwise;
@@ -61,7 +46,7 @@ public class BotSpawnerRandom : SpawnerRandom
         {
             if (worldAreaTypePlayer == WorldAreaType.Area4)
             {
-                indexPointSpawn = 0;//index trong list[0->...]
+                indexPointSpawn = 0;
             }
             else if (worldAreaTypePlayer == WorldAreaType.Area1)
             {

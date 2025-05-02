@@ -11,12 +11,10 @@ public class CharInput : CoreMonoBehaviour
     [SerializeField] protected KeyCode keyAttack = KeyCode.A;
     [SerializeField] protected KeyCode keyDodge = KeyCode.S;
 
-
     public bool InputAttack { get => inputAttack; }
     public bool InputDodge { get => inputDodge; }
     public KeyCode KeyAttack { get => keyAttack; set => keyAttack = value; }
     public KeyCode KeyDodge { get => keyDodge; set => keyDodge = value; }
-
 
     void Update()
     {
@@ -40,7 +38,6 @@ public class CharInput : CoreMonoBehaviour
         inputAttack = Input.GetKeyDown(keyAttack);
         inputDodge = Input.GetKeyDown(keyDodge);
     }
-
     public void SetFalseInput()
     {
         Invoke(nameof(SetFalse), timeDelaySetFalseInput);

@@ -13,14 +13,10 @@ public class BotCtrl : CoreMonoBehaviour
     [SerializeField] protected BotDodge botDodge;
     [SerializeField] protected BotDespawn botDespawn;
     [SerializeField] protected BotTriggerBall botTrigger;
-
     [SerializeField] protected BotOption botOption;
-
     [SerializeField] protected Transform currentPos;
     public BotInput BotInput { get => botInput; }
-
     public Animator BotAnim { get => botAnim; }
-
     public BotState BotState { get => botState; }
     public BotAnimatorCtrl BotAnimatorCtrl { get => botAnimatorCtrl; }
     public BotMeleeAttack BotMeleeAttack => botMeleeAttack;
@@ -45,10 +41,8 @@ public class BotCtrl : CoreMonoBehaviour
         LoadBotDodge();
         LoadBotDespawn();
         LoadBotTrigger();
-
         LoadBotOption();
     }
-
     protected virtual void LoadBotAnimator()
     {
         if (this.botAnim != null) return;
@@ -109,17 +103,10 @@ public class BotCtrl : CoreMonoBehaviour
         this.transform.rotation = pos.rotation;
         currentPos = pos;
     }
-
-
-
-    /// <summary>
-    /// Auto
-    /// </summary>
     private void Update()
     {
         BotActive();
     }
-
     private void BotActive()
     {
         if (!BotTrigger.DetectedBall) return;
@@ -135,18 +122,14 @@ public class BotCtrl : CoreMonoBehaviour
             DespawnBotByTime(botAnimatorCtrl.AttackAnimTime);
         }
     }
-
     private void DespawnBotByTime(float timeDespawn)
     {
         if (IsInvoking(nameof(SetBotIsCanDespawn)))
         {
-            //Debug.Log("CancelInvoke(nameof(SetBotIsCanDespawn)); ");
             CancelInvoke(nameof(SetBotIsCanDespawn));
         }
-        // Despawn sau khi dien xong anim 
         Invoke(nameof(SetBotIsCanDespawn), timeDespawn);
     }
-
     private void SetBotIsCanDespawn()
     {
         BotInput.InputDodge = false;

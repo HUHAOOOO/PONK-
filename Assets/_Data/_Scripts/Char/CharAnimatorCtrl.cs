@@ -6,7 +6,6 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     [SerializeField] protected CharCtrl _charCtrl;
     [SerializeField] protected CharTimeAnimClip charTimeAnimClip;
 
-    //cho ra 1 class rieng dc nhi
     private static readonly int Idle = Animator.StringToHash("Idle");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int Dodge = Animator.StringToHash("Dodge");
@@ -37,7 +36,6 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     }
     public float DodgeAnimTime => _dodgeAnimTime;
     public float HurtAnimTime => _hurtAnimTime;
-    //public bool CanGetState { get => canGetState; private set => canGetState = value; }
 
     protected override void OnEnable()
     {
@@ -75,9 +73,6 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (_charCtrl.DamReceive.IsDie) return _currentState;
-        //if (_charCtrl.DamReceive.IsDie == true) return;
-
         state = GetState();
         if (state == _currentState) return;
         _currentState = state;
@@ -96,26 +91,18 @@ public class CharAnimatorCtrl : CoreMonoBehaviour
 
         if (_charCtrl.CharState.IsDying)
         {
-            //Debug.Log("IsDying", gameObject);
-            //SetTimeDelayAnim(_dieAnimTime);
-
-            //Debug.Log("Player has been DIE !", gameObject);
-            //return Die;
             return SetNewState(Die, _dieAnimTime);
         }
         else if (_charCtrl.CharState.IsHurting)
         {
-            //Debug.Log("IsHurting", gameObject);
             return SetNewState(Hurt, _hurtAnimTime);
         }
         else if (_charCtrl.CharState.IsAttacking)
         {
-            //Debug.Log("IsAttacking", gameObject);
             return SetNewState(Attack, _attackAnimTime);
         }
         else if (_charCtrl.CharState.IsDodging)
         {
-            //Debug.Log("IsDodging", gameObject);
             return SetNewState(Dodge, _dodgeAnimTime);
         }
         else if (canGetState) return Idle;

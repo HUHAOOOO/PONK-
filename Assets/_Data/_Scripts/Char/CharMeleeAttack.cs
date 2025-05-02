@@ -25,7 +25,6 @@ public class CharMeleeAttack : CoreMonoBehaviour
         timeDelayMeleeAttack = _charCtrl.CharAnimatorCtrl.AttackAnimTime;
         isCanOverlapCircleMeleeAttack = true;
     }
-
     protected override void Start()
     {
         //ballLayers = 128;
@@ -50,43 +49,34 @@ public class CharMeleeAttack : CoreMonoBehaviour
     {
         if (_charCtrl.DamReceive.IsDie == true) return;
 
-        //if (!charCtrl.CharState.IsCanAttack()) return;
         if (_charCtrl.CharInput.InputAttack)
         {
             Attack();
         }
     }
-
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
-
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
     private void Attack()
     {
-        //if (!IsCanAttack()) return;
         CancelInvokeAttack();
         Invoke(nameof(MeleeAttack), timeDelayMeleeAttack);
     }
 
     private void MeleeAttack()
     {
-
-        //Debug.Log(_charCtrl.transform.name + "MeleeAttack isCanOverlapCircleMeleeAttack :" + isCanOverlapCircleMeleeAttack);
         if (!isCanOverlapCircleMeleeAttack) return;
         
         Collider2D ballDamSender_Collider2D = Physics2D.OverlapCircle(attackPoint.position, attackRange, ballLayers);
         if (ballDamSender_Collider2D == null) return;
-        //Debug.Log(this.transform.parent.name + " hit " + ballDamSender_Collider2D.name);
-        // DamSender de navigation . lieu co ok ko khi ko dung nhung van GetComponent ... chi de navigation code cho de
         DamSender ballDamSender = ballDamSender_Collider2D.GetComponent<DamSender>();
 
         BallCtrl ballctrl = ballDamSender.transform.parent.parent.parent.GetComponent<BallCtrl>();
         ballctrl.BallRotate.ChangeDirection();
         
-        //AudioManager.Instance.PlaySFX("HitBall");
         Transform fx = FXSpawner.Instance.Spawn(FXSpawner.FX_vetchem1, ballDamSender.transform.position, Quaternion.Euler(0, 0, Random.Range(0f, 360f)));
         fx.gameObject.SetActive(true);
     }

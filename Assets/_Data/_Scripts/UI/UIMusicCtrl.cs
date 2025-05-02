@@ -7,7 +7,6 @@ public class UIMusicCtrl : MonoBehaviour
     public Slider _musicSlider, _sfxSlider;
     public TextMeshProUGUI _musicTxt, _sfxTxt;
 
-
     private void Start()
     {
         _musicSlider.value = AudioManager.Instance.deffaultVolume;
@@ -33,7 +32,6 @@ public class UIMusicCtrl : MonoBehaviour
     {
         AudioManager.Instance.MusicVolume(_musicSlider.value);
     }
-
     public void SFXVolume()
     {
         AudioManager.Instance.SFXVolume(_sfxSlider.value);

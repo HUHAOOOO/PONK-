@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class ItemLightningTrigger : ItemTrigger
 {
-    //[Header("Item Lightning Trigger")]
-
     protected override void ResetValue()
     {
         indexBall = 1;

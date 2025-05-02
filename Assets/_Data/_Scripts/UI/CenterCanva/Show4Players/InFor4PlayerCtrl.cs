@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class InFor4PlayerCtrl : CoreMonoBehaviour
@@ -39,12 +37,6 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
 
         soDefaultInfoPlayers = SaveLoadManager.Instance.SODefaultInfoPlayers;
         Debug.LogWarning(transform.name + ": LoadSODefaultInfoPlayers", gameObject);
-
-        //if (this.soDefaultInfoPlayers.Count > 0) return;
-        //SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/DefaultInFoSO");
-
-        //this.soDefaultInfoPlayers = soDefaultInfoPlayers.ToList();
-        //Debug.LogWarning(transform.name + ": LoadSODefaultInfoPlayers", gameObject);
     }
     protected virtual void LoadSONewInfoPlayers()
     {
@@ -52,13 +44,6 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
 
         soNewInfoPlayers = SaveLoadManager.Instance.SONewInfoPlayers;
         Debug.LogWarning(transform.name + ": LoadSONewInfoPlayers", gameObject);
-
-        //if (this.soNewInfoPlayers.Count > 0) return;
-        //SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/NewInFoSO");
-
-        //this.soNewInfoPlayers = soDefaultInfoPlayers.ToList();
-        ////soNewInfoPlayers = (List<SOInfoPlayer>)soDefaultInfoPlayers.Clone();
-        //Debug.LogWarning(transform.name + ": LoadSONewInfoPlayers", gameObject);
     }
 
     protected override void Awake()
@@ -72,11 +57,7 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
         base.OnEnable();
         LoadDataPlayer();
     }
-    //protected override void Start()
-    //{
-    //    base.Start();
-    //    LoadDataPlayer();
-    //}
+
     private void LoadDataPlayer()
     {
         if (SaveLoadManager.Instance == null) return;
@@ -87,7 +68,6 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
             panelPlayersCtrl.PanelPlayerCtrls[i].SetDataPlayer(soInfoPlayer.playerIndexType, soInfoPlayer.spriteRef, soInfoPlayer.nameP, soInfoPlayer.keyPairP);
         }
     }
-
     public void BTN_ResetDefaultInfoPlayer()
     {
         List<SOInfoPlayer> soDefaultInfoPlayers = SaveLoadManager.Instance.SODefaultInfoPlayers;
@@ -98,8 +78,4 @@ public class InFor4PlayerCtrl : CoreMonoBehaviour
         }
         SaveLoadManager.Instance.ResetDefaultInfoPlayer();
     }
-
-
-    // goi SaveLoad de cap nhat SO moi ... 
-
 }

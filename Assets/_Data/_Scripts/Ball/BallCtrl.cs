@@ -1,7 +1,4 @@
-using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 public class BallCtrl : CoreMonoBehaviour
@@ -44,50 +41,22 @@ public class BallCtrl : CoreMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadModel", gameObject);
 
         LoadBallsModel();
-        //SetActiveBalls(0);
         SetActiveBalls(GetBallByType(TypeBall.DeffaultBall));
-
-
         SetCurrentBall(ballsModel[0]);
     }
     protected virtual void LoadBallsModel()
     {
         if (this.balls == null) return;
-
         if (this.ballsModel.Count > 0) return;
-
         foreach (Transform ball in balls)
         {
             ballsModel.Add(ball);
         }
     }
-    //public void SetActiveBallsByTime(int index , float timeReset)
-    //{
-    //    SetActiveBalls(index);
-    //    Invoke(nameof(SetDefaultSpriteBall), timeReset);
-    //}
-
-    //public void SetActiveBalls(int index)
-    //{
-    //    foreach (Transform ball in ballsModel)
-    //    {
-    //        ball.gameObject.SetActive(false);
-    //    }
-
-
-    //    ballsModel[index].gameObject.SetActive(true);
-    //    SetCurrentBall(ballsModel[index].transform);
-    //    ballRotate.InitRotate();
-    //}
-
     protected override void OnEnable()
     {
         SetActiveBalls(GetBallByType(TypeBall.DeffaultBall));
-
-        //SetCurrentBall(BallsModel[0]);
     }
-
-
     public void SetActiveBallsByTime(TypeBall typeBall, float timeReset)
     {
         SetActiveBalls(GetBallByType(typeBall));
@@ -99,8 +68,6 @@ public class BallCtrl : CoreMonoBehaviour
         {
             ball.gameObject.SetActive(false);
         }
-
-
         newBall.gameObject.SetActive(true);
         SetCurrentBall(newBall);
         ballRotate.InitRotate();
@@ -109,7 +76,6 @@ public class BallCtrl : CoreMonoBehaviour
     {
         SetActiveBalls(GetBallByType(TypeBall.DeffaultBall));
     }
-
     public void SetCurrentBall(Transform currentBall)
     {
         this.currentBall = currentBall;
@@ -149,16 +115,9 @@ public class BallCtrl : CoreMonoBehaviour
         }
         else return null;
     }
-
     public bool BallBotCanSpawn()
     {
         if (currentTypeBall == TypeBall.FireBall) return false;
         return true;
     }
-
-    private void Update()
-    {
-        //if(GameManager.Instance.IsClockwise) 
-    }
-
 }

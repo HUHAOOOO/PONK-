@@ -17,11 +17,8 @@ public class BallRotate : GORotateParent
     }
     protected override void ResetValue()
     {
-        //speedRotate = -defaultSpeed;
         speedRotate = +defaultSpeed;
-
         typeRorate = TypeRotate.z;
-
         InitRotate();
     }
     protected override void OnEnable()
@@ -32,15 +29,8 @@ public class BallRotate : GORotateParent
             speedRotate = -defaultSpeed;
         else if (x == 1)
             speedRotate = +defaultSpeed;
-
-
         InitRotate();
     }
-    //protected override void OnDisable()
-    //{
-    //    speedRotate = defaultSpeed;
-    //}
-
     protected virtual void LoadBallCtrl()
     {
         if (this.ballCtrl != null) return;
@@ -51,28 +41,13 @@ public class BallRotate : GORotateParent
     {
         if (speedRotate <= 0)//(GameManager.Instance.IsClockwise)
         {
-            //ballCtrl.CurrentBall.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //ballCtrl.CurrentBall.transform.localRotation = Quaternion.Euler(0, 0, 0);
             ballCtrl.CurrentBall.transform.parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
-
-            //ballCtrl.CurrentBall.transform.parent.transform.localEulerAngles = new Vector3(0, 0, 0);
-
-
-            //ballCtrl.CurrentBall.transform.parent.transform.localEulerAngles = new Vector3(180, 0, 0);
-
         }
         else if (speedRotate > 0)
         {
-            //ballCtrl.CurrentBall.transform.rotation = Quaternion.Euler(180,0,0);
-            //ballCtrl.CurrentBall.transform.localRotation = Quaternion.Euler(180, 0, 0);
             ballCtrl.CurrentBall.transform.parent.transform.localRotation = Quaternion.Euler(180, 0, 0);
-
-            //ballCtrl.CurrentBall.transform.parent.transform.localEulerAngles = new Vector3(180, 0, 0);
-
-            //ballCtrl.CurrentBall.transform.parent.transform.localEulerAngles = new Vector3(0, 0, 0);
         }
     }
-
     public void SpeedSpecialBall(int speed, float timeReset)
     {
         newSpeedAdd = speed;
@@ -97,10 +72,8 @@ public class BallRotate : GORotateParent
         {
             speedRotate = defaultSpeed;
         }
-
         OkSpeed();
     }
-
     public void SetSpeedRotate(int speed)
     {
         speedRotate = speed;
@@ -129,7 +102,6 @@ public class BallRotate : GORotateParent
         UpSpeed();
         ChangeRotateSprite();
     }
-
     public void SetDefaultSpeed()
     {
         if (speedRotate >= 0)
@@ -140,12 +112,10 @@ public class BallRotate : GORotateParent
         {
             speedRotate = -defaultSpeed;
         }
-
         newSpeedAdd = 0;
     }
     public void ChangeRotateSprite()
     {
-        //ballCtrl.CurrentBall.transform.Rotate(180, 0, 0);
         ballCtrl.CurrentBall.transform.parent.transform.Rotate(180, 0, 0);
     }
 }

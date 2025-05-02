@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class ItemFireTrigger : ItemTrigger
 {
-    //[Header("Item Fire Trigger")]
-
     protected override void ResetValue()
     {
         indexBall = 2;

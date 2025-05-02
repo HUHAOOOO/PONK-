@@ -14,34 +14,6 @@ public class STARTGAME : MonoBehaviour
 
     [SerializeField] protected GameObject goTargetBall;
 
-    //protected virtual void TimeDelay()
-    //{
-    //    timer += Time.deltaTime;
-    //    if (timer < timeDelay) return;
-    //    timer = 0;
-    //}
-
-    //private void OnEnable()
-    //{
-    //    goCountDown.gameObject.SetActive(true);
-    //    timeDelay = 4;
-    //}
-
-    //private void Update()
-    //{
-    //    timeDelay -= Time.deltaTime;
-
-    //    int x = (int)timeDelay;
-    //    txtCountDown.text = x.ToString();
-
-    //    if (timer > timeDelay) return;
-    //    //timer = 0;
-    //    goCountDown.gameObject.SetActive(false);
-
-    //}
-
-
-
     void OnEnable()
     {
         if (CANVAS_CTRL.Instance == null) return;
@@ -51,7 +23,6 @@ public class STARTGAME : MonoBehaviour
         GameManager.Instance.SetDefaultData();
         GameManager.Instance.SetActivePlayer(soluongPlayer);
         GameManager.Instance.InitGame();
-        //goTargetBall.gameObject.SetActive(false);
 
         goCountDown.gameObject.SetActive(true);
         StartCoroutine(DemNguocVaoGame());
@@ -59,13 +30,13 @@ public class STARTGAME : MonoBehaviour
 
     private void OnDisable()
     {
-        Time.timeScale = 1f; // Giai phong dong bang
+        Time.timeScale = 1f;
     }
 
     IEnumerator DemNguocVaoGame()
     {
         yield return null; // cho 1 frame de unity setup moi thu
-        Time.timeScale = 0f; // Dong bang game
+        Time.timeScale = 0f;
         int count = 3;
 
         while (count > 0)
@@ -73,46 +44,18 @@ public class STARTGAME : MonoBehaviour
             goTargetBall.gameObject.SetActive(true);
             AudioManager.Instance.PlaySFX("CountDown");
             txtCountDown.text = count.ToString();
-            yield return new WaitForSecondsRealtime(1f); // Dung Realtime
+            yield return new WaitForSecondsRealtime(1f);
             count--;
         }
 
-        txtCountDown.text = "GO!"; // Hoac "" neu muon an di
+        txtCountDown.text = "GO!";
         AudioManager.Instance.PlaySFX("GOTUYTT");
-        // Cho 1 ti xiu de hien "Start!" roi an
         yield return new WaitForSecondsRealtime(0.5f);
 
         txtCountDown.text = "";
         goCountDown.gameObject.SetActive(false);
         goTargetBall.gameObject.SetActive(false);
         InputManager.Instance.SetInputForPlayer();
-        Time.timeScale = 1f; // Giai phong dong bang
+        Time.timeScale = 1f;
     }
-
-
-
-    //void OnEnable()
-    //{
-    //    Time.timeScale = 0;
-    //    StartCoroutine(DemNguocVaoGame());
-    //}
-
-    //IEnumerator DemNguocVaoGame()
-    //{
-    //    int count = 3;
-
-    //    while (count > -1)
-    //    {
-    //        txtCountDown.text = $"{count}";//$"cbi vao game trong {count}...";
-    //        yield return new WaitForSeconds(1f);
-    //        count--;
-    //    }
-
-    //    //txtCountDown.text = "Start game!";
-    //    txtCountDown.text = "";
-
-    //    // het dong bang game 
-    //    Time.timeScale = 1;
-    //}
-
 }

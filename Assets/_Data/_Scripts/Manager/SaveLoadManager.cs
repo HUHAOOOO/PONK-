@@ -13,7 +13,6 @@ public class SaveLoadManager : CoreMonoBehaviour
 
     [SerializeField] protected List<SOInfoPlayer> soDefaultInfoPlayers;
     [SerializeField] protected List<SOInfoPlayer> soNewInfoPlayers;
-
     public List<SOInfoPlayer> SODefaultInfoPlayers => soDefaultInfoPlayers;
     public List<SOInfoPlayer> SONewInfoPlayers => soNewInfoPlayers;
 
@@ -24,16 +23,12 @@ public class SaveLoadManager : CoreMonoBehaviour
         base.LoadComponents();
         LoadSODefaultInfoPlayers();
         LoadSONewInfoPlayers();
-
-        ////
-        //Save();
-        //Load();
     }
 
     protected virtual void LoadSODefaultInfoPlayers()
     {
 
-        string pathAddressables;// = "Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP0.asset";
+        string pathAddressables;
 
         for (int i = 0; i < 4; i++)
         {
@@ -54,18 +49,10 @@ public class SaveLoadManager : CoreMonoBehaviour
             };
         }
         soDefaultInfoPlayers.OrderBy(p => p.name);
-
-
-        //// Resources
-        //if (this.soDefaultInfoPlayers.Count > 0) return;
-        //SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/DefaultInFoSO");
-
-        //this.soDefaultInfoPlayers = soDefaultInfoPlayers.ToList();
-        //Debug.LogWarning(transform.name + ": LoadSODefaultInfoPlayers", gameObject);
     }
     protected virtual void LoadSONewInfoPlayers()
     {
-        string pathAddressables;// = "Assets/_Data/_Scripts/Resources_moved/SO/DefaultInFoSO/InforP0.asset";
+        string pathAddressables;
 
         for (int i = 0; i < 4; i++)
         {
@@ -78,22 +65,11 @@ public class SaveLoadManager : CoreMonoBehaviour
 
             handle.Completed += (op) =>
             {
-                // Sau khi load xong và dùng xong thì release
                 Addressables.Release(op);
                 Debug.Log("release handle sau khi xong.");
             };
         }
         soNewInfoPlayers.OrderBy(p => p.name);
-
-
-
-        //// Resources
-        //if (this.soNewInfoPlayers.Count > 0) return;
-        //SOInfoPlayer[] soDefaultInfoPlayers = Resources.LoadAll<SOInfoPlayer>("SO/NewInFoSO");
-
-        //this.soNewInfoPlayers = soDefaultInfoPlayers.ToList();
-        ////soNewInfoPlayers = (List<SOInfoPlayer>)soDefaultInfoPlayers.Clone();
-        //Debug.LogWarning(transform.name + ": LoadSONewInfoPlayers", gameObject);
     }
 
     protected override void Awake()
@@ -128,13 +104,8 @@ public class SaveLoadManager : CoreMonoBehaviour
     /// </summary>
     protected override void OnEnable()
     {
-        //Save();
         Load();
     }
-    //protected override void OnDisable()
-    //{
-    //    SaveEndNewSO();
-    //}
     void OnApplicationQuit()
     {
         Debug.Log("App quitting . SaveEndNewSO !");
@@ -285,8 +256,6 @@ public class SaveLoadManager : CoreMonoBehaviour
         int index = playerIndexType.ToIndex();
 
         soNewInfoPlayers[index].keyPairP = keyPair.Clone();
-        //soNewInfoPlayers[index].keyPairP = keyPair;
-
         InputManager.Instance.UpdateKey4Pkayer();
     }
 
@@ -302,25 +271,18 @@ public class SaveLoadManager : CoreMonoBehaviour
         return soNewInfoPlayers[index];
     }
 
-    //XXX
     public SOInfoPlayer GetDataDefaultByPlayerIndexType(PlayerIndexType playerIndexType)
     {
         if (playerIndexType == PlayerIndexType.None) return null;
         int index = playerIndexType.ToIndex();
         return soDefaultInfoPlayers[index];
     }
-
-
-
-
     public void SaveEndNewSO()
     {
         InForPlayerDummyList inForPlayerDummyList = new();
 
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
-            //Debug.Log("soNewInfoPlayers : " + i, gameObject);
-
             inForPlayerDummyList.data.Add(soNewInfoPlayers[i].ToData());
         }
 

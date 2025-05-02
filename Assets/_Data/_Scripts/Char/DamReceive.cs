@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class DamReceive : CoreMonoBehaviour
 {
@@ -64,7 +63,6 @@ public class DamReceive : CoreMonoBehaviour
 
         isDie = true;
         GameManager.Instance.SetDiePlayerByPlayerIndexType(charCtrl.PlayerIndexType);
-        //charCtrl.gameObject.SetActive(false);
         AudioManager.Instance.PlaySFX("Die");
         boxCollider2D.enabled = false;
     }

@@ -1,10 +1,8 @@
 using UnityEngine;
-using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class CharState : CoreMonoBehaviour
 {
     [SerializeField] protected CharCtrl _charCtrl;
-
 
     [SerializeField] protected bool isAttackingFake;
     [SerializeField] protected bool isAttacking;
@@ -24,7 +22,6 @@ public class CharState : CoreMonoBehaviour
 
     public bool CanAttack { get => canAttack; }
     public bool CanDodge { get => canDodge; }
-
     public bool IsAttacking { get => isAttacking; }
     public bool IsDodging { get => isDodging; }
     public bool IsHurting { get => isHurting; set => isHurting = value; }

@@ -10,7 +10,6 @@ public class LayerManager : MonoBehaviour
     [SerializeField] protected int defaultLayer;
     [SerializeField] protected int ballLayer;
     [SerializeField] protected int ballLayerGetMask;
-
     public int BallLayer => ballLayer;
     public int BallLayerGetMask => ballLayerGetMask;
 
@@ -39,7 +38,6 @@ public class LayerManager : MonoBehaviour
             Debug.LogError("Loi : 1 trong cac Layer khong ton tai! kiem tra laij ten Layer trong unity $");
             return;
         }
-        // Huy ignore : cho phep va cham
         Physics2D.IgnoreLayerCollision(defaultLayer, ballLayer, false);
     }
 }

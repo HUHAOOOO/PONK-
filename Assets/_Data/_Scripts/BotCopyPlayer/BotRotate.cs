@@ -13,7 +13,6 @@ public class BotRotate : CoreMonoBehaviour
     [SerializeField] protected float timeDelayRotate = 0.5f;
     [SerializeField] protected bool canRotate;
 
-
     public BotCtrl BotCtrl
     {
         get => botCtrl;
@@ -31,8 +30,6 @@ public class BotRotate : CoreMonoBehaviour
     {
         yield return null; // Wait next frame 
         InitRotate();
-        //Debug.LogWarning("InitRotate();", gameObject);
-
         curentWorldAreaType = BotArea.Instance.CurrentArea;
     }
     protected override void LoadComponents()
@@ -44,7 +41,6 @@ public class BotRotate : CoreMonoBehaviour
     {
         RotateBot();
     }
-
     protected virtual void LoadBotCtrl()
     {
         if (this.botCtrl != null) return;
@@ -54,13 +50,11 @@ public class BotRotate : CoreMonoBehaviour
     protected virtual void Rotate()
     {
         botCtrl.transform.Rotate(0, 180, 0);
-        //Debug.Log(_charCtrl.name + "huha Rotate !",gameObject);
     }
 
     protected virtual void InitRotate()
     {
         WorldAreaType newCurrentArea = BotArea.Instance.CurrentArea;
-
 
         if (newCurrentArea == WorldAreaType.Area1)
         {
@@ -73,7 +67,6 @@ public class BotRotate : CoreMonoBehaviour
                 Rotate();
             }
         }
-
         if (newCurrentArea == WorldAreaType.Area2)
         {
             if (botCtrl.CurrentPos.name == "Pos_3")
@@ -85,7 +78,6 @@ public class BotRotate : CoreMonoBehaviour
                 Rotate();
             }
         }
-
         if (newCurrentArea == WorldAreaType.Area3)
         {
             if (botCtrl.CurrentPos.name == "Pos_4")
@@ -97,7 +89,6 @@ public class BotRotate : CoreMonoBehaviour
                 Rotate();
             }
         }
-
         if (newCurrentArea == WorldAreaType.Area4)
         {
             if (botCtrl.CurrentPos.name == "Pos_1")

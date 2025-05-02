@@ -13,14 +13,4 @@ public class DamSenderBallLightning : DamSender
         charCtrl.DamReceive.TakeDam(damSender);
         ballCtrl.BallRotate.SetDefaultSpeed();
     }
-    //{
-    //    DamReceive playerDamReceive = collision.gameObject.GetComponent<DamReceive>();
-    //    if (playerDamReceive == null)
-    //    {
-    //        Debug.Log("player DamReceive null !");
-    //        return;
-    //    }
-    //    playerDamReceive.TakeDam(damSender);
-    //    ballCtrl.BallRotate.SetDefaultSpeed();
-    //}
 }

@@ -3,13 +3,10 @@ using UnityEngine.UIElements;
 
 public class CharDodge : CoreMonoBehaviour
 {
-
     [SerializeField] protected CharCtrl _charCtrl;
 
     [SerializeField] protected float _dodgeAnimTime = 1.0f;
     [SerializeField] protected BoxCollider2D boxCollider2D;
-
-
     protected override void LoadComponents()
     {
         base.LoadComponents();

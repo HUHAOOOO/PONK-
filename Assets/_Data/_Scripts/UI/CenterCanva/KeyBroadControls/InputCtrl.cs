@@ -15,8 +15,6 @@ public class InputCtrl : CoreMonoBehaviour
     public Key KeyDefault { get => keyDefault; set => keyDefault = value; }
     public TextMeshProUGUI TxtKey { get => txtKey; set => txtKey = value; }
 
-    //public int PosIndex { get => posIndex; set => posIndex = value; }
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -56,7 +54,6 @@ public class InputCtrl : CoreMonoBehaviour
         btnResetKey = transform.Find("ButtonResetKey").GetComponent<Button>();
         Debug.LogWarning(transform.name + ": LoadbtnResetKey", gameObject);
     }
-
     private void RenameTxtSkill()
     {
         txtSkill.text = keyDefault.NameKey();

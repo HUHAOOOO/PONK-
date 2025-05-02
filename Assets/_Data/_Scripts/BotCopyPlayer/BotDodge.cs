@@ -9,12 +9,10 @@ public class BotDodge : CoreMonoBehaviour
     [SerializeField] protected float _dodgeAnimTime = 1.0f;
     [SerializeField] protected BoxCollider2D boxCollider2D;
 
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadBotCtrl();
-
         LoadData();
     }
     protected virtual void LoadBotCtrl()

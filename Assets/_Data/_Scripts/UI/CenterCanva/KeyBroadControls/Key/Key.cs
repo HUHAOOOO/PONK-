@@ -13,7 +13,6 @@ public abstract class Key : CoreMonoBehaviour
     [SerializeField] protected Button  btn;
     [SerializeField] protected TextMeshProUGUI keyTxt;
 
-    //public KeySkillType KeyDefault { get => keyDefault; set => keyDefault = value; }
     public TextMeshProUGUI KeyTxt { get => keyTxt; set => keyTxt = value; }
     public InputCtrl InputCtrl { get => inputCtrl; set => inputCtrl = value; }
     public KeySkillType KeySkillType { get => keySkillDefault; set => keySkillDefault = value; }
@@ -52,8 +51,6 @@ public abstract class Key : CoreMonoBehaviour
     {
         this.keyCode = keyCode;
     }
-
-
     public string NameKey()
     {
         return KeySkillTypeExtensions.ToDisplayString(keySkillDefault);
@@ -61,7 +58,6 @@ public abstract class Key : CoreMonoBehaviour
 
     public virtual void BtnAddOnClickEvent()
     {
-        //btn.onClick.AddListener(keyBroadControlsCtrl.EventClickKeyBtn(keyCode));
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() => inputCtrl.CtrlInputs.KeyBroadControlsCtrl.EventClickKeyBtn(keySkillDefault,keyCode));
     }

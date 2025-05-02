@@ -30,7 +30,6 @@ public class BtnExit : BtnCore
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() => SetActiveGoParent());
     }
-    //BTN
     private void SetActiveGoParent()
     {
         goParent.gameObject.SetActive(false);

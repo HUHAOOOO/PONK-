@@ -6,7 +6,6 @@ public class BotAnimatorCtrl : CoreMonoBehaviour
     [SerializeField] protected BotCtrl botCtrl;
     [SerializeField] protected BotTimeAnimClip botTimeAnimClip;
 
-    //cho ra 1 class rieng dc nhi
     private static readonly int Idle = Animator.StringToHash("Idle");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int Dodge = Animator.StringToHash("Dodge");
@@ -25,7 +24,6 @@ public class BotAnimatorCtrl : CoreMonoBehaviour
     [SerializeField] protected float timeDelay = 0;
     [SerializeField] protected float timer = 0;
 
-
     public BotCtrl BotCtrl
     {
         get => botCtrl;
@@ -37,7 +35,6 @@ public class BotAnimatorCtrl : CoreMonoBehaviour
     }
     public float DodgeAnimTime => _dodgeAnimTime;
     public float HurtAnimTime => _hurtAnimTime;
-    //public bool CanGetState { get => canGetState; private set => canGetState = value; }
     protected override void LoadComponents()
     {
         LoadBotCtrl();
@@ -65,7 +62,6 @@ public class BotAnimatorCtrl : CoreMonoBehaviour
         botTimeAnimClip = GetComponent<BotTimeAnimClip>();
         Debug.LogWarning(transform.name + ": LoadBotTimeAnimClip", gameObject);
     }
-    // Update is called once per frame
     void Update()
     {
         state = GetState();
@@ -78,38 +74,32 @@ public class BotAnimatorCtrl : CoreMonoBehaviour
         timeDelay = Time2Delay;
         botCtrl.BotState.SetFalseSomeThing();
     }
-
     private int GetState()
     {
         if(!CanGetState()) return _currentState;
 
         if (botCtrl.BotState.IsDying)
         {
-            //Debug.Log("IsDying", gameObject);
             SetTimeDelayAnim(_dieAnimTime);
             Debug.Log("Player has been DIE !", gameObject);
             return Die;
         }
         else if (botCtrl.BotState.IsHurting)
         {
-            //Debug.Log("IsHurting", gameObject);
             return SetNewState(Hurt, _hurtAnimTime);
         }
         else if (botCtrl.BotState.IsAttacking)
         {
-            //Debug.Log("IsAttacking", gameObject);
             return SetNewState(Attack, _attackAnimTime);
         }
         else if (botCtrl.BotState.IsDodging)
         {
-            //Debug.Log("IsDodging", gameObject);
             return SetNewState(Dodge, _dodgeAnimTime);
         }
         else if (canGetState) return Idle;
         
         return _currentState;
     }
-
     private bool CanGetState()
     {
         if (canGetState == true) return true;
@@ -127,7 +117,6 @@ public class BotAnimatorCtrl : CoreMonoBehaviour
         SetTimeDelayAnim(animTime);
         return newState;
     }
-
     public void SetTrueCanGetState()
     {
         canGetState = true;

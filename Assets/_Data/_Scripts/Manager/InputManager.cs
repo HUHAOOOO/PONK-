@@ -9,9 +9,7 @@ public class InputManager : CoreMonoBehaviour
 
     [SerializeField] protected List<KeyPair> playerKC;
     [SerializeField] protected List<CharCtrl> players = new();
-
     public List<KeyPair> PlayerKC => playerKC;
-
 
     protected override void Awake()
     {
@@ -24,8 +22,7 @@ public class InputManager : CoreMonoBehaviour
 
         base.LoadComponents();
         GetListPlayer();
-        //LoadPlayers();
-        //
+        
         ListKeyCodeForPlayer();
         SetInputForPlayer();
     }
@@ -45,20 +42,9 @@ public class InputManager : CoreMonoBehaviour
         players = GameManager.Instance.Players;
 
     }
-    //protected virtual void LoadPlayers()
-    //{
-    //    if (this.players.Count > 0) return;
-    //    CharCtrl[] listPlayers = FindObjectsByType<CharCtrl>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-    //    //FindObjectsInactive.Exclude // GO active
-    //    //FindObjectsInactive.Include // GO inactive
-    //    //this.players = listPlayers.ToList();
-    //    this.players = listPlayers.OrderBy(p => p.transform.name).ToList();
-    //    Debug.LogWarning(transform.name + ": LoadPlayers", gameObject);
-    //}
     public void ListKeyCodeForPlayer()
     {
         playerKC.Clear();
-        //KeyCode Deault for player
         for (int i = 0; i < 4; i++)
         {
             SOInfoPlayer newSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
@@ -66,11 +52,7 @@ public class InputManager : CoreMonoBehaviour
 
             playerKC.Add(new KeyPair(newSOInfoPlayer.keyPairP.keyAttack, newSOInfoPlayer.keyPairP.keyDodge));
         }
-        //playerKC.Add(new KeyPair(KeyCode.X, KeyCode.C));
-        //playerKC.Add(new KeyPair(KeyCode.B, KeyCode.N));
-        //playerKC.Add(new KeyPair(KeyCode.O, KeyCode.P));
     }
-
 
     public virtual void SetInputForPlayer()
     {
@@ -82,7 +64,6 @@ public class InputManager : CoreMonoBehaviour
             players[i].CharInput.KeyDodge = newKeyPair.keyDodge;
         }
     }
-
     public void UpdateKey4Pkayer()
     {
         ListKeyCodeForPlayer();

@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.EventSystems.StandaloneInputModule;
 
 
 public class GameManager : CoreMonoBehaviour
 {
-
     private static GameManager instance;
     public static GameManager Instance => instance;
 
     [SerializeField] protected BallCtrl ballCtrl;
-
 
     [SerializeField] protected Vector3 posBall;
     [SerializeField] protected WorldAreaType currentArea = WorldAreaType.noAreaType;
@@ -24,12 +21,11 @@ public class GameManager : CoreMonoBehaviour
     [SerializeField] protected bool bottomPoint;
     [SerializeField] protected bool leftPoint;
 
-    [SerializeField] protected bool isClockwise = true;// khi bi speed bong +(false) or -(true)
+    [SerializeField] protected bool isClockwise = true;
 
     [SerializeField] protected List<Transform> pos4Players = new();
     [SerializeField] protected List<Transform> pos4GO = new();
     [SerializeField] protected List<CharCtrl> players = new();
-    //[SerializeField] protected int indexPos;
 
     [SerializeField] protected bool isP0Die = false;
     [SerializeField] protected bool isP1Die = false;
@@ -49,7 +45,6 @@ public class GameManager : CoreMonoBehaviour
     public bool LeftPoint => leftPoint;
     public List<CharCtrl> Players => players;
 
-
     public bool IsP0Die { get => isP0Die; set => isP0Die = value; }
     public bool IsP1Die { get => isP1Die; set => isP1Die = value; }
     public bool IsP2Die { get => isP2Die; set => isP2Die = value; }
@@ -59,15 +54,11 @@ public class GameManager : CoreMonoBehaviour
     {
         if (instance != null) Debug.LogError("only allow 1 GameManager | Singleton");
         GameManager.instance = this;
-
-        //InitGame();
     }
     protected override void OnEnable()
     {
         SetDefaultData();
     }
-    // Caanf goi lai khi start lai game moi 
-
     public void SetDefaultData()
     {
         isP0Die = false;
@@ -76,38 +67,12 @@ public class GameManager : CoreMonoBehaviour
         isP3Die = false;
         countDie = 0;
     }
-
     public void InitGame()
     {
         int indexRandom = UnityEngine.Random.Range(0, pos4GO.Count);
 
-        //Vector3 newPos = pos4GO[indexRandom].position;
-        //Vector3 newPos = pos4GO[indexRandom].localPosition;
-        //if (newPos.x > 0) newPos.x = 12;
-        //else if (newPos.x < 0) newPos.x = -12;
-        //newPos.y = 0;
-
-        //ballCtrl.CurrentBall.transform.parent.localPosition = newPos;
-        //ballCtrl.CurrentBall.transform.parent.localPosition = pos4GO[indexRandom].localPosition; // ko chinh xac vi tri dc spawn TOAN spawn gan sat player ?  
         ballCtrl.CurrentBall.transform.parent.position = pos4GO[indexRandom].position;
-        //ballCtrl.CurrentBall.transform.parent.rotation = pos4GO[indexRandom].rotation * Quaternion.Euler(0, 0, 90f); //+ Z 90 do
-
-
-        //Quaternion baseRot = pos4GO[indexRandom].rotation;
-        //Vector3 euler = baseRot.eulerAngles;
-        //euler.z += 90f;
-        //ballCtrl.CurrentBall.transform.parent.rotation = Quaternion.Euler(euler);
-
-        //ballCtrl.CurrentBall.transform.parent.position = newPos;
         ballCtrl.BallRotate.InitRotate();
-        //Vector3 newPos = ballCtrl.CurrentBall.transform.parent.position;
-        //newPos.x = pos4GO[indexRandom].position.x;
-        //newPos.y = pos4GO[indexRandom].position.y;
-        //newPos.y = 0;
-        //newPos.z = 0;
-        //ballCtrl.CurrentBall.transform.parent.transform.position = newPos;
-
-        //ballCtrl.Ball.rotation = pos4GO[indexRandom].rotation;
     }
 
 
@@ -118,15 +83,12 @@ public class GameManager : CoreMonoBehaviour
         AreaPreCur();
         RotatePoints();
         IsClocwiseUpdate();
-
-        //PlayerIsCanOverlapCircleMeleeAttack();
     }
 
     protected override void Start()
     {
         DataCHarIntoGame();
     }
-    // Vao game phai cap nhat lai NAME do 
     public void DataCHarIntoGame()
     {
         SOInfoPlayer newSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
@@ -147,8 +109,7 @@ public class GameManager : CoreMonoBehaviour
         LoadPos4Players();
         LoadPlayers();
         LoadPos4GO();
-        //
-        //indexPos = pos4Players.Count;
+        
         SetPosForPlayer();
         SetPlayerIndexTypeForPlayer();
     }
@@ -171,8 +132,6 @@ public class GameManager : CoreMonoBehaviour
             Debug.Log($"pos4Players.Add ({child.name})");
         }
     }
-
-
     protected virtual void LoadPos4GO()
     {
         if (this.pos4GO.Count > 0) return;
@@ -190,9 +149,6 @@ public class GameManager : CoreMonoBehaviour
     {
         if (this.players.Count > 0) return;
         CharCtrl[] listPlayers = FindObjectsByType<CharCtrl>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-        //FindObjectsInactive.Exclude // GO active
-        //FindObjectsInactive.Include // GO inactive
-        //this.players = listPlayers.ToList();
         this.players = listPlayers.OrderBy(p => p.transform.name).ToList();
         Debug.LogWarning(transform.name + ": LoadPlayers", gameObject);
     }
@@ -218,28 +174,22 @@ public class GameManager : CoreMonoBehaviour
     {
         if (posBall.x > 0 && posBall.y > 0)
         {
-            //Debug.Log("arrea1");
             return WorldAreaType.Area1;
         }
         else if (posBall.x > 0 && posBall.y < 0)
         {
-            //Debug.Log("arrea2");
             return WorldAreaType.Area2;
         }
         else if (posBall.x < 0 && posBall.y < 0)
         {
-            //Debug.Log("arrea3");
             return WorldAreaType.Area3;
         }
         else if (posBall.x < 0 && posBall.y > 0)
         {
-            //Debug.Log("arrea4");
             return WorldAreaType.Area4;
         }
-
         return WorldAreaType.noAreaType;
     }
-
 
     public virtual void SetPosForPlayer()
     {
@@ -258,49 +208,9 @@ public class GameManager : CoreMonoBehaviour
 
     public virtual Transform PosAvailable(int indexPos)
     {
-        //SetPosPiIsOn(indexPos);
         return pos4Players[indexPos];
     }
-    //public virtual void SetPosPiIsOn(int indexPosIsOn)
-    //{
-    //    if (indexPosIsOn == 0)
-    //    {
-    //        posP1IsOn = true;
-    //    }
-    //    else if (indexPosIsOn == 1)
-    //    {
-    //        posP2IsOn = true;
-    //    }
-    //    else if (indexPosIsOn == 2)
-    //    {
-    //        posP3IsOn = true;
-    //    }
-    //    else if (indexPosIsOn == 3)
-    //    {
-    //        posP4IsOn = true;
-    //    }
-    //}
-    //// Khi player Dead goi lai 
-    //public virtual void SetPosPiOff(int indexPosOff)
-    //{
-    //    if (indexPosOff == 0)
-    //    {
-    //        posP1IsOn = false;
-    //    }
-    //    else if (indexPosOff == 1)
-    //    {
-    //        posP2IsOn = false;
-    //    }
-    //    else if (indexPosOff == 2)
-    //    {
-    //        posP3IsOn = false;
-    //    }
-    //    else if (indexPosOff == 3)
-    //    {
-    //        posP4IsOn = false;
-    //    }
-    //}
-
+   
     protected virtual void AreaPreCur()
     {
         WorldAreaType areaType = GetAreaBall();
@@ -361,8 +271,6 @@ public class GameManager : CoreMonoBehaviour
     {
         foreach (CharCtrl charCtrl in players)
         {
-            //Debug.Log("GameManager : " + charCtrl.transform.name + " : " + isCanOverlapCircleMeleeAttack);
-
             charCtrl.CharMeleeAttack.IsCanOverlapCircleMeleeAttack = isCanOverlapCircleMeleeAttack;
         }
     }
@@ -390,15 +298,11 @@ public class GameManager : CoreMonoBehaviour
         countDie++;
         if (countDie == countToEndGame)
         {
-            // End Game
-            // Show name Player win
-            //Time.timeScale = 0;
             PlayerIndexType playerIndexTypeWINER = GetIndexPlayerWin();
             string nameWINER = SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexTypeWINER).nameP;
             CANVAS_CTRL.Instance.EndGame(nameWINER);
         }
     }
-
     private PlayerIndexType GetIndexPlayerWin()
     {
         if (isP0Die == false) return PlayerIndexType.P0;
@@ -407,13 +311,6 @@ public class GameManager : CoreMonoBehaviour
         else if (isP3Die == false) return PlayerIndexType.P3;
         return PlayerIndexType.None;
     }
-
-
-
-
-
-    // 0 1 2 3 
-
     public void SetActivePlayer(int soluong)
     {
         SetDefaultData();
@@ -457,5 +354,4 @@ public class GameManager : CoreMonoBehaviour
             countToEndGame = 3;
         }
     }
-
 }

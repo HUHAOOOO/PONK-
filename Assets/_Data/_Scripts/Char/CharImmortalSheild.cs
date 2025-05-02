@@ -41,22 +41,13 @@ public class CharImmortalSheild : CoreMonoBehaviour
         boxCollider2D = _charCtrl.DamReceive.gameObject.GetComponent<BoxCollider2D>();
         if (boxCollider2D == null) Debug.Log("boxCollider2D null", gameObject);
     }
-    //protected override void Awake()
-    //{
-    //    OnOffFxSheild(false);
-    //}
     protected override void OnEnable()
     {
         isSheildOn = false;
-
-        //model.gameObject.SetActive(false);
-        //Debug.Log("============== OnOffFxSheild(false);", gameObject);
     }
     protected override void OnDisable()
     {
         isSheildOn = false;
-        //model.gameObject.SetActive(false);
-        //Debug.Log("============== OnOffFxSheild(false);", gameObject);
     }
     private void Update()
     {
@@ -70,13 +61,11 @@ public class CharImmortalSheild : CoreMonoBehaviour
         boxCollider2D.enabled = false;
         Invoke(nameof(EndImmotal), timeImmortal);
         SetBool_TimeImmortalSheild(false);
-        //Debug.Log(" Immotal ");
         OnOffFxSheild(true);
     }
     private void EndImmotal()
     {
         boxCollider2D.enabled = true;
-        //Debug.Log(" EndImmotal ");
         OnOffFxSheild(false);
     }
 

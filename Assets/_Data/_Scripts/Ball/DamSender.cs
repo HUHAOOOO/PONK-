@@ -7,15 +7,12 @@ public abstract class DamSender : CoreMonoBehaviour
     [SerializeField] protected int damSender = 1;
     [SerializeField] protected BallCtrl ballCtrl;
     [SerializeField] protected CircleCollider2D circleCollider2D;
-
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadBallCtrl();
         LoadCircleCollider2D();
     }
-
     protected virtual void LoadBallCtrl()
     {
         if (this.ballCtrl != null) return;
@@ -35,9 +32,5 @@ public abstract class DamSender : CoreMonoBehaviour
     {
         EffectSpecialBall(collision);
     }
-
     protected abstract void EffectSpecialBall(Collider2D collision);
-    //{
-    //    // override for Special Ball
-    //}
 }

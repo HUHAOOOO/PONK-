@@ -11,7 +11,6 @@ public class BotArea : CoreMonoBehaviour
     [SerializeField] protected BallCtrl ballCtrl;
     [SerializeField] protected Transform GOCoreWordBot;
 
-
     [SerializeField] protected Transform posBall;
     [SerializeField] protected WorldAreaType currentArea = WorldAreaType.noAreaType;
     [SerializeField] protected WorldAreaType previousArea = WorldAreaType.noAreaType;
@@ -24,7 +23,7 @@ public class BotArea : CoreMonoBehaviour
 
     [SerializeField] protected bool isStartNewArea;
 
-    [SerializeField] protected bool isClockwise = true;// khi bi speed bong +(false) or -(true)
+    [SerializeField] protected bool isClockwise = true;
 
     public WorldAreaType CurrentArea => currentArea;
     public WorldAreaType PreviousArea => previousArea;
@@ -39,9 +38,6 @@ public class BotArea : CoreMonoBehaviour
     {
         if (instance != null) Debug.LogError("only allow 1 BotArea | Singleton");
         BotArea.instance = this;
-
-        //[ ]
-        //InitGame();
     }
 
     private void Update()
@@ -57,7 +53,7 @@ public class BotArea : CoreMonoBehaviour
     {
         base.LoadComponents();
         LoadBallCtrl();
-        //
+
         LoadCoreWordBot();
     }
 
@@ -98,25 +94,20 @@ public class BotArea : CoreMonoBehaviour
 
         if (localPos.x > 0 && localPos.y > 0)
         {
-            //Debug.Log("arrea1");
             return WorldAreaType.Area1;
         }
         else if (localPos.x > 0 && localPos.y < 0)
         {
-            //Debug.Log("arrea2");
             return WorldAreaType.Area2;
         }
         else if (localPos.x < 0 && localPos.y < 0)
         {
-            //Debug.Log("arrea3");
             return WorldAreaType.Area3;
         }
         else if (localPos.x < 0 && localPos.y > 0)
         {
-            //Debug.Log("arrea4");
             return WorldAreaType.Area4;
         }
-
         return WorldAreaType.noAreaType;
     }
 
@@ -159,7 +150,6 @@ public class BotArea : CoreMonoBehaviour
 
         return valuesList[index];
     }
-
 
     public bool IsStartNewArea()
     {

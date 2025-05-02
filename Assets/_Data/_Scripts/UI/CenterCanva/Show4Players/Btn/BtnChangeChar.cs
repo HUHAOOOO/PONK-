@@ -11,7 +11,6 @@ public class BtnChangeChar : BtnCore
     {
 
     }
-
     protected override void LoadComponents()
     {
         base.LoadComponents();

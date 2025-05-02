@@ -10,9 +10,7 @@ public class InputFieldName : CoreMonoBehaviour
 
     [SerializeField] protected TMP_InputField tMP_InputField;
     [SerializeField] protected string inputNewName;
-
     public TMP_InputField TMP_InputField => tMP_InputField;
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -61,7 +59,6 @@ public class InputFieldName : CoreMonoBehaviour
             this.gameObject.SetActive(false);
             return;
         }
-        //Debug.Log("User entered : " + inputText);
         panelPlayerCtrl.BtnChangeName.TxtNameP.text = inputText;
 
         tMP_InputField.text = "";

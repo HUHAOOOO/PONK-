@@ -11,8 +11,6 @@ public class CANVAS_CTRL : MonoBehaviour
     [SerializeField] protected GameObject CanvasOPTIONS;
     [SerializeField] protected CanvasENDGAME canvasENDGAME;
     public int soLuongPlayer;
-
-
     private  void Awake()
     {
         if (instance != null) Debug.LogError("only allow 1 GameManager | Singleton");
@@ -21,8 +19,6 @@ public class CANVAS_CTRL : MonoBehaviour
     private void Start()
     {
         SetFalseAll();
-        //MENU();
-        //Debug.Log("CANVAS_CTRL Start");
     }
     public void MENU()
     {
@@ -35,7 +31,7 @@ public class CANVAS_CTRL : MonoBehaviour
         goStartGame.gameObject.SetActive(true);
 
         GameManager.Instance.DataCHarIntoGame();
-        InputManager.Instance.UpdateKey4Pkayer();// cap nhat input player khi vao game
+        InputManager.Instance.UpdateKey4Pkayer();
     }
 
     public void OptionsCanva()
@@ -112,12 +108,7 @@ public class CANVAS_CTRL : MonoBehaviour
         canvasENDGAME.txtNameWiner.text = nameWINER;
     }
 
-
-
-
-
     // SAVE DATA btn
-    
     public void Btn_SAVEDATA()
     {
         SaveLoadManager.Instance.SaveEndNewSO();

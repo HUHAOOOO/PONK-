@@ -11,7 +11,6 @@ public class ItemCtrl : CoreMonoBehaviour
         base.LoadComponents();
         LoadItemDespawn();
     }
-
     protected virtual void LoadItemDespawn()
     {
         if (this.itemDespawn != null) return;

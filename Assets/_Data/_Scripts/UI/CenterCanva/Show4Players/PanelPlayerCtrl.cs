@@ -70,29 +70,10 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadInputFieldName", gameObject);
     }
 
-
-    ////public void SetDataPlayer(PlayerIndexType playerIndexType, Sprite spriteP, string namrP, KeyPair keyPairP)
-    //public void SetDataPlayer(PlayerIndexType playerIndexType, AssetReference spriteRef, string namrP, KeyPair keyPairP)
-    //{
-    //    SOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef, (loadedSprite) =>
-    //    {
-    //        if (loadedSprite != null)
-    //        {
-    //            sprite_runtime = loadedSprite;
-    //            btnChangeChar.ImageP.sprite = sprite_runtime;
-    //        }
-    //    });
-
-
-    //    //btnChangeChar.ImageP.sprite = spriteP;
-    //    btnChangeName.TxtNameP.text = namrP;
-    //    btnChangeInputSkill.KeyPair = keyPairP.Clone();
-    //}
     private AsyncOperationHandle<Sprite> _spriteHandle;
 
     public void SetDataPlayer(PlayerIndexType playerIndexType, AssetReference spriteRef, string namrP, KeyPair keyPairP)
     {
-        // neu truoc do co data thi giai phong
         if (_spriteHandle.IsValid())
             Addressables.Release(_spriteHandle);
 
@@ -117,15 +98,6 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
         btnChangeInputSkill.KeyPair = keyPairP.Clone();
     }
 
-    //BTN
-    //Chose new Char
-    // khi an vao avatar thi se hien anh cac nhan vat ... co id anh de load cho Player khi vao tran
-    // NAY NANG CAO v ... ma hay vl .-. MUON 
-
-
-    // Rename
-    // an vao ten thi se hien inputField de nhap 
-    // nhap xong enter -> cap nhat ten va tat GO inputField
     public void BTN_Rename()
     {
         inputFieldName.gameObject.SetActive(true);
@@ -141,11 +113,5 @@ public class PanelPlayerCtrl : CoreMonoBehaviour
     {
         panelPlayersCtrl.InFor4PlayerCtrl.CenterCanva.PlayerIndexType = playerIndexType;
         panelPlayersCtrl.InFor4PlayerCtrl.CenterCanva.SetActiveGOKeyBroadControlsCtrl();
-        //panelPlayersCtrl.InFor4PlayerCtrl.CenterCanva.;//SetActive(true);
-        //inputFieldName.TextNow();
     }
-    // Change input Attack and Dodge 
-    // Done UI 
-    // [ ] gan 
-
 }

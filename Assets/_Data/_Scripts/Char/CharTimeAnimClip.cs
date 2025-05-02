@@ -1,6 +1,4 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class CharTimeAnimClip : CoreMonoBehaviour
 {
@@ -10,7 +8,6 @@ public class CharTimeAnimClip : CoreMonoBehaviour
     [SerializeField] protected float _dodgeAnimTime;
     [SerializeField] protected float _hurtAnimTime;
     [SerializeField] protected float _dieAnimTime;
-
     public float AtackAnimTime { get => _attackAnimTime; private set => _attackAnimTime = value; }
     public float DodgeAnimTime { get => _dodgeAnimTime; }
     public float HurtAnimTime { get => _hurtAnimTime; }

@@ -21,19 +21,6 @@ public class AudioManager : MonoBehaviour
     {
         if (instance != null) Debug.LogError("only allow 1 AudioManager | Singleton");
         AudioManager.instance = this;
-
-
-        //if(instance == null)
-        //{
-        //    instance = this;
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
-
-
         // musicSounds
         foreach (Sound s in musicSounds)
         {
@@ -44,7 +31,6 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch = deffaultPitch;
             s.source.loop = s.loop;
         }
-
         // sfxSounds
         foreach (Sound s in sfxSounds)
         {
@@ -62,7 +48,6 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic(string name)
     {
-        //Debug.Log(name + "!!!musicSounds");
         Sound s = Array.Find(musicSounds, sound => sound.name == name);
         if (s == null)
         {
@@ -71,15 +56,10 @@ public class AudioManager : MonoBehaviour
         }
         currentMusicSounds = s;
         s.source.Play();
-
-        //s.source.Stop();Debug.Log("Da Stop source");
-        // ~ AudioSource.Stop : stop 
-
     }
 
     public void PlaySFX(string name)
     {
-        //Debug.Log(name + "!!!sfxSounds");
         Sound s = Array.Find(sfxSounds, sound => sound.name == name);
         if (s == null)
         {
@@ -87,7 +67,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
         currentSFXSounds = s;
-        //s.source.Play();
         s.source.PlayOneShot(s.clip);
     }
 
@@ -117,27 +96,18 @@ public class AudioManager : MonoBehaviour
     {
         //AudioSource.volume = volume;
         //currentSFXSounds.source.volume = volume;
-
         foreach (Sound s in sfxSounds)
         {
             s.source.volume = volume;
         }
 
     }
-
-
-
-
     public string RandomSoundSword()
     {
         int random = Random.Range(0, 4);
-
         if (random == 0) return "Sword Swing 1";
         if (random == 1) return "Sword Swing 2";
         if (random == 2) return "Sword Swing 3";
-
         return "Sword Swing 1";
     }
-
-
 }

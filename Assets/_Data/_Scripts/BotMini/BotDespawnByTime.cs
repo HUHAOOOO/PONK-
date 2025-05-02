@@ -6,7 +6,6 @@ public class BotDespawnByTime : DespawnByTime
 {
     [SerializeField] protected BotSpawnerRandom botSpawnerRandom;
 
-
     private void OnDisabke()
     {
         base.OnEnable();

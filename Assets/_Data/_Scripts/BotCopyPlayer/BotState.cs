@@ -4,8 +4,6 @@ public class BotState : CoreMonoBehaviour
 {
     [SerializeField] protected BotCtrl botCtrl;
 
-
-    //[SerializeField] protected bool isAttackingFake;
     [SerializeField] protected bool isAttacking;
     [SerializeField] protected bool isDodging;
     [SerializeField] protected bool isHurting;
@@ -24,7 +22,7 @@ public class BotState : CoreMonoBehaviour
     public bool CanAttack { get => canAttack; }
     public bool CanDodge { get => canDodge; }
 
-    public bool IsAttacking { get => isAttacking; } //isAttackingFake // { get => isAttackingFake; }//
+    public bool IsAttacking { get => isAttacking; }
     public bool IsDodging { get => isDodging; }
     public bool IsHurting { get => isHurting; set => isHurting = value; }
     public bool IsDying { get => isDying; set => isDying = value; }
@@ -44,7 +42,6 @@ public class BotState : CoreMonoBehaviour
     {
         GetInput();
     }
-
     private void GetInput()
     {
         isCanPress = IsCanPress();
@@ -52,19 +49,13 @@ public class BotState : CoreMonoBehaviour
         InputAttack();
         InputDodge();
     }
-
     public virtual void SetFalseSomeThing()
     {
         Invoke(nameof(SetFalse), 0.1f);//0.5f
     }
-
     public virtual void SetFalse()
     {
         isAttacking = false;
-
-
-        //isAttackingFake = false;
-
         isDodging = false;
         isHurting = false;
     }
@@ -73,9 +64,7 @@ public class BotState : CoreMonoBehaviour
         if (!IsCanAttack()) return;
         if (botCtrl.BotInput.InputAttack)
         {
-            //AudioManager.Instance.PlaySFX(AudioManager.Instance.RandomSoundSword());
-
-            isAttacking = true; //isAttackingFake = true;
+            isAttacking = true;
             canAttack = false;
             botCtrl.BotInput.SetFalseInput();
         }
@@ -83,7 +72,6 @@ public class BotState : CoreMonoBehaviour
     protected virtual bool IsCanAttack()
     {
         if (canAttack) return true;
-        //AudioManager.Instance.PlaySFX(AudioManager.Instance.RandomSoundSword());
 
         timerAttack += Time.deltaTime;
         if (timerAttack < timeDelayAttack) return false;
@@ -114,7 +102,6 @@ public class BotState : CoreMonoBehaviour
 
     protected virtual bool IsCanPress()
     {
-        //if (this.isAttackingFake || IsDodging || IsHurting || IsDying) return false;
         if (isAttacking || isDodging || isHurting || isDying) return false;
         return true;
     }
