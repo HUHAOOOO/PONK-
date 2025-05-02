@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [CreateAssetMenu(fileName = "InfoPlayerSO", menuName = "SO/InfoPlayerSO")]
@@ -70,9 +71,52 @@ public class SOInfoPlayer : ScriptableObject
         //this.spriteP = ;
 
     }
+
+    //public Sprite GetSpriteFromSpriteRef(AssetReference spriteRefDummy)
+    //{
+    //    LoadDataFromAddressablesWithReference(spriteRefDummy);
+
+    //    return spriteP;
+    //}
+
     //C3 ADDRESSABLES
+
+    // MORE
+    public static void LoadDataFromAddressablesWithReference(AssetReference reference, System.Action<Sprite> onDone)
+    {
+        var handle = Addressables.LoadAssetAsync<Sprite>(reference);
+        handle.Completed += (operation) =>
+        {
+            if (operation.Status == AsyncOperationStatus.Succeeded)
+            {
+                onDone?.Invoke(operation.Result);
+            }
+            else
+            {
+                Debug.LogError("Load Fail : " + operation.OperationException);
+                onDone?.Invoke(null);
+            }
+
+            Addressables.Release(handle);
+        };
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // ok 
+
     //private async void LoadDataFromAddressables(AssetReference spriteRefDummy)
-    private void LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
+    public void LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
     //private Sprite LoadDataFromAddressablesWithReference(AssetReference spriteRefDummy)
     {
         //// Viet gon OK //TOP2
@@ -112,7 +156,7 @@ public class SOInfoPlayer : ScriptableObject
         ///////////// DUNG HANDLE += Completed  //TOP1
         AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(spriteRefDummy);
 
-            //Sprite spriteReturn;
+        //Sprite spriteReturn;
         // Khi load xong thi thuc hien Instantiate
         handle.Completed += (AsyncOperationHandle<Sprite> task) =>
         {
@@ -120,7 +164,7 @@ public class SOInfoPlayer : ScriptableObject
             {
                 spriteP = task.Result;
                 //spriteReturn = spriteP;//XXX
-                
+
             }
             else
             {
@@ -130,14 +174,14 @@ public class SOInfoPlayer : ScriptableObject
 
             Addressables.Release(handle);// giai phong tai nguyen sau khi sd 
         };
-            //return spriteReturn;
+        //return spriteReturn;
 
 
         //return null;
         return;
     }
 
-    
+
     //private void LoadDataFromAddressablesWithAddress(string spriteAddressDummy)
     //{
     //    AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(spriteAddressDummy);// thay moi spriteAddressDummy la xong
@@ -165,8 +209,7 @@ public class SOInfoPlayer : ScriptableObject
         InForPlayerDummy inForPlayerDummy = new();
         inForPlayerDummy.playerIndexType = this.playerIndexType;
         inForPlayerDummy.nameP = this.nameP;
-        inForPlayerDummy.keyPairP = this.keyPairP;
-
+        inForPlayerDummy.keyPairP = new KeyPair(this.keyPairP.keyAttack, this.keyPairP.keyDodge);
         inForPlayerDummy.spriteRefDummy = this.spriteRef;
         return inForPlayerDummy;
 

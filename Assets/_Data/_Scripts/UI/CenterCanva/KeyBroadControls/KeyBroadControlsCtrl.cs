@@ -4,6 +4,7 @@ using System.Reflection;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
@@ -24,6 +25,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     [SerializeField] protected Transform panelWaitPressTheNewKey;
     [SerializeField] protected TextMeshProUGUI txtPressTheNewKey;
     [SerializeField] protected KeyPair keyPair;
+    [SerializeField] protected Sprite sprite_EMPTY;
 
     public CenterCanva CenterCanva => centerCanva;
     public KeySkillType CurrentKeyType { get => currentKeyType; set => currentKeyType = value; }
@@ -42,6 +44,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         LoadBtnExit();
         LoadPanelWaitPressTheNewKey();
         LoadTxtPressTheNewKey();
+        LoadSprite_EMPTY();
     }
 
     protected virtual void LoadCenterCanva()
@@ -95,6 +98,13 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         txtPressTheNewKey = goContents.Find("PanelWaitingForKey").Find("TextPressTheNewKey").GetComponent<TextMeshProUGUI>();
         Debug.LogWarning(transform.name + ": LoadTxtPressTheNewKey", gameObject);
     }
+
+    protected virtual void LoadSprite_EMPTY()
+    {
+        if (this.sprite_EMPTY != null) return;
+        sprite_EMPTY = Resources.Load<Sprite>("Sprite_EMPTY");
+        Debug.LogWarning(transform.name + ": LoadSprite_EMPTY", gameObject);
+    }
     private void Update()
     {
         //SetPlayerIndex(playerIndexType);// sd de test thoi 
@@ -107,8 +117,16 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     protected override void OnEnable()
     {
         base.OnEnable();
+        //inFoPlayer.ImagePlayer.enabled = true;
         playerIndexType = centerCanva.PlayerIndexType;
         LoadNewDataPlayerFromSO(playerIndexType);
+    }
+    protected override void OnDisable()
+    {
+        //inFoPlayer.ImagePlayer.enabled = false;
+
+        inFoPlayer.ImagePlayer.sprite = sprite_EMPTY;
+        //inFoPlayer.ImagePlayer.sprite = null;
     }
 
 
@@ -253,15 +271,17 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         }
         //newSOInfoPlayer = (SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
         newSOInfoPlayer.CopyDataFromAnotherSO(SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
-
-        SetDataForPlayer(newSOInfoPlayer.spriteP, newSOInfoPlayer.nameP, newSOInfoPlayer.keyPairP);
+        //Here
+        //SetDataForPlayer(newSOInfoPlayer.spriteP, newSOInfoPlayer.nameP, newSOInfoPlayer.keyPairP);
+        SetDataForPlayer(newSOInfoPlayer.spriteRef, newSOInfoPlayer.nameP, newSOInfoPlayer.keyPairP);
 
         keyPair = newSOInfoPlayer.keyPairP;
 
         return newSOInfoPlayer.keyPairP;
     }
 
-    private void SetDataForPlayer(Sprite sprite, string name, KeyPair keyPair)
+    //private void SetDataForPlayer(Sprite sprite, string name, KeyPair keyPair)
+    private void SetDataForPlayer(AssetReference spriteRef, string name, KeyPair keyPair)
     {
         //Char
         CharCtrl charCtrl = GetCharByPlayerIndexType(playerIndexType);
@@ -275,12 +295,34 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         if (name != "") charCtrl.NamePlayer.text = name;
 
         //UI
-        UpdateNewDataToUI4Player(sprite, name, keyPair);
+        UpdateNewDataToUI4Player(spriteRef, name, keyPair);
     }
-    private void UpdateNewDataToUI4Player(Sprite sprite, string name, KeyPair newKeyPair)
+    //private void UpdateNewDataToUI4Player(Sprite sprite, string name, KeyPair newKeyPair)
+    private void UpdateNewDataToUI4Player(AssetReference spriteRef, string name, KeyPair newKeyPair)
     {
         //sprite
-        inFoPlayer.ImagePlayer.sprite = sprite;
+        //if (sprite == null) Debug.Log("Sprite null", gameObject);
+        if (spriteRef == null) Debug.Log("Sprite null", gameObject);
+        //inFoPlayer.ImagePlayer.sprite = sprite;
+
+        //SOInfoPlayer defaultSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
+        //defaultSOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef);
+        //inFoPlayer.ImagePlayer.sprite = defaultSOInfoPlayer.spriteP;
+
+
+        //defaultSOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef, (loadedSprite) =>
+        SOInfoPlayer.LoadDataFromAddressablesWithReference(spriteRef, (loadedSprite) =>
+        {
+            if (loadedSprite != null)
+            {
+                inFoPlayer.ImagePlayer.sprite = loadedSprite;
+            }
+        });
+
+
+        if (inFoPlayer.ImagePlayer.sprite == null) Debug.Log("inFoPlayer Sprite null", gameObject);
+
+
         // name
         if (name != "") inFoPlayer.TxtNamePlayer.text = name;
         UpdateKey2UI(newKeyPair);
@@ -313,7 +355,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         //newSOInfoPlayer = (SaveLoadManager.Instance.GetDataByPlayerIndexType(playerIndexType));
         defaultSOInfoPlayer.CopyDataFromAnotherSO(SaveLoadManager.Instance.GetDataDefaultByPlayerIndexType(playerIndexType));
 
-        SetDataForPlayer(defaultSOInfoPlayer.spriteP, "", defaultSOInfoPlayer.keyPairP);
+        SetDataForPlayer(defaultSOInfoPlayer.spriteRef, "", defaultSOInfoPlayer.keyPairP);
         SaveLoadManager.Instance.SaveNewInfoKeyToSO(playerIndexType, defaultSOInfoPlayer.keyPairP);
         keyPair = defaultSOInfoPlayer.keyPairP;
 
@@ -325,7 +367,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
     {
         keyPair = LoadefaultDataPlayerFromSO(playerIndexType);
 
- 
+
         Debug.Log("SetDefaultKeyBTN called");
         //int index = GetIndexByPlayerIndexType(playerIndexType);
         //keyPair.keyAttack = InputManager.Instance.PlayerKC[index].keyAttack;//charCtrl.CharInput.KeyAttack;
@@ -365,7 +407,7 @@ public class KeyBroadControlsCtrl : CoreMonoBehaviour
         SOInfoPlayer defaultSOInfoPlayer = ScriptableObject.CreateInstance<SOInfoPlayer>();
         defaultSOInfoPlayer.CopyDataFromAnotherSO(SaveLoadManager.Instance.GetDataDefaultByPlayerIndexType(playerIndexType));
 
-        SetDataForPlayer(defaultSOInfoPlayer.spriteP, "", keyPair);
+        SetDataForPlayer(defaultSOInfoPlayer.spriteRef, "", keyPair);
         SaveLoadManager.Instance.SaveNewInfoKeyToSO(playerIndexType, keyPair);
 
 

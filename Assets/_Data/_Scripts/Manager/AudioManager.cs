@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System;//de sd array:v
 using Random = UnityEngine.Random;
-using UnityEngine.UI;
-using Unity.VisualScripting;
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
@@ -34,7 +32,6 @@ public class AudioManager : MonoBehaviour
         //    Destroy(gameObject);
         //    return;
         //}
-        //DontDestroyOnLoad(this.gameObject);
 
 
         // musicSounds

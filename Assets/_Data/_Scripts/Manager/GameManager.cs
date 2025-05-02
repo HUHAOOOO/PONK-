@@ -416,6 +416,7 @@ public class GameManager : CoreMonoBehaviour
 
     public void SetActivePlayer(int soluong)
     {
+        SetDefaultData();
         if (soluong == 1)
         {
             players[0].gameObject.SetActive(true);
@@ -423,6 +424,9 @@ public class GameManager : CoreMonoBehaviour
             players[1].gameObject.SetActive(false);
             players[2].gameObject.SetActive(false);
             players[3].gameObject.SetActive(false);
+            isP1Die = true;
+            isP2Die = true;
+            isP3Die = true;
         }
         else if (soluong == 2)
         {
@@ -431,6 +435,8 @@ public class GameManager : CoreMonoBehaviour
             countToEndGame = 1;
             players[1].gameObject.SetActive(false);
             players[3].gameObject.SetActive(false);
+            isP1Die = true;
+            isP3Die = true;
 
         }
         if (soluong == 3)
@@ -440,6 +446,7 @@ public class GameManager : CoreMonoBehaviour
             players[2].gameObject.SetActive(true);
             countToEndGame = 2;
             players[3].gameObject.SetActive(false);
+            isP3Die = true;
         }
         if (soluong == 4)
         {

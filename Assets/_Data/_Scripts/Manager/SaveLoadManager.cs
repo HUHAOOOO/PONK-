@@ -169,51 +169,79 @@ public class SaveLoadManager : CoreMonoBehaviour
         Debug.Log("Da save jsonString xuong", gameObject);
     }
 
+
+    // Load Json to SO 
     private void Load()
     {
-        ////v3
+        //v3
         string saveDataString = SaveSystem.Load();
-        if (saveDataString == null) return;
-        InForPlayerDummyList inForPlayerDummyList =  JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
-
-        //InForPlayerDummyList inForPlayerDummyList;
-        //inForPlayerDummyList.data = JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
+        if (saveDataString == null)
+        {
+            Debug.Log("Khong tim thay du lieu de Load");
+            return;
+        }
+        InForPlayerDummyList inForPlayerDummyList = JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
 
         ///// for
         SOInfoPlayer newSOInfoPlayerClone = ScriptableObject.CreateInstance<SOInfoPlayer>();
         for (int i = 0; i < soNewInfoPlayers.Count; i++)
         {
-            //newSOInfoPlayerClone.LoadFromData(inForPlayerDummyList.data[i]);
-            ////soNewInfoPlayers[i] = newSOInfoPlayerClone;
-            //soNewInfoPlayers[i].CopyDataFromAnotherSO(newSOInfoPlayerClone);
-
             soNewInfoPlayers[i].LoadFromData(inForPlayerDummyList.data[i]);
         }
-
-        ///// foreach
-        //int i = 0;
-        //foreach (InForPlayerDummy inForPlayerDummy in inForPlayerDummyList.data)
-        //{
-        //    soNewInfoPlayers[i].LoadFromData(inForPlayerDummy);
-        //    i++;
-        //    //Debug.Log($"inForPlayerDummy : " + inForPlayerDummy.nameP);
-        //}
-
-        ////v2
-        //string saveDataString = SaveSystem.Load();
-        //if (saveDataString == null) return;
-        //InForPlayerDummy inForPlayerDummyData = JsonUtility.FromJson<InForPlayerDummy>(saveDataString);
-
-        //soNewInfoPlayers[0].LoadFromData(inForPlayerDummyData);
-
-        ////v1
-        //soNewInfoPlayers[0].playerIndexType = inForPlayerDummyData.playerIndexType;
-        //soNewInfoPlayers[0].nameP = inForPlayerDummyData.nameP;
-        //soNewInfoPlayers[0].keyPairP = inForPlayerDummyData.keyPairP;
-        //Debug.Log("Da load saveDataString vao soNewInfoPlayers[0]");
-
         Debug.Log("Da load saveDataString vao soNewInfoPlayers");
     }
+
+
+    //// v1 run on Unity Editor OK
+    //private void Load()
+    //{
+    //    ////v3
+    //    string saveDataString = SaveSystem.Load();
+    //    if (saveDataString == null)
+    //    {
+    //        Debug.Log("Khong tim thay du lieu de Load");
+    //        return;
+    //    }
+    //    InForPlayerDummyList inForPlayerDummyList = JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
+
+    //    //InForPlayerDummyList inForPlayerDummyList;
+    //    //inForPlayerDummyList.data = JsonUtility.FromJson<InForPlayerDummyList>(saveDataString);
+
+    //    ///// for
+    //    SOInfoPlayer newSOInfoPlayerClone = ScriptableObject.CreateInstance<SOInfoPlayer>();
+    //    for (int i = 0; i < soNewInfoPlayers.Count; i++)
+    //    {
+    //        //newSOInfoPlayerClone.LoadFromData(inForPlayerDummyList.data[i]);
+    //        ////soNewInfoPlayers[i] = newSOInfoPlayerClone;
+    //        //soNewInfoPlayers[i].CopyDataFromAnotherSO(newSOInfoPlayerClone);
+
+    //        soNewInfoPlayers[i].LoadFromData(inForPlayerDummyList.data[i]);
+    //    }
+
+    //    ///// foreach
+    //    //int i = 0;
+    //    //foreach (InForPlayerDummy inForPlayerDummy in inForPlayerDummyList.data)
+    //    //{
+    //    //    soNewInfoPlayers[i].LoadFromData(inForPlayerDummy);
+    //    //    i++;
+    //    //    //Debug.Log($"inForPlayerDummy : " + inForPlayerDummy.nameP);
+    //    //}
+
+    //    ////v2
+    //    //string saveDataString = SaveSystem.Load();
+    //    //if (saveDataString == null) return;
+    //    //InForPlayerDummy inForPlayerDummyData = JsonUtility.FromJson<InForPlayerDummy>(saveDataString);
+
+    //    //soNewInfoPlayers[0].LoadFromData(inForPlayerDummyData);
+
+    //    ////v1
+    //    //soNewInfoPlayers[0].playerIndexType = inForPlayerDummyData.playerIndexType;
+    //    //soNewInfoPlayers[0].nameP = inForPlayerDummyData.nameP;
+    //    //soNewInfoPlayers[0].keyPairP = inForPlayerDummyData.keyPairP;
+    //    //Debug.Log("Da load saveDataString vao soNewInfoPlayers[0]");
+
+    //    Debug.Log("Da load saveDataString vao soNewInfoPlayers");
+    //}
 
 
     public void ResetDefaultInfoPlayer()
@@ -237,7 +265,8 @@ public class SaveLoadManager : CoreMonoBehaviour
     {
         int index = playerIndexType.ToIndex();
 
-        soNewInfoPlayers[index].keyPairP = keyPair;
+        soNewInfoPlayers[index].keyPairP = keyPair.Clone();
+        //soNewInfoPlayers[index].keyPairP = keyPair;
 
         InputManager.Instance.UpdateKey4Pkayer();
     }
