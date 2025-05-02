@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -100,21 +101,31 @@ public class SaveLoadManager : CoreMonoBehaviour
         if (instance != null) Debug.LogError("only allow 1 SaveLoadManager | Singleton");
         SaveLoadManager.instance = this;
 
-        SaveSystem.Init();
+        //SaveSystem.Init();
     }
-    private void Update()
+
+    /// <summary>
+    /// ///////////////////////////////////////////////
+    /// </summary>
+    [DllImport("__Internal")]
+    private static extern void SetupBeforeUnload();
+
+    protected override void Start()
     {
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    Save();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    Load();
-        //}
+#if UNITY_WEBGL && !UNITY_EDITOR
+        SetupBeforeUnload();
+#endif
     }
 
+    // Ham duoc goi tu JS khi tap sap dong
+    public void OnTabClose()
+    {
+        Debug.Log("Tab is closing! Saving game...");
+        SaveEndNewSO();
+    }
+    /// <summary>
+    /// ////////////////////////////////////////////
+    /// </summary>
     protected override void OnEnable()
     {
         //Save();

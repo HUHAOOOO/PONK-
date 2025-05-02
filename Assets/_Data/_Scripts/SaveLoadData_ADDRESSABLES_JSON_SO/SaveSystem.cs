@@ -8,10 +8,10 @@ using UnityEngine;
 public static class SaveSystem
 {
     private const string SAVE_KEY = "game_save_data";
-    public static void Init()
-    {
+    //public static void Init()
+    //{
         
-    }
+    //}
 
     // Save_PlayerPrefs
     public static void Save(string json)

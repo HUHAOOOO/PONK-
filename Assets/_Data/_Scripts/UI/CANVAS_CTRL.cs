@@ -111,4 +111,16 @@ public class CANVAS_CTRL : MonoBehaviour
         canvasENDGAME.gameObject.SetActive(true);
         canvasENDGAME.txtNameWiner.text = nameWINER;
     }
+
+
+
+
+
+    // SAVE DATA btn
+    
+    public void Btn_SAVEDATA()
+    {
+        SaveLoadManager.Instance.SaveEndNewSO();
+    }
+
 }
